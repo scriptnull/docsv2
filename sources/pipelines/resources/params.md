@@ -35,6 +35,6 @@ A new version of this resource is created everytime aanything in the version sec
 
 For example, if you want to use different environment parameters (say database settings) in Test and Production environments, you can do so by overriding the resource.
 
-<img src="../../images/resources/overrideparams.png" alt="Overriding docker options" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="../../images/resources/overrideParams.png" alt="Overriding docker options" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 In the picture above, `deploy-test` takes `params-1` as an input. After testing, a release is created with the `release` job. This triggers production deployment with the `deploy-prod` job, which takes `params-2` as an input. For this production deployment, we will use a superset of settings from `params-1` and `params-2`, with values for any common settings being chosen from `params-2`.
