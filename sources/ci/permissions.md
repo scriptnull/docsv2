@@ -268,7 +268,7 @@ Review the table below to view the different actions available for a specific Sh
         <tr>
           <th rowspan="2">Encrypt</th>
           <td>Encrypt</td>
-          <td>Yes</td>
+          <td></td>
           <td>Yes</td>
           <td>Yes</td>
         </tr>
