@@ -316,7 +316,7 @@ Review the table below to view the different actions available for a specific Sh
           <th rowspan="9">Account Settings</th>
           <th rowspan="4">Accounts</th>
           <td>Edit email</td>
-          <td rowspan="9" colspan="4">All users with a Shippable account can perform these actions</td>
+          <td rowspan="9" colspan="4">All users with a Shippable account can perform these actions for their accounts</td>
         </tr>
         <tr>
           <td>Synchronize</td>
@@ -451,7 +451,7 @@ Review the mapping of the various SCM roles to the three Shippable roles:
       <td rowspan="3">Org</td>
       <td>project_view</td>
       <td>Member</td>
-      <td rowspan="5">Bitbucket calls Orgs 'Projects'</td>
+      <td rowspan="5">Bitbucket Server calls Orgs 'Projects'</td>
     </tr>
     <tr>
       <td>project_write</td>
