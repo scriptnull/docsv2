@@ -362,7 +362,6 @@ Review the mapping of the various SCM roles to the three Shippable roles:
       <th>Org/Users</th>
       <th>SCM roles</th>
       <th>Shippable Roles</th>
-      <th>Comments</th>
     </tr>
     <!-- GitHub -->
     <tr>
@@ -370,7 +369,6 @@ Review the mapping of the various SCM roles to the three Shippable roles:
       <td rowspan="2">Org</td>
       <td>Member</td>
       <td>Collaborator</td>
-      <td rowspan="4">GitHub returns Admin/member.There is no Collaborator returned.</td>
     </tr>
     <tr>
       <td>Admin</td>
@@ -392,7 +390,6 @@ Review the mapping of the various SCM roles to the three Shippable roles:
       <td rowspan="5">Org</td>
       <td>10 - Guest</td>
       <td>Member</td>
-      <td rowspan="7">GitLab calls Orgs 'Groups'. GitLab returns access_levels which are mapped to the corresponding roles.</td>
     </tr>
     <tr>
       <td>20 - Reporter</td>
@@ -425,7 +422,6 @@ Review the mapping of the various SCM roles to the three Shippable roles:
       <td rowspan="3">Org</td>
       <td>Member</td>
       <td>Member</td>
-      <td rowspan="5">Bitbucket calls Orgs 'Teams'</td>
     </tr>
     <tr>
       <td>Contributor</td>
@@ -451,7 +447,6 @@ Review the mapping of the various SCM roles to the three Shippable roles:
       <td rowspan="3">Org</td>
       <td>project_view</td>
       <td>Member</td>
-      <td rowspan="5">Bitbucket Server calls Orgs 'Projects'</td>
     </tr>
     <tr>
       <td>project_write</td>
@@ -482,14 +477,12 @@ Review the mapping of the various SCM roles to the three Shippable roles:
       <th>Scm</th>
       <th>SCM roles</th>
       <th>Shippable Roles</th>
-      <th>Comments</th>
     </tr>
     <!-- GitHub -->
     <tr>
       <th rowspan="3">GitHub</th>
       <td>Pull</td>
       <td>Member</td>
-      <td rowspan="3"></td>
     </tr>
     <tr>
       <td>Push</td>
@@ -505,7 +498,6 @@ Review the mapping of the various SCM roles to the three Shippable roles:
       <th rowspan="5">GitLab</th>
       <td>10 - Guest</td>
       <td>Member</td>
-      <td rowspan="5">GitLab returns access_levels which are mapped to the corresponding roles.</td>
     </tr>
     <tr>
       <td>20 - Reporter</td>
@@ -529,7 +521,6 @@ Review the mapping of the various SCM roles to the three Shippable roles:
       <th rowspan="3">Bitbucket</th>
       <td>Contributer</td>
       <td>Collaborator</td>
-      <td rowspan="3">By default we add member role</td>
     </tr>
     <tr>
       <td>Owner</td>
@@ -545,7 +536,6 @@ Review the mapping of the various SCM roles to the three Shippable roles:
       <th rowspan="2">Bitbucket Server</th>
       <td>repo_write</td>
       <td>Collaborator</td>
-      <td rowspan="2">By default we add member role</td>
     </tr>
     <tr>
       <td>repo_admin</td>
