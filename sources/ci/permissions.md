@@ -56,6 +56,8 @@ Review the table below to view the different actions available for a specific Sh
 
 ## Shippable Role based actions for CI
 
+### Repository (Project) level
+
 <h1 align="left"> </h1>
 <table>
   <tbody>
@@ -212,140 +214,170 @@ Review the table below to view the different actions available for a specific Sh
       <td>Yes</td>
       <td>Yes</td>
     </tr>
+    <tr>
+</tbody>
+</table>
 
-        <!-- Subscriptions -->
-        <tr>
-          <th rowspan="15">Subscriptions</th>
-          <th rowspan="5">Options</th>
-          <td>Select Machine Image</td>
-          <td></td>
-          <td>Yes</td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-          <td>Copy Deployment key</td>
-          <td>Yes</td>
-          <td>Yes</td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-          <td>Edit Technical Contact</td>
-          <td></td>
-          <td></td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-          <td>Edit Billing Contact</td>
-          <td></td>
-          <td></td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-          <td>Reset Subscription</td>
-          <td></td>
-          <td></td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-          <th rowspan="3">Integrations</th>
-          <td>Add Integrations</td>
-          <td></td>
-          <td>Yes</td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-        <td>Edit Integrations</td>
-        <td></td>
-        <td>Yes</td>
-        <td>Yes</td>
-        </tr>
-        <tr>
-        <td>Delete Integrations</td>
-        <td></td>
-        <td>Yes</td>
-        <td>Yes</td>
-        </tr>
-        <tr>
-          <th rowspan="2">Encrypt</th>
-          <td>Encrypt</td>
-          <td></td>
-          <td>Yes</td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-          <td>Decrypt</td>
-          <td></td>
-          <td></td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-          <th rowspan="1">Billing</th>
-          <td>Update plan</td>
-          <td></td>
-          <td></td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-          <th rowspan="4">Nodes</th>
-          <td>Change/configure Node provider</td>
-          <td></td>
-          <td>Yes</td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-          <td>Edit custom Node</td>
-          <td></td>
-          <td>Yes</td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-          <td>Reset custom Node</td>
-          <td></td>
-          <td>Yes</td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-          <td>Delete custom Node</td>
-          <td></td>
-          <td>Yes</td>
-          <td>Yes</td>
-        </tr>
+### Organization level
+<h2 align="left"> </h2>
+<table>
+  <tbody>
+    <tr>
+      <th>Categories</th>
+      <th>Sub-categories</th>
+      <th>Actions</th>
+      <th>Member</th>
+      <th>Collaborator</th>
+      <th>Admin</th>
+    </tr>
+    <!-- Subscriptions -->
+    <tr>
+      <th rowspan="15">Subscriptions</th>
+      <th rowspan="5">Options</th>
+      <td>Select Machine Image</td>
+      <td></td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Copy Deployment key</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Edit Technical Contact</td>
+      <td></td>
+      <td></td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Edit Billing Contact</td>
+      <td></td>
+      <td></td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Reset Subscription</td>
+      <td></td>
+      <td></td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th rowspan="3">Integrations</th>
+      <td>Add Integrations</td>
+      <td></td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+    <td>Edit Integrations</td>
+    <td></td>
+    <td>Yes</td>
+    <td>Yes</td>
+    </tr>
+    <tr>
+    <td>Delete Integrations</td>
+    <td></td>
+    <td>Yes</td>
+    <td>Yes</td>
+    </tr>
+    <tr>
+      <th rowspan="2">Encrypt</th>
+      <td>Encrypt</td>
+      <td></td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Decrypt</td>
+      <td></td>
+      <td></td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th rowspan="1">Billing</th>
+      <td>Update plan</td>
+      <td></td>
+      <td></td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th rowspan="4">Nodes</th>
+      <td>Change/configure Node provider</td>
+      <td></td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Edit custom Node</td>
+      <td></td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Reset custom Node</td>
+      <td></td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Delete custom Node</td>
+      <td></td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+  </tbody>
+</table>
 
+### User level
+<h2 align="left"> </h2>
+<table>
+  <tbody>
+    <tr>
+      <th>Categories</th>
+      <th>Sub-categories</th>
+      <th>Actions</th>
+      <th>Member</th>
+      <th>Collaborator</th>
+      <th>Admin</th>
+    </tr>
         <!-- Accounts -->
-        <tr>
-          <th rowspan="9">Account Settings</th>
-          <th rowspan="4">Accounts</th>
-          <td>Edit email</td>
-          <td rowspan="9" colspan="4">All users with a Shippable account can perform these actions for their accounts</td>
-        </tr>
-        <tr>
-          <td>Synchronize</td>
-        </tr>
-        <tr>
-          <td>Enable git identities</td>
-        </tr>
-        <tr>
-          <td>Delete Account</td>
-        </tr>
-        <tr>
-          <th rowspan="3">Integrations</th>
-          <td>Add Integrations</td>
-        </tr>
-        <tr>
-          <td>Edit Integrations Cards</td>
-        </tr>
-        <tr>
-          <td>Delete Integrations</td>
-        </tr>
-        <tr>
-          <th rowspan="1">Cards</th>
-          <td>Add/Edit/Delete Credit Cards</td>
-        </tr>
-        <tr>
-          <th rowspan="1">API tokens</th>
-          <td>Add/Delete API token</td>
-        </tr>
-        <tr>
+    <tr>
+      <th rowspan="9">Account Settings</th>
+      <th rowspan="4">Accounts</th>
+      <td>Edit email</td>
+      <td rowspan="9" colspan="4">All users with a Shippable account can perform these actions for their accounts</td>
+    </tr>
+    <tr>
+      <td>Synchronize</td>
+    </tr>
+    <tr>
+      <td>Enable git identities</td>
+    </tr>
+    <tr>
+      <td>Delete Account</td>
+    </tr>
+    <tr>
+      <th rowspan="3">Integrations</th>
+      <td>Add Integrations</td>
+    </tr>
+    <tr>
+      <td>Edit Integrations Cards</td>
+    </tr>
+    <tr>
+      <td>Delete Integrations</td>
+    </tr>
+    <tr>
+      <th rowspan="1">Cards</th>
+      <td>Add/Edit/Delete Credit Cards</td>
+    </tr>
+    <tr>
+      <th rowspan="1">API tokens</th>
+      <td>Add/Delete API token</td>
+    </tr>
+    <tr>
   </tbody>
 </table>
 
