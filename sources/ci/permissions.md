@@ -219,7 +219,7 @@ Review the table below to view the different actions available for a specific Sh
           <th rowspan="5">Options</th>
           <td>Select Machine Image</td>
           <td></td>
-          <td></td>
+          <td>Yes</td>
           <td>Yes</td>
         </tr>
         <tr>
