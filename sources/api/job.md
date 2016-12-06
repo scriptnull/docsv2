@@ -274,7 +274,7 @@ Status 200 OK
 ## Download console logs
 
 ```
-GET /jobConsoles?jobIds=:id&download=true
+GET /jobs/:jobId/consoles?download=true
 
 ```
 
