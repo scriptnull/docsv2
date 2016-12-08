@@ -166,20 +166,20 @@ If you want to use a service that is not available out of the box with Shippable
 
 The following pages describe how to use each service in greater detail:
 
-* [CouchDB](services/couchdb/)
-* [Elastic Search](services/elasticsearch/)
+* [CouchDB](services/couchDB/)
+* [Elastic Search](services/elasticSearch/)
 * [Kestrel](services/kestrel/)
 * [Memcached](services/memcached/)
-* [MongoDB](services/mongodb/)
-* [MySQL](services/mysql/)
+* [MongoDB](services/mongoDB/)
+* [MySQL](services/mySQL/)
 * [Neo4j](services/neo4j/)
-* [Postgres](services/postgres/)
-* [RabbitMQ](services/rabbitmq/)
+* [Postgres](services/postgreSQL/)
+* [RabbitMQ](services/rabbitMQ/)
 * [Redis](services/redis/)
-* [RethinkDB](services/rethinkdb/)
+* [RethinkDB](services/rethinkDB/)
 * [Riak](services/riak/)
 * [Selenium](services/selenium/)
-* [SqlLite](services/sqllite/)
+* [SQLite](services/sqlite/)
 
 * * *
 
