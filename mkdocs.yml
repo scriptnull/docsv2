@@ -144,6 +144,7 @@ pages:
 - Shippable Server:
   - Overview: server/overview.md
   - Installing Shippable Server: server/installingShippableServer.md
+  - Backup and Restore Procedures: server/backup-restore-procedures.md
 - Tutorials:
   - CI Tutorials:
     - Run a sample CI build: tutorials/ci/runSampleCIBuild.md
