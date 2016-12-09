@@ -6,11 +6,12 @@ You can create a `loadBalancer` resource by adding it to `shippable.resources.ym
 
 ```
 resources:
-  - name: <string>                           	  #required
+  - name: <string>                              #required
     type: loadBalancer                          #required
     pointer:
       sourceName: "<string>"
       method: application | classic
+      role: <string>                            #optional
 
 ```
 
@@ -19,7 +20,8 @@ resources:
 * `type` is always set to 'loadBalancer'.
 
 * `pointer` section provides information about the load balancer:
-	* `sourceName` should be set depending on the type of load balancer. It is good practice to surround this field with quotes to avoid any parsing issues due to special characters.
-    * For <a href="https://aws.amazon.com/elasticloadbalancing/classicloadbalancer/" target="_blank">Classic Load Balancers</a>, set this to the load balancer name
-    * For <a href="https://aws.amazon.com/elasticloadbalancing/applicationloadbalancer/" target="_blank">Application Load Balancers</a>, set it to the target group arn  
-  * `method` is set to `application` for Application Load Balancers and `classic` for Classic Load Balancers
+    * `sourceName` should be set depending on the type of load balancer. It is good practice to surround this field with quotes to avoid any parsing issues due to special characters.
+        * For <a href="https://aws.amazon.com/elasticloadbalancing/classicloadbalancer/" target="_blank">Classic Load Balancers</a>, set this to the load balancer name
+        * For <a href="https://aws.amazon.com/elasticloadbalancing/applicationloadbalancer/" target="_blank">Application Load Balancers</a>, set it to the target group arn  
+    * `method` is set to `application` for Application Load Balancers and `classic` for Classic Load Balancers
+    * `role` is set to the name of the AWS IAM role used to update the load balancer. This role should have a trust relationship allowing "ecs.amazonaws.com". If no role is specified, a role with the correct trust relationship will be used if one exists.
