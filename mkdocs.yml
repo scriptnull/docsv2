@@ -103,6 +103,8 @@ pages:
     - Google Container Registry (GCR): integrations/imageRegistries/gcr.md
     - Quay.io: integrations/imageRegistries/quay.md
     - Any Private Registry: integrations/imageRegistries/privateRegistry.md
+  - Artifact Registries:
+    - Jfrog Artifactory: integrations/artifactRegistries/jfrogArtifactory.md
   - Container Services:
     - Amazon EC2 Container Service (ECS): integrations/containerServices/ecs.md
     - Google Container Engine (GKE): integrations/containerServices/gke.md
