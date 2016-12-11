@@ -180,28 +180,28 @@ manually copied to each server in the `/home/deployer/shared/` location.
 Next, the variables can be used in the Rails configuration files (such
 as `config/secrets.yml` and `config/database.yml`) as follows:
 
-```ruby
+```
 production:
   secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+
 ```
 
-Finally, we can add `on_success` step to the `shippable.yml`,
-ordering deployment to the production after successful build:
+Finally, we can add `on_success` step to the `shippable.yml`, ordering deployment to the production after successful build:
 
-```yaml
+```
+
 on_success:
   - cap production deploy
+
 ```
 
 ### Using private git repositories
 
-In the sample `config/deploy.sh` file above, we are using public GitHub
-repository to host the application code. If the repository is private,
-additional steps need to be taken in order to grant access for the
-DigitalOcean droplet. There are several methods of achieving it, but the
-most convenient one is to use [Shippable deployment key](ci_settings/#deployment-key) by leveraging SSH agent key forwarding.
+In the sample `config/deploy.sh` file above, we are using public GitHub repository to host the application code. If the repository is private,
+additional steps need to be taken in order to grant access for the DigitalOcean droplet. There are several methods of achieving it, but the
+most convenient one is to use [Shippable deployment key](/navigatingUI/subscriptions/settings/#deployment-key) by leveraging SSH agent key forwarding.
 
-First add the [Shippable Public SSH key](ci_settings/#deployment-key) to the deploy keys in the settings of the GitHub repository. Next, we need to modify the repository url in
+First add the [Shippable Public SSH key](/navigatingUI/subscriptions/settings/#deployment-key) to the deploy keys in the settings of the GitHub repository. Next, we need to modify the repository url in
 `config/deploy.sh` to use SSH instead of HTTPS:
 
 ```ruby
@@ -234,7 +234,7 @@ Dokku describes itself as a 'docker powered mini-heroku'. With Dokku installed o
 
 DigitalOcean has streamlined the process by providing a droplet image with dokku preinstalled. When creating a new droplet, scroll down to the 'Select Image' section, and choose 'Dokku v0.3.23 on 14.04'.
 
-![Dokku v0.3.23 on 14.04](images/dokku_on_do.gif)
+![Dokku v0.3.23 on 14.04](/tutorials/images/ci/dokku-on-digitalocean.gif)
 
 > **Note**
 >

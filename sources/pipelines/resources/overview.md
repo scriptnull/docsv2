@@ -12,7 +12,6 @@ Shippable internally maintains its own version numbers for every resource so tha
 
 There are several resources that are pre-defined as part of the platform and work as documented in the sections below:
 
-- [syncRepo](syncRepo/): Source repository for yml configuration files defining pipeline resources & jobs
 - [gitRepo](gitRepo/): Source repository for your code
 - [image](image/): Docker image definition
 - [dockerOptions](dockerOptions/): Options for docker images
@@ -32,7 +31,7 @@ At this time, we do not support definition of custom resources. If you need a re
 ## Adding resources
 Resources are defined in a configuration file `shippable.resources.yml` present in a source control repository. Any repo can contain this file but only one of it can be used. If more than 1 resource files are present, the first one is used. This is done in order to reduce conflict due to the same resource being defined in multiple places.
 
-To learn how to add this file and connect it to pipelines, [click here](../../../tutorials/how_to_add_syncRepos)
+To learn how to add this file and connect it to pipelines, [click here ](/tutorials/pipelines/howToAddSyncRepos/)
 
 ---
 ## Deleting resources

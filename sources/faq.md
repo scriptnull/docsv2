@@ -39,7 +39,7 @@ If you're a Docker enthusiast and want to spin up your build minion based on you
 
 Your build minions are transient and spin up when a build is triggered and are destroyed when a build completes.
 
-Each minion has 2 cores and 4GB RAM. If you use your own infrastructure to run your builds with [Bring Your Own Node (BYON)](/ci/advancedOptions/byonOverview/) option, you can spin up bigger containers for your builds since we do not restrict resources for containers running on customers' infrastructure.
+Each minion has 2 cores and 4GB RAM. If you use your own infrastructure to run your builds with [Bring Your Own Node (BYON)](/ci/advancedOptions/byon/) option, you can spin up bigger containers for your builds since we do not restrict resources for containers running on customers' infrastructure.
 
 ---
 ### Do I need to create an Account on Shippable?
@@ -63,7 +63,7 @@ A Build Container (also called cexec) is a Docker Container that is spun up on t
 
 Shippable Agent (mexec) on the other hand is also a Docker Container that is spun up on the host Node machine. The main function of the Shippable Agent is to interact with the Shippable platform and the Build Container and, performs actions outside the build container. Within the `shippable.yml` file, the `pre_ci`, `pre_ci_boot` and the `push` sections are executed on the Shippable Agent.
 
-Read the blog [Key concepts to get most out of Shippable's Continuous Integration](http://blog.shippable.com/key-concepts-of-shippable-ci-part-1) for a deeper understanding of the functions and interaction between the Build Container and Shippable Agent.
+Read the blog [Key concepts to get most out of Shippable's Continuous Integration](/ci/overview/) for a deeper understanding of the functions and interaction between the Build Container and Shippable Agent.
 
 ---
 ### Why can't I see some of my repositories in my Shippable account?
@@ -109,7 +109,7 @@ restrictions' Under the 'Third-party application access policy' section.
 
 ### How do I link my GitHub and Bitbucket accounts?
 
-Please read our documentation on [linking GitHub and Bitbucket accounts](ci/integrations/scm/github/#linking-github-and-bitbucket-accounts). In addition, refer our [blog](http://blog.shippable.com/how-to-link-github-and-bitbucket-accounts) on this topic.
+Please read our documentation on [linking GitHub and Bitbucket accounts](/ci/advancedOptions/linkGitHubBitbucket/). In addition, refer our [blog](http://blog.shippable.com/how-to-link-github-and-bitbucket-accounts) on this topic.
 
 ---
 
@@ -152,7 +152,7 @@ If you are using encrypted variables for this project, they'll need to be re-enc
 Shippable [supports](/ci/supported/) lots of different services, tools and third party services. If you have a service or a tool that is currently unsupported, you can still use it to run CI within Shippable in either of the two ways listed:
 
 1. Use Shippable's default images based on the language you use & install 'mariadb' as a dependency in the `build: ci` step.
-2. If you have an existing Docker image with 'mariadb' and other dependencies installed, then you can [override Shippable's default image](/ci/advancedOptions/images/#overriding-the-default-build-image) and use it for CI. You can also [build your own Docker image](/ci/advancedOptions/images/#building-your-ci-image) with all the dependencies including 'mariadb' and use it for CI.
+2. If you have an existing Docker image with 'mariadb' and other dependencies installed, then you can [override Shippable's default image](/ci/shippableyml/#pre_ci_boot) and use it for CI. You can also [build your own Docker image](/ci/shippableyml/#pre_ci) with all the dependencies including 'mariadb' and use it for CI.
 
 ---
 
@@ -206,7 +206,7 @@ webhook build will not be executed.
 ### In my total build time, provisioning a node takes the longest time. How can I reduce the node provisioning time?
 When you trigger a build, we spin up a build machine and run your build. This provisioning takes approximately 2-3 minutes.
 
-If you want your builds to start immediately and avoid the node provisioning time, you can use our feature that lets you run builds on your own infrastructure. You can buy a machine from AWS or Digital Ocean or Linode and attach it to your Shippable subscription. We will run all your builds on your attached machines, and since your machines are always up, we will not need to provision nodes and this will save ~3 mins per build. You can read more about [Bringing Your Own Node - BYON](/ci/advancedOptions/byonOverview/). Once you BYON, [read the instructions](navigatingUI/subscriptions/settings/#nodes) for attaching your build infrastructure to Shippable.
+If you want your builds to start immediately and avoid the node provisioning time, you can use our feature that lets you run builds on your own infrastructure. You can buy a machine from AWS or Digital Ocean or Linode and attach it to your Shippable subscription. We will run all your builds on your attached machines, and since your machines are always up, we will not need to provision nodes and this will save ~3 mins per build. You can read more about [Bringing Your Own Node - BYON](/ci/advancedOptions/byon/). Once you BYON, [read the instructions](navigatingUI/subscriptions/settings/#nodes) for attaching your build infrastructure to Shippable.
 
 ---
 
@@ -258,7 +258,7 @@ The usual workflow for a pull request is:
 ---
 
 ### How do I specify a region while setting up Amazon EC2 Container Registry (ECR) Integration?
-When you set up the [Amazon ECR integration](/ci/integrations/imageRegistries/ecr/), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
+When you set up the [Amazon ECR integration](/integrations/imageRegistries/ecr/), the default region is set to  `us-east-1`. You can override the default region by configuring the `shippable.yml` file as shown below.
 
 ```
 integrations:
@@ -270,18 +270,23 @@ integrations:
 
 ---
 
-### Can I use multiple langauges in a build?
+### Can I use multiple languages in a build?
 
-Specify your [language](/ci/shippableyml/#language) as usual. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](/ci/shippableyml/#setting-your-build-image) for that language.
+Yes. The [language tag in the yml](ci/shippableyml/#language) mainly tells us which default build image to use and any default handling for that language.
 
-1. Use the default image for the first language by specifying the langauage in the `shippable.yml` file and then install the dependencies for the other language in the build.
-2. Build your own Docker image with all the dependencies you need for both and then [override the default build image](ci_configure/#overriding-the-default-build-image) to use your Docker image.
+If you want to use multiple languages, you should:
 
-Let's look at an example of using Node.js & Ruby in a build by using the first option above.
+1. Specify your primary [language](/ci/shippableyml/#language) as usual. For example: `language: node_js`. This will cause your build to run on the default Shippable image for that language.
+1. In the `ci` section of your yml, first install the dependencies for the other language(s) in the build.
 
-Specify your [language](http://docs.shippable.com/ci_configure/#specifying-language-and-runtime) in the `shippable.yml`. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](http://docs.shippable.com/ci_configure/#setting-your-build-image) for that language.
+You can also build your own Docker image with all the dependencies you need for both languages and then [override the default build image](ci/shippableyml/#pre_ci_boot) to use your Docker image.
+
+Let's look at an example of using Node.js & Ruby in a build.
+
+Specify your [language](/ci/shippableyml/#language) in the `shippable.yml`. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](http://docs.shippable.com/ci/lamguages/node/) for that language.
 
 All [official Shippable images](https://hub.docker.com/u/drydock/) have rvm installed, with a default version of Ruby. However, the rvm location is not added to the $PATH environment variable, so you will need to `source` rvm in your YML. This will give you access to both `ruby` and `rvm`. Your `shippable.yml` should look like this:
+
 ```
 language: node_js
 
@@ -322,8 +327,7 @@ build:
 ```
 
 
-This `yml` configuration should cover a lot of scenarios. If you want a more tailor-made set-up, you can always create a custom image, install what you want in that image, and then use that for your build. Feel free to use our [drydock images](https://github.com/dry-dock) as a starting place; these are our build images. For more info on how to use custom images with a build, check out our [docs](ci_configure/#pulling-your-ci-image-from-a-docker-registry).
+This `yml` configuration should cover a lot of scenarios. If you want a more tailor-made set-up, you can always create a custom image, install what you want in that image, and then use that for your build. Feel free to use our [drydock images](https://github.com/dry-dock) as a starting place; these are our build images. For more info on how to use custom images with a build, check out our [docs](ci/shippableyml/#pre-ci-boot).
 
-You may notice that your pipeline has been configured correctly & is deploying your Docker image successfully into Kubernetes (GKE). However, you'll see that no service is created & hence your application is not accessible externally, even though you have configured the routing. A main reason this happens is when a GKE cluster is used & the port ranges are not configured. Kubernetes, by default, restricts the nodePort on a service to be in the range 30000 to 32767. Hence if you are using a GKE cluster, then you'll need to select the hostPort you choose for routing, between this range. For more details refer [deploying a sample app on pipelines](pipelines/samplePipeline/).
 
 ---

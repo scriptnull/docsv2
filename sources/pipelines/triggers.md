@@ -14,7 +14,7 @@ Triggers are used to manually trigger a workflow by running a job. Manual run fo
 
 All triggers should be configured in `shippable.triggers.yml` and be committed to a sync repository. You cannot have more than one `shippable.triggers.yml` per subscription. If more than 1 triggers yml is detected in the sync repo, the first one is used. This is done in order to reduce conflicts due to the same trigger being defined in multiple places.
 
-To learn how to add this file and connect it to pipelines, [read our tutorial.](../../tutorials/how_to_add_syncRepos)
+To learn how to add this file and connect it to pipelines, [read our tutorial.](/tutorials/pipelines/howToAddSyncRepos/)
 
 ---
 ## Anatomy of a Trigger YML

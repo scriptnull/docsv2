@@ -1,6 +1,6 @@
 # loadBalancer
 
-A `loadBalancer` resource is used to deploy your service manifest with a load balancer. Please note that this is only supported for Amazon's EC2 Container Service (ECS) at this time. It is used as an input for [deploy jobs](../jobs/manifest/).
+A `loadBalancer` resource is used to deploy your service manifest with a load balancer. Please note that this is only supported for Amazon's EC2 Container Service (ECS) at this time. It is used as an input for [deploy jobs](../jobs/deploy/).
 
 You can create a `loadBalancer` resource by adding it to `shippable.resources.yml`:
 

@@ -5,7 +5,7 @@ page_keywords: getting started, questions, documentation, shippable, config, yml
 
 # Using git submodules
 
-If you're building a big project, you might want to break it down into smaller chunks and use git submodules to make everything work. 
+If you're building a big project, you might want to break it down into smaller chunks and use git submodules to make everything work.
 
 If you have a `.gitmodules` file at the root of the repo, it is automatically intialized as part of your build by default.
 
@@ -30,7 +30,7 @@ To do this, go to your Shippable's subscription settings and copy the deploy key
 
 Then, go to the private repository that contains the required submodule and add a deploy key in your repo settings (key in image is redacted for privacy):
 
-<img src="../../images/advancedOptions/deployKeyGitHub.png" alt="add deploy key on GitHub for git submodules" style="width:800px;"/>
+<img src="../../images/advancedOptions/deployKeyGitHub.png" alt="deploy key for git submodules" style="width:1000px;"/>
 
 You can now include the path of your submodule repo in the `.gitmodules` file of the repository you're building:
 

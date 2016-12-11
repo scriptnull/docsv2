@@ -11,7 +11,7 @@ To connect your GitHub/BitBucket accounts:
 1. Log in to [Shippable](<http://www.shippable.com>) with either GitHub or BitBucket account. Choose the one that you want as your primary account.
 
 2. Click on the Account Settings icon on the upper, right navigation bar.
-![account_settings](images/account_settings.gif)
+![account_settings](/tutorials/images/ci/account-settings.gif)
 3. If you signed in with GitHub, you will see an option to enable Bitbucket under the **Git Identities Section**. Click on **Enable** and follow the authorization flow for Bitbucket.
 4. If you signed in with Bitbucket, you will see an option to enable GitHub under the **Git Identities Section**. Click on **Enable** and follow the authorization flow for GitHub.
 
@@ -22,13 +22,11 @@ with either of your GitHub/BitBucket credentials going forward.
 > **Tip**
 >
 > To see the linked account repositories updated immediately, click on the **Sync** button on your Account Settings section
-> 
-> <img src="../images/account_settings_sync.png" alt="Aye0Aye Successful Build" style="width:700px;"/>
+>
+> <img src="/tutorials/images/ci/account_settings_sync.png" alt="Aye0Aye Successful Build" style="width:700px;"/>
 
 
 **Note**
 If you have already logged into Shippable using your GitHub account **AND** BitBucket account separately, you'll be unable to link these accounts within Shippable. To enable the linking, open a support ticket with Shippable to delete one of the accounts within Shippable. Upon deletion, log in to Shippable with the other, existing account & follow the above steps to link your GitHub & BitBucket accounts.
 
 You can also check our blog on [how to link github and bitbucket accounts](http://blog.shippable.com/how-to-link-github-and-bitbucket-accounts).
-
-

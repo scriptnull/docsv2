@@ -29,7 +29,7 @@ The build page shows all relevant information like status, branch name, commit m
 
 A build on Shippable can actually consist of one or more individual build items, depending on your yml configuration.
 
-Configurations resulting in a [matrix build](/ci/advancedOptions/matrixbuilds/) will have more than one build items as part of the build.
+Configurations resulting in a [matrix build](/ci/advancedOptions/matrixBuilds/) will have more than one build items as part of the build.
 
 The build status widget for the overall build looks like this:
 

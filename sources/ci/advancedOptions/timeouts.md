@@ -10,8 +10,8 @@ To avoid situations where builds hang due to test or build scripts, we will time
 By default, your builds will time out if:
 
 -   there is no log output or a command hangs for 10 minutes, or
--   the build runs for more than 60 minutes for a project in a free subscription 
--   the build runs for more than 120 minutes for a project on a paid subscription 
+-   the build runs for more than 60 minutes for a project in a free subscription
+-   the build runs for more than 120 minutes for a project on a paid subscription
 
 Timed out builds are shown with a purple colored status on your build dashboard:
 
@@ -40,9 +40,8 @@ verbose: projects|putById|callerId:XXXXX|projectId:YYYYYY|_validateTimeout
 
 For further reading, we have a blog on [Changing the default timeout for a CI project](http://blog.shippable.com/changing-the-default-timeout-for-a-continuous-integration-project).
 
-Customizing build timeouts is also covered in the [Navigating the UI/Project Settings](/navigating_ui/projects_settings/#custom-timeout) documentation section.
+Customizing build timeouts is also covered in the [Navigating the UI/Project Settings](/navigating_ui/projects/settings/#custom-timeout) documentation section.
 
 Please [let us know](https://github.com/shippable/support/issues) if you believe a build is timing out when it shouldn't do so and we will take a look.
 
 ---
-

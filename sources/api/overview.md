@@ -20,7 +20,7 @@ The main endpoint for interacting with our API is
 
 ## Authentication
 
-Using our API requires authenticating with a Shippable API token. To generate a token, follow instructions in our [Adding an API token](/NavigatingUI/accountSettings/api/) section.
+Using our API requires authenticating with a Shippable API token. To generate a token, follow instructions in our [Adding an API token](/navigatingUI/accountSettings/api/) section.
 
 These tokens must be placed in the header of your HTTP request. For example, if your API token has the value 10010, you can authenticate with curl as follows:
 

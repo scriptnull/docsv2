@@ -65,7 +65,7 @@ While the above is a sample code for your `shippable.yml`, use the descriptions 
 - `image_name:` value is in the format docker-registry-username/docker-registry-image-repo.
 - `image_tag:` value is the tag for the image that you want to pull.
 - `pull:` set to `true` to pull the image from Docker Hub. If the image is already on your build machine because it was built or pulled during `pre_ci`, you can set this to `false`
-- In the `env` section, you can enter any environment variables you want to be set inside your CI container. Read more about [environment variables](/ci/advancedOptions/envVar/).
+- In the `env` section, you can enter any environment variables you want to be set inside your CI container. Read more about [environment variables](/ci/advancedOptions/environmentVariables/).
 - In the `options` tag, enter any docker options you want to use in the docker run command. You also need to include the HOME environment variable as shown if it is not already set in your image.
 
 <a name="pullImage"></a>
