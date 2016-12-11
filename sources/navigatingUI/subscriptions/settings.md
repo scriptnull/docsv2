@@ -10,9 +10,9 @@ You can perform subscription level actions by clicking on the 'Settings' tab on 
 
 Machine images are used to spin up a VM for your build. Our default `Stable` machine image is extensively tested and should serve the needs of almost all customers. However, there are some situations where customers need a later version of a tool, such as latest Docker version. To address this need, we also offer an `Unstable` version of the Machine Image which is regularly updated if required. The unstable version is tested for common scenarios.
 
-For a complete list of what is installed on each machine image, read our [CI Machine images section.](../../../ci/advancedOptions/machineImages/)
+For a complete list of what is installed on each machine image, read our [CI Machine images section.](/ci/advancedOptions/machineImages/)
 
-**Machine image should not be confused with the actual build container image where your CI workflow is executed.** The CI container is spun up on the build VM and is described in the [Images section](../../../ci/advancedOptions/images/)
+**Machine image should not be confused with the actual build container image where your CI workflow is executed.** The CI container is spun up on the build VM and the actual build is run inside the CI container. This is described in the [CI overview](/ci/overview/#ci-workflow). 
 
 
 ###Deployment key

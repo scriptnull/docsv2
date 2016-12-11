@@ -5,7 +5,7 @@ page_keywords: User Interface, microservices, Continuous Integration, Continuous
 #Projects Status tab
 A project on Shippable CI corresponds to a repository in your source control that you have enabled for CI.
 
-To learn how to enable a repository, check out the ["Enable Project"](/navigatingUI/subscriptions/ci//#enable-project) section.
+To learn how to enable a repository, check out the ["Enable Project"](/navigatingUI/subscriptions/ci/#enable-project) section.
 
 To get to the Projects Status page for a particular project,
 

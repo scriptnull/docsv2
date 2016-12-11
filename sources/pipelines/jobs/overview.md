@@ -30,7 +30,7 @@ Jobs, [resources](../resources/overview/), and [triggers](../triggers/) together
 ## Adding Jobs
 Jobs are defined in a configuration file `shippable.jobs.yml` present in a source control repository. Any repo can contain this file but only one of it can be used. If more than 1 job files are present in the repository, the first one is used. This is done in order to reduce conflict due to the same job being defined in multiple places.
 
-To learn how to add this file and connect it to pipelines, [click here](../../tutorials/how_to_add_syncRepos)
+To learn how to add this file and connect it to pipelines, [click here](/tutorials/pipelines/howToAddSyncRepos/)
 
 ---
 
@@ -125,6 +125,7 @@ You can pause any jobs in your pipeline by going to the `Jobs` pill in the `Pipe
 By default, Shippable uses information from the most recent or latest version of an `IN` input when running a job. However, you might want to 'pin' a specific version of an input for some reason.
 
 You can pin a specific input version with the yml below:
+
 ```
 jobs:
   - name: job_name
@@ -136,7 +137,7 @@ jobs:
         versionNumber: "shippable's internal version number"
 ```
 
-You can use `versionName' to pin `gitRepo` and `image` resources. The versionName contains:
+You can use `versionName` to pin `gitRepo` and `image` resources. The versionName contains:
 
 * gitRepo: commit SHA
 * image: tag
@@ -168,7 +169,7 @@ The job console looks like this:
 
 You can send notifications about job status by adding the `on_start`, `on_success`, or `on_failure` tags to any job of any type.
 
-You will first need to define a [notification resource](resources/notification/) in your `shippable.resources.yml`.
+You will first need to define a [notification resource](/pipelines/resources/notification/) in your `shippable.resources.yml`.
 
 Then, you can use that resource in your `shippable.jobs.yml` to configure when notifications are sent:
 

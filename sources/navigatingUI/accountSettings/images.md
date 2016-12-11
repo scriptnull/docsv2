@@ -25,7 +25,7 @@ Trusted Registry,  Amazon ECR, Google GCR, Quay.io or any private registry) wher
 the image is to be monitored.
 [Instructions here](/navigatingUI/accountSettings/integrations/#adding-an-account-integration)
 - Create an account integration for the type of notification you want to receive
-when the image changes. You can set up [Slack](/ci/integrations/notifications/slack/#configuring-slack-notifications-to-monitor-docker-images), [HipChat](/ci/integrations/notifications/hipchat/#configuring-hipchat-notifications-to-monitor-docker-images), [IRC](/ci/integrations/notifications/irc/#configuring-irc-notifications-to-monitor-docker-images), or [Email](/ci/integrations/notifications/email/#configuring-email-notifications-to-monitor-docker-images)
+when the image changes. You can set up [Slack](/integrations/notifications/slack/#docker-image-monitoring-notifications), [HipChat](/integrations/notifications/hipchat/#docker-image-monitoring-notifications), [IRC](/integrations/notifications/irc/#configuring-irc-notifications-to-monitor-docker-images), or [Email](/integrations/notifications/email/#configuring-email-notifications-to-monitor-docker-images)
 notification.
 - Go to your 'Account Settings' (gear icon on the top right hand navigation bar)
 and click the 'Images' section.

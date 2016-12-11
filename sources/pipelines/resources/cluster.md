@@ -26,8 +26,10 @@ resources:
 	* [AWS Elastic Container Service (ECS)](../../integrations/containerServices/ecs/)
 	* [Google Container Engine (GKE)](../../integrations/containerServices/gke/)
 	* [Joyent Triton](../../integrations/containerServices/triton/)
-	* [Microsoft Azure Container Service](../../integrations/containerServices/azure/)
-	* [Docker Cloud](../../integrations/containerServices/dcl/)
+  * [Docker Cloud](../../integrations/containerServices/dcl/)
+  * [Docker Datacenter](../../integrations/containerServices/dockerDatacenter/)  
+	* Microsoft Azure Container Service(coming soon)
+
 
 * `sourceName` is the name of the cluster on the Container Service that is represented by this resource. Specify this value in double quotes.
 

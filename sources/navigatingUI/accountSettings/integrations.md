@@ -63,4 +63,3 @@ Delete will fail if there are any projects actively using the integration, so ma
 Integration" style="width:700px;"/>
 
 ---
- s

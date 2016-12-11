@@ -234,6 +234,6 @@ coverage for tests in Continuous Integration](http://blog.shippable.com/setting-
 
 ## Integrations section
 To add an integration to your project, go to the Subscription's 'Settings'.
-[Click here](/NavigatingUI/subscriptions/settings/#integrations) for instructions.
+[Click here](/navigatingUI/subscriptions/settings/#integrations) for instructions.
 
 ---

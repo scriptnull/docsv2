@@ -71,7 +71,7 @@ updates for this page.
 - Support icon: Link to Shippable's [support repository](https://github.com/Shippable/support/issues)
 on GitHub. Use this link to view all support issues, log new ones and get help
 from Shippable's support team.
-- Account Settings icon: Takes you to [account settings](/NavigatingUI/accountSettings/accounts/).
+- Account Settings icon: Takes you to [account settings](/navigatingUI/accountSettings/accounts/).
 - Log out icon: Use this link to log out of Shippable portal.
 
 ---
