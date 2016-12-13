@@ -1,0 +1,99 @@
+page_title: Advanced Reporitng with Jacoco
+page_description: parsing the Shippable advanced coverage report details.
+page_keywords: java, jacoco, continuous integration, CI/CD, coverage
+
+# JaCoCo
+JaCoCo is a free code coverage library for Java, which was created by the [EclEmma](http://www.eclemma.org/jacoco/) team based on the lessons learned from using and integrating existing libraries for many years.  It's a widely used tool, and as a result, finding examples and plugins that utilize it is a breeze.  It helps provide detailed coverage reports for your Java projects.
+
+## Yml setup
+On the surface, using Jacoco on Shippable is not much different from [any other form of java coverage](../../../../ci/languages/java/).  However, there are some features available to Jacoco users that other formats won't be able to take advantage of yet.
+
+Like with other forms of coverage, Shippable requires that the results be placed in the `shippable/codecoverage` directory.  Once your build is complete, we'll scan that directory for relevant files that we can produce coverage results from.  Those results will be stored alongside your build so that you can analyze them later.  In this case, we are specifically looking for a file named `jacoco.xml`.  Once found, Shippable will parse the file and calculate the results.
+
+Here's an example shippable.yml file that shows the easiest way to have your Jacoco results recognized and parsed.
+
+```yml
+language: java
+
+jdk:
+  - oraclejdk7
+
+build:
+  ci:
+    # mvn install will create a `target` folder which will contain a jacoco.xml
+    # jacoco.xml will be present at path `target/site/jacoco/`
+    - mvn install
+
+    # copy this file to the `shippable/codecoverage` folder
+    - cp target/site/jacoco/jacoco.xml shippable/codecoverage
+
+```
+
+
+This will produce the standard Shippable coverage results that look something like this:
+
+<img src="/ci/images/integrations/codeCoverage/jacoco/noAdvancedReporting.png" alt="Basic results" style="width:700px;"/>
+
+However, the real power of Jacoco is clear when you turn on the advancedReporting flag in your yml.  Additionally, you must copy more than just the xml file to get the full results.
+
+```yml
+language: java
+
+jdk:
+  - oraclejdk7
+
+build:
+  # set the advanceReporting flag to true.
+  # this is optional, but highly recommended. It tells Shippable
+  # to look for additional information in the results, and use it to produce
+  # a more detailed coverage report, visible from the Shippable UI.
+  advancedReporting: true
+
+  ci:
+
+    # mvn install will create a `target` folder which will contain a jacoco.xml
+    # jacoco.xml will be present at path `target/site/jacoco/`
+    - mvn install
+
+    # copy this target folder to the `shippable/codecoverage` folder
+    # target folder should have `/site/jacoco/jacoco.xml` file
+    - cp -r target shippable/codecoverage
+
+```
+
+Now you're ready to see some advanced results.
+
+
+## Navigating the results
+
+Once you've managed to run a successful build, and store all of the necessary output in the correct location, you can visit the Shippable website and view the results.
+
+Find your build, and click on the "coverage" tab.  The first indication that you did something right is the presence of the "Show Details" button at the bottom of the coverage results. It looks like this:
+
+<img src="/ci/images/integrations/codeCoverage/jacoco/showDetailsButton.png" alt="Behold!" style="width:700px;"/>
+
+If you don't see this button, it means Shippable couldn't find the files it needed to produce the detailed reports. Double check that your yml is copying them to the correct place.
+
+Once the button is clicked, you'll see some additional information beyond what is displayed in the top section.
+
+<img src="/ci/images/integrations/codeCoverage/jacoco/overallCoverageSummary.png" alt="initial expand" style="width:700px;"/>
+
+In the Coverage Breakdown Report section, you can see a dropdown, which will allow you to switch between a package level view, and a file level view.
+
+<img src="/ci/images/integrations/codeCoverage/jacoco/packagesVsFiles.png" alt="packages vs files" style="width:700px;"/>
+
+From the packages view, it is possible to narrow your results down to a specific package by clicking on the package name in the leftmost column
+
+<img src="/ci/images/integrations/codeCoverage/jacoco/leftColumnHighlight.png" alt="drill down" style="width:700px;"/>
+
+Now you're looking at that particular package. You can see all of the classes in that package, as well as the stats for each class.
+
+<img src="/ci/images/integrations/codeCoverage/jacoco/packageDetail.png" alt="package details" style="width:700px;"/>
+
+From there, you can take it one step further and focus on a single class within that package.  Once again, simply click on the name of the class in the leftmost column that you want details for.
+
+<img src="/ci/images/integrations/codeCoverage/jacoco/classDetails.png" alt="class in session" style="width:700px;"/>
+
+This allows you to really get to the bottom of any missed lines.
+
+That's as far as Shippable's Jacoco report will let you go for now. We're currently working on the ability to take this workflow one step further and see the actual lines of code where coverage was missed.
