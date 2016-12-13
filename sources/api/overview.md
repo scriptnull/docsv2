@@ -25,13 +25,13 @@ Using our API requires authenticating with a Shippable API token. To generate a 
 These tokens must be placed in the header of your HTTP request. For example, if your API token has the value 10010, you can authenticate with curl as follows:
 
 ```bash
-curl -H "Authorization: apiToken 10010" https://api.shippable.com
+curl -H "Content-Type: application/json" -H "Authorization: apiToken 10010" https://api.shippable.com
 ```
 
 A useful pattern is to set an env var with the value of your token. For example, if we saved our token to the environment variable apiToken:
 
 ```bash
-curl -H "Authorization: apiToken $apiToken" https://api.shippable.com
+curl -H "Content-Type: application/json" -H "Authorization: apiToken $apiToken" https://api.shippable.com
 ```
 
 This is useful not only because one no longer has to type type apiToken in repeated times, but use of an env var allows for secure automation of API scripts; it is dangerous to directly save your apiToken into code.
