@@ -66,6 +66,7 @@ pages:
     - Overview: pipelines/resources/overview.md
     - cluster: pipelines/resources/cluster.md
     - dockerOptions: pipelines/resources/dockerOptions.md
+    - file: pipelines/resources/file.md
     - gitRepo: pipelines/resources/gitRepo.md
     - image: pipelines/resources/image.md
     - integration: pipelines/resources/integration.md
@@ -113,6 +114,7 @@ pages:
     - Docker Datacenter: integrations/containerServices/dockerDatacenter.md
   - Deploy:
     - AWS Elastic Beanstalk: integrations/deploy/eb.md
+    - Node Cluster: integrations/deploy/nodeCluster.md
   - Keys:
     - SSH: integrations/keys/ssh.md
     - PEM:  integrations/keys/pem.md
