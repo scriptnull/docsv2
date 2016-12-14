@@ -159,6 +159,8 @@ pages:
         - Use custom Docker image from ECR for CI: tutorials/ci/integrations/imageRegistries/amazon-ecr/use-custom-ecr-docker-image-for-ci.md
       - Interacting with Docker Hub: tutorials/ci/integrations/imageRegistries/usingDockerHub.md
       - Interacting with Google Container Registry: tutorials/ci/integrations/imageRegistries/usingGCR.md
+    - Test and Code Coverage Tutorials:
+      - Advanced Coverage Reports with JaCoCo: tutorials/ci/integrations/codeCoverage/usingJacoco.md
     - Container Services Tutorials:
       - Using Docker Datacenter: tutorials/ci/integrations/containerServices/usingDockerDatacenter.md
     - Deploy Tutorials:

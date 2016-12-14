@@ -102,7 +102,7 @@ The `ci` section should contain all commands you need for your `ci` workflow. Co
 #### Test and code coverage
 You can view your test and code coverage results in a consumable format and drill down further to find out which tests failed or which sections of your code were not covered by your tests.
 
-Your tests results data needs to be in junit format and your code coverage results need to be in cobertura format in order to see these visualizations. Test and code coverage results need to be saved to shippable/testresults and shippable/codecoverage folders so that we can parse the reports.
+Your tests results data should be in junit format and your code coverage results should be in cobertura or Jacoco format in order to see these visualizations. Test and code coverage results need to be saved to `shippable/testresults` and `shippable/codecoverage` folders so that we can parse the reports.
 
 Sample yml snippet using nose and python coverage:
 
@@ -116,6 +116,8 @@ build:
     #Run test and code coverage and output results to the right folder
     - mvn clean cobertura:cobertura
 ```
+
+For Jacoco, we also support more [advanced reporting formats](../../tutorials/ci/integrations/codeCoverage/usingJacoco/).
 
 #### Multi-module Maven builds
 When using multi-module (Reactor) builds, please remember to output all the coverage and tests reports to the (top-level) repository directory. This can be tricky, as the Cobertura plugin resolves output directory differently from Surefire plugin. The most straightforward way of dealing with this issue is to define plugin configuration in the top-level module, using shippable/codecoverage path for Cobertura plugin and ../shippable/testresults for Surefire plugin:
@@ -189,3 +191,30 @@ build:
 ```
 
 To avoid executing the default command, include a simple command in like `pwd` or `ls` in this section.
+
+##Advanced test reports
+
+When using Jacoco for code coverage, Shippable supports creating advanced test reports that provide information well beyond the typical summary.  In order to utilize this feature, there are a couple steps you must take.
+
+* update your yml to add `advancedReporting: true`.  It should look like this:
+
+```
+build:
+  advancedReporting: true
+  ci:
+    - mvn install  
+```
+
+* Additionally, you must make sure to save all of the correct output from the result of the Jacoco processing.  Typically, Jacoco creates a folder structure like `target/site/jacoco/jacoco.xml`.  For simple reporting, copying the jacoco.xml file is good enough, but for advanced reporting, Shippable requires that the whole `target` directory is copied to the `shippable/codecoverage` folder.
+
+```
+build:
+  advancedReporting: true
+  ci:
+    - mvn install  
+    - cp -r target shippable/codecoverage
+```
+
+This will allow Shippable to use additional metadata about your tests to produce more detailed reports. Check out our [Jacoco sample project](https://github.com/shippableSamples/sample_jacoco) on Github to see it in action.
+
+For more details on how to navigate the results, have a look at [our tutorial](../../tutorials/ci/integrations/codeCoverage/usingJacoco.md).
