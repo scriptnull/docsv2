@@ -12,14 +12,14 @@ Manifest jobs are used to generate a new version of the manifest each time anyth
 
 Manifest jobs can be of 2 types:
 
-* [Single package manifest](#single): The manifest definition contains only one deployable image.
-* [Multi package manifest](#multi): The manifest definition contains more than one deployable image. All services in the manifest are deployed on the same node and scaled together.
+* [Single package manifest](#single): The manifest definition contains only one deployable image or file.
+* [Multi package manifest](#multi): The manifest definition contains more than one deployable image or file. All services in the manifest are deployed on the same node and scaled together.
 
 ---
 <a name="single"></a>
 ## Single package manifest pattern
 
-A single package manifest has only one input `image` resource. If your microservices/services in your application are decoupled and versioned, then you might want to independently deploy and manage them by using single package manifests.
+A single package manifest has only one input `image` or `file` resource. If your microservices/services in your application are decoupled and versioned, then you might want to independently deploy and manage them by using single package manifests.
 
 <img src="../../images/jobs/singlePackageManifest.png" alt="Single package manifest" style="width:500px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
@@ -30,7 +30,7 @@ jobs:
   - name: <string>                             #required
     type: manifest                             #required
     steps:
-      - IN: <image>                       		#required
+      - IN: <image/file>                     	#required
         versionName: <string>           		#optional
       - IN: <dockerOptions>                   	#optional
       - IN: <params>                      		#optional
@@ -38,8 +38,8 @@ jobs:
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view.
 * `type` is always set to manifest
-* One `image` resource is mandatory an an input for a manifest job. Please read documentation on how to [define an image resource](../resources/image/) in your resources yml.
-	* By default, the latest version of the image resource will be used to generate the manifest. If you want to pin a specific version of the image, you can do so by including the `versionName` or `versionNumber` tags.
+* One `image` or `file` resource is mandatory an an input for a manifest job. Please read documentation on how to define an [image](../resources/image/) or [file](../resources/file/) resource in your resources yml.
+	* By default, the latest version of the image/file resource will be used to generate the manifest. If you want to pin a specific version of the image/file, you can do so by including the `versionName` or `versionNumber` tags.
 * `dockerOptions` is an optional tag and customizes the memory, cpu shares, port mappings, etc. Read more on [dockerOptions resource](../resources/dockerOptions/).
 * `params` is an optional tag and adds a list of environment params required for the manifest. This can include any key value pairs, for example database connection details. Read more on [params resource](../resources/params/).
 * `replicas` is an optional input resource that lets you scale the number of instances of your manifest that you want to deploy. The default value for replicas is 1. Read more on [replicas resource](../resources/replicas/).
@@ -58,9 +58,9 @@ jobs:
   - name: <string>                             #required
     type: manifest                            	#required
     steps:
-      - IN: <image>                       		#required
+      - IN: <image/file>                       #required
         versionName: <string>            		#optional
-      - IN: <image>                        	#required
+      - IN: <image/file>                       #required
         versionNumber: <number>           		#optional
       - IN: <dockerOptions>                	#optional
       - IN: <replicas>							#optional
@@ -71,8 +71,8 @@ jobs:
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view.
 * `type` is always set to manifest
-* You can define as many `image` resources as needed. Please read documentation on how to [define an image resource](../resources/image/) in your resources yml.
-	* By default, the latest version of the image resource will be used to generate the manifest. If you want to pin a specific version of the image, you can do so by including the `versionName` or `versionNumber` tags.
+* You can define as many `image` or `file` resources as needed. Please read documentation on how to define an [image](../resources/image/) or [file](../resources/file/) resource in your resources yml.
+	* By default, the latest version of the image/file resource will be used to generate the manifest. If you want to pin a specific version of the image/file, you can do so by including the `versionName` or `versionNumber` tags.
 * `dockerOptions` is an optional tag and customizes the memory, cpu shares, port mappings, etc. Read more on [dockerOptions resource](../resources/dockerOptions/).
 	* 	By default, values specified in dockerOptions apply to all images in the manifest. If you want the custom values to only apply to specific images, use the `applyTo` tag and provide a list of images you want to apply them to.
 * `params` is an optional tag and adds a list of environment params required for the manifest. This can include any key value pairs, for example database connection details. Read more on [params resource](../resources/params/).
