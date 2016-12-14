@@ -180,6 +180,28 @@ jobs:
       - IN: <cluster>                         #required
 ```
 
+## Executing scripts after deployment
+This feature is supported only for `deploy` jobs obeying the following conditions.
+
+* Must have a [cluster resource](../resources/cluster/) with [Node Cluster integration](../../integrations/deploy/nodeCluster/)
+* Must have a [manifest](manifest/) with a [file resource](../resources/file/).
+
+After the file is deployed to the node cluster successfully, one or more scripts can be run on the nodes by defining a `TASK` in the deploy job.
+
+```
+jobs:
+  - name: <job name>
+    type: deploy
+    steps:
+      - IN: <manifest>            # with file resource
+      - IN: <cluster>             # with Node Cluster integration
+      - TASK:
+          - script: <bash script>
+          - script: <bash script>
+```
+
+The above job will transfer the files mentioned in `manifest` and execute the scripts mentioned in `TASK` sequentially.
+
 ## Rolling back your deployments
 As much as we want our code to work perfectly, there are situations when major bugs are discovered in a release after it is already deployed to an environment. In such cases, rolling back the deployment is the best way to recover while you fix the problems.
 
