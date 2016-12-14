@@ -54,7 +54,7 @@ resources:
     seed:
       versionName: initial
 ```
-* Input the file resource to a [manifest](../../pipelines/jobs/manifest/) job and create a deploy job having input as the manifest and [cluster](../../pipelines/resource/cluster/) resource.
+* Input the file resource to a [manifest](../../pipelines/jobs/manifest/) job and create a deploy job having input as the manifest and [cluster](../../pipelines/resources/cluster/) resource.
 ```
 jobs:
   - name: app-manifest
