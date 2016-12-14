@@ -7,34 +7,34 @@ This resource type is used to add a list of docker options that can be appended 
 
 You can define `dockerOptions` by adding it to `shippable.resources.yml` as shown below:
 
-```
+```yml
 resources:
-  - name: <string>                           #required
-    type: dockerOptions                      #required
+  - name: <string>                              #required
+    type: dockerOptions                         #required
     version:
 
-      memory: <integer>      	               	#optional, in MiB
+      memory: <integer>                         #optional, in MiB
 
-      cpuShares: <number>                 		#optional
+      cpuShares: <number>                       #optional
 
-      portMappings:                         	#optional
+      portMappings:                             #optional
         - "80:80"
 
-      links:									#optional, containerName:alias
+      links:                                    #optional, containerName:alias
         - <container name>:<alias>
         - <container name>:<alias>
 
-      volumes:									#optional
+      volumes:                                  #optional
         - "<source>:<container path>:<options>"
         - "<source>:<container path>:<options>"
 
-      logConfig:								#optional
-        type: <string>							#optional
-        options:  								#optional
+      logConfig:                                #optional
+        type: <string>                          #optional
+        options:                                #optional
           <key1>: <value1>
           <key2>: <value2>
 
-      entryPoint:								#optional
+      entryPoint:                               #optional
         - <string>
         - <string>
 
@@ -44,23 +44,23 @@ resources:
 
       workingDir: <path to working dir>
 
-      privileged: <boolean>  					# May be true or false
+      privileged: <boolean>                     # May be true or false
 
       labels:
         <key1>: <value1>
         <key2>: <value2>
 
       volumesFrom:
-        - "<container name>:<options>" 		        
-        - "<container name>:<options>"		
+        - "<container name>:<options>"
+        - "<container name>:<options>"
 
       ulimits:
-        - name: <name of limit> 				# e.g. cpu
-          soft: <number> 						# soft Limit
-          hard: <number>						# hard Limit
-        - name: <name of limit> 				# e.g. nofile
-          soft: <number> 						# soft Limit, e.g. 50
-          hard: <number>						# hard Limit, e.g. 100
+        - name: <name of limit>                 # e.g. cpu
+          soft: <number>                        # soft Limit
+          hard: <number>                        # hard Limit
+        - name: <name of limit>                 # e.g. nofile
+          soft: <number>                        # soft Limit, e.g. 50
+          hard: <number>                        # hard Limit, e.g. 100
 
       dnsServers:
         - "<ip address>"
@@ -68,8 +68,65 @@ resources:
       dnsSearch:
         - "<ip address>"
 
-      user: <string> 							# For GKE, this should be the UID (a number)
+      user: <string>                            # For GKE, this should be the UID (a number)
 
+      hostName: <string>
+
+      domainName: <string>
+
+      memorySwap: <number>
+
+      attachStdin: <boolean>                    # May be true or false
+
+      attachStdout: <boolean>                   # May be true or false
+
+      attachStderr: <boolean>                   # May be true or false
+
+      tty: <boolean>                            # May be true or false
+
+      stdin: <boolean>                          # May be true or false
+
+      stdinOnce: <boolean>                      # May be true or false
+
+      networkDisabled: <boolean>                # May be true or false
+
+      publishAllPorts: <boolean>                # May be true or false
+
+      readOnlyRootFilesystem: <boolean>         # May be true or false
+
+      extraHosts:                               # Optional
+        - "host:ip address"
+        - "host:ip address"
+
+      capAdd:                                   # Optional
+        - <string>
+
+      capDrop:                                  # Optional
+        - <string>
+
+      restartPolicy:                            # For GKE and DCL, this should be a string (eg- "Always")
+        - name: <string>
+        - maximumRetryCount: <number>
+
+      securityOptions:                          # Optional
+        - <string>
+        - <string>
+
+      cGroupParent: <string>                    # Optional
+
+      memoryReservation: <number>               # This should be given in MB
+
+      pid : <string>                            # Optional
+
+      network: <string>                         # Optional
+
+      devices:                                  # For DCL
+        - <string>
+
+      devices:                                  # For DDC
+        - pathOnHost: <string>
+          pathInContainer: <string>
+          cGroupPermissions: <string>
 ```
 
 This will create a resource of type `dockerOptions`. You can include any settings shown above that you want as part of your `dockerOptions`. All settings are optional. Read below for a description and format of all settings.
@@ -101,16 +158,16 @@ For a table showing the mapping of each setting to a setting in your Container S
 ```
     cpuShares: <number>
 ```
-`cpuShares` are the number of CPU units reserved for the container. A description of how cpu units work is given in <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_environment" target="_blank">Amazon's ECS docs</a>. It defaults to 0 if not specified, which means the host node manages it dynamically.
+`cpuShares` are the number of CPU units reserved for the container. The significance of this number may depend on your provider.
 
 ```
-    portMappings:                         	
+    portMappings:
       - "80:80"
 ```
 `portMappings` is an array of port mappings. The format is always `"host port number: container port number"`, e.g. "80:80". Port numbers are always integers. If not provided, no container port is exposed, even if your Dockerfile has the `EXPOSE` statement.
 
 ```
-    links:									
+    links:
       - <container name>:<alias>
       - <container name>:<alias>
 ```
@@ -119,7 +176,7 @@ For a table showing the mapping of each setting to a setting in your Container S
 This setting maps to Links in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a>  of the Docker Remote API and the --link option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
 
 ```
-    volumes:								
+    volumes:
       - "<source>:<container path>:<options>"
       - "<source>:<container path>:<options>"
 ```
@@ -128,9 +185,9 @@ This setting maps to Links in the <a href="https://docs.docker.com/reference/api
 This setting maps to Volumes in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --volume option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
 
 ```
-    logConfig:								 
-      type: <string>						 
-      options:  							
+    logConfig:
+      type: <string>
+      options:
         <key1>: <value1>
         <key2>: <value2>
 ```
@@ -139,7 +196,7 @@ This setting maps to Volumes in the <a href="https://docs.docker.com/reference/a
 This setting maps to LogConfig in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --log-driver option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
 
 ```
-    entryPoint:								
+    entryPoint:
       - <string>
       - <string>
 ```
@@ -196,7 +253,7 @@ This setting maps to Labels in the <a href="https://docs.docker.com/reference/ap
 
 ```
     volumesFrom:
-      - "<container name>:<options>" 			      
+      - "<container name>:<options>"
       - "<container name>:<options>"
       - "<container name>"
 ```
@@ -206,11 +263,11 @@ This setting maps to VolumesFrom in the <a href="https://docs.docker.com/referen
 
 ```
     ulimits:
-      - name: <name of limit> 				
-        soft: <number> 						
-        hard: <number>						
-      - name: <name of limit> 				
-        soft: <number> 						
+      - name: <name of limit>
+        soft: <number>
+        hard: <number>
+      - name: <name of limit>
+        soft: <number>
         hard: <number>
 ```
 `ulimits` specifies a list of ulimits to be set in the container. For alist of
@@ -236,7 +293,7 @@ This setting maps to Dns in the <a href="https://docs.docker.com/reference/api/d
 This setting maps to DnsSearch in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --dns-search option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
 
 ```
-    user: <string> 	
+    user: <string>
 ```
 `user` specifies the user name to be uses inside the container.
 
@@ -250,23 +307,48 @@ If you do not provide a dockerOptions resource to a manifest job, it will set me
 Even though `dockerOptions` supports a wide variety of configurations, you can only use options that are relevant for your Container Service. The table below maps our tags to settings in Amazon's ECS, Google Container Enginer, and Joyent Triton Public Cloud.
 
 
-| **Shippable tag** | Amazon ECS | Google Container Engine | Joyent Triton | Docker Datacenter |
-| ---- | ---- | ---- | ---- | ---- |
-| **cmd** | command | command | Cmd | Cmd |
-| **dnsSearch** | dnsSearchDomains | none | DnsSearch | DnsSearch |
-| **dnsServers** | dnsServers | none | Dns | Dns |
-| **entryPoint** | entryPoint | command | Entrypoint | Entrypoint |
-| **labels** | dockerLabels | labels | Labels | Labels |
-| **links** | links | none | Links | Links |
-| **logConfig** | logConfiguration | none | LogConfig | LogConfig |
-| **network** | networkMode | none | NetworkMode | NetworkMode |
-| **privileged** | privileged | privileged | Privileged (not supported) | Privileged |
-| **readOnlyRootFilesystem** | readonlyRootFilesystem | readOnlyRootFilesystem | ReadonlyRootfs | ReadonlyRootfs |
-| **ulimits** | ulimits | none | ulimits | ulimits |
-| **user** | user | runAsUser | User | User |
-| **volumes** | volumes/mountPoints | volumeMounts/volumes | Volumes | Volumes |
-| **volumesFrom** | volumesFrom | none | VolumesFrom | VolumesFrom |
-| **workingDir** | workingDirectory | workingDir | WorkingDir | WorkingDir |
+| Shippable Tag                     | Amazon ECS                       | GKE                        | TRITON [Remote API v1.21] | DCL             | DDC [ Remote API v1.24] |
+|-------------------------------|----------------------------------|----------------------------|---------------------------|-----------------|-------------------------|
+| **memory**                        | memory                           | memory                     | Memory                    | mem_limit       | Memory                  |
+| **cpuShares**                     | cpu                              | cpu                        | CpuShares                 | cpu_shares      | CpuShares               |
+| **portMappings**                  | portMappings                     | port                       | None                      | container_ports | PortBindings            |
+| **links**                         | links                            | None                       | Links                     | links           | Links                   |
+| **hostName**                      | hostname                         | TOP LEVEL -> hostname      | Hostname                  | hostname        | Hostname                |
+| **domainName**                    | None                             | TOP LEVEL -> subDomain     | Domainname                | domainname      | Domainname              |
+| **user**                          | user                             | runAsUser                  | User                      | user            | User                    |
+| **memorySwap*                    | None                             | None                       | None                      | memswap_limit   | MemorySwap              |
+| **attachStdin**                   | None                             | None                       | AttachStdin               | None            | AttachStdin             |
+| **attachStdout**                  | None                             | None                       | AttachStdOut              | None            | AttachStdOut            |
+| **attachStderr**                  | None                             | None                       | AttachStderr              | None            | AttachStderr            |
+| **tty**                           | None                             | tty                        | Tty                       | tty             | Tty                     |
+| **stdin**                         | None                             | stdin                      | OpenStdin                 | stdin_open      | OpenStdin               |
+| **stdinOnce**                     | None                             | stdinOnce                  | StdinOnce                 | None            | StdinOnce               |
+| **labels**                        | dockerLabels                     | labels                     | Labels                    | labels          | labels                  |
+| **cmd**                           | command                          | args                       | cmd                       | command         | cmd                     |
+| **entryPoint**                    | entryPoint                       | command                    | EntryPoint                | entrypoint      | EntryPoint              |
+| **volumes**                       | TOP LEVEL -> volumes/mountPoints | volumes/volumeMounts       | Volume                    | volumes         | Volume/binds            |
+| **networkDisabled**               | disableNetworking                | None                       | None                      | None            | NetworkDisabled         |
+| **publishAllPorts**               | None                             | None                       | PublishAllPorts           | None            | PublishAllPorts         |
+| **privileged**                    | privileged                       | privileged                 | Privileged                | privileged      | Privileged              |
+| **readOnlyRootFilesystem**        | readonlyRootFilesystem           | readOnlyRootFilesystem     | ReadonlyRootfs            | read_only       | ReadonlyRootfs          |
+| **dnsServers**                    | dnsServers                       | None                       | Dns                       | dns             | Dns                     |
+| **dnsSearch**                     | dnsSearchDomains                 | None                       | DnsSearch                 | dns_search      | DnsSearch               |
+| **extraHosts**                    | extraHosts                       | None                       | None                      | extra_hosts     | ExtraHosts              |
+| **volumesFrom**                   | volumesFrom                      | None                       | VolumesFrom               | volumes_from    | VolumesFrom             |
+| **capAdd**                        | None                             | add                        | None                      | cap_add         | CapAdd                  |
+| **capDrop**                       | None                             | drop                       | None                      | cap_drop        | resourceslimits         |
+| **restartPolicy**                 | None                             | TOP LEVEL -> restartPolicy | RestartPolicy             | restart         | RestartPolicy           |
+| **network**                       | TOP LEVEL -> networkMode         | None                       | None                      | net             | NetworkMode             |
+| **devices**                       | None                             | None                       | None                      | devices         | Devices                 |
+| **ulimits**                       | ulimits                          | None                       | Ulimits                   | None            | Ulimits                 |
+| **securityOptions**               | dockerSecurityOptions            | None                       | None                      | security_opt    | SecurityOpt             |
+| **logConfig**                     | logConfiguration                 | None                       | LogConfig                 | None            | LogConfig               |
+| **cGroupParent**                  | None                             | None                       | None                      | cgroup_parent   | CgroupParent            |
+| **memoryReservation**  [ in MB ]  | memoryReservation                | None                       | None                      | None            | MemoryReservation              |
+| **workingDir**                    | workingDirectory                 | workingDir                 | None                      | working_dir     | working_dir       |
+| **pid**                           | None                             | None                       | None                      | pid             | PidMode                 |
+
+
 
 <br>
 Here are links to docs for each Container Service:
@@ -291,3 +373,142 @@ In the picture above, `deploy-test` takes `dockerOptions-1` as an input. After t
 When anything in `dockerOptions` changes, a new version of the resource is created. However, this does not automatically trigger subsequent portions of the pipeline since we have no way of knowing if your code commit changing dockerOptions also changed something else in the pipeline. Triggering dependent jobs automatically might lead to unexpected behaviour in this case.
 
 To trigger the rest of the workflow, you will need to manually trigger any jobs that have this resource as an input. You can do this through the UI by right clicking on the dependent job and clicking on `Run`, or by updating an input [trigger resource](../triggers/) for the job.
+
+##Provider specific options
+Many options listed above are shared across all providers. For example, every provider will give you a way to control the amount of memory allocated to a container.  On the other hand, some providers have implemented additional features that are unique to their offering.  This section will go over those extra options that are not shared among providers.  Please see the provider docs on the proper way to use these options.
+
+###Amazon ECS
+
+Image level docker options:
+```
+resources:
+  - name: <string>
+  - type: dockerOptions
+  - version:
+      essential: boolean
+```
+Top level docker options
+```
+  resources:
+  - name: <string>
+  - type: dockerOptions
+  - version:
+      Service:
+        loadBalancer:
+         - <object>
+        desiredCount: <number>
+        clientToken: <string>
+        role: <string>
+        deploymentConfiguration:
+          "maximumPercent": <number>,
+          "minimumHealthyPercent": <number>
+      Task Definition:
+        family: <string>
+        taskRoleArn: <string>
+        networkMode: <string>
+        volumes:
+          - "<source>:<container path>:<options>"
+          - "<source>:<container path>:<options>"
+```
+
+###Google Container Engine
+
+Top level docker options
+```
+resources:
+  - name: <string>
+  - type: dockerOptions
+  - version:
+      Pod:
+        terminationGracePeriodSeconds: <number>
+        activeDeadlineSeconds: <number>
+        dnsPolicy: <string>
+        nodeSelector:
+          <object>
+        serviceAccountName: <string>
+        serviceAccount: <string>
+        nodeName: <string>
+        hostNetwork: <boolean>
+        hostPID: <boolean>
+        imagePullSecrets:
+          - <string>
+```
+
+###Docker Data Center
+
+Image level docker options:
+```
+resources:
+  - name: <string>
+  - type: dockerOptions
+  - version:
+      ExposedPorts: <object>
+      StopSignal: <string>
+      HostConfig:
+        kernelMemory: <number>
+        cpuShares: <number>
+        cpuPeriod: <number>
+        cpuPercent: <number>
+        cpuQuota: <number>
+        cpusetCpus: <string>
+        cpusetMems: <string>
+        IOMaximumBandwidth: <number>
+        IOMaximumIOps: <number>
+        BlkioWeightDevice:
+          - Path: <string>
+          - Weight: weight
+        BlkioDeviceReadBps:
+          - Path: <string>
+          - Rate: <number>
+        BlkioDeviceWriteBps:
+          - Path: <string>
+          - Rate: <number>
+        BlkioDeviceReadIOps:
+          - Path: <string>
+          - Rate: <number>
+        BlkioDeviceWriteIOps:
+          - Path: <string>
+          - Rate: <number>
+        BlkioWeight: <number>
+        MemorySwappiness: <number>
+        OomKillDisable: <boolean>
+        OomScoreAdj: <number>
+        PidsLimit: <number>
+        DnsOptions:
+          - <string>
+          - <string>
+        GroupAdd:
+          - <string>
+          - <string>
+        UsernsMode: <string>
+        Sysctls:
+          - <string>: <string>
+        StorageOpt:
+          - <string>: <string>
+        VolumeDriver: <string>
+        ShmSize: <number>
+```
+
+###Docker Cloud
+
+Image level docker options:
+```
+resources:
+  - name: <string>
+  - type: dockerOptions
+  - version:
+       autoredeploy: <boolean>
+       autodestroy: <string>
+       nickname: <string>
+       tags:
+         - <string>
+       deployment_strategy: <string>
+       roles:
+         - <string>
+       sequential_deployment: <boolean>
+       target_num_containers: <number>
+```
+
+###Joyent Triton
+
+None at this time
