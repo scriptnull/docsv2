@@ -24,7 +24,7 @@ resources:
 * `type` is always set to 'cluster'.
 
 * `integration` should be the name of the Subscription Integration you create for you subscription that leverages the credentials you set up in Account Integrations to connect to the artifact registry of your choice. To learn how to create integrations for a specific Container Service, please select from the list below:
-	* [JFrog Artifactory](../../integrations/artifactRegistries/jfrogArtifactory)
+	* [JFrog Artifactory](../../integrations/artifactRegistries/jfrogArtifactory/)
 
 * `sourceName` is the URI denoting that file. The value is different based on the integration used.
 
