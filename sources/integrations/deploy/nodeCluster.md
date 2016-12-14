@@ -40,8 +40,6 @@ resources:
   - name: app-cluster
     type: cluster
     integration: app-cluster
-    pointer:
-      sourceName: 'application-cluster'
 ```
 
 * [file](../../pipelines/resources/file/) type resources could be deployed using this integration. For a list of available artifact registries, from which the file could be pulled, please check the [file resource documentation](../../pipelines/resources/file/)
