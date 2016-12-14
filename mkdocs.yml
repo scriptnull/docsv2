@@ -81,6 +81,7 @@ pages:
     - release: pipelines/jobs/release.md
     - runSh: pipelines/jobs/runSh.md
   - Triggers: pipelines/triggers.md
+  - Trace: pipelines/trace.md
 - Integrations:
   - Overview: integrations/overview.md
   - Source Control Systems:
