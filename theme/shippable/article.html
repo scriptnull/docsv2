@@ -47,7 +47,8 @@
     </a> {% endif %}
     </div>
     <div class="pull-right hidden-print">
-        <a href="{{ repo_url }}/docsv2/blob/master/sources/{% if current_page %}{{ current_page.path }}{% endif %}" title="edit this article">Edit this article on GitHub</a>
+        <a href="{{ repo_url }}{% if current_page %}/blob/master/sources/{{ current_page.input_path }}{% endif %}"
+          title="edit this article">Edit this article on GitHub</a>
     </div>
   </div>
   <div class="side-nav right-nav col-md-2 hidden-print hidden-sm hidden-xs col-no-pad">
