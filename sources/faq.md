@@ -283,7 +283,7 @@ You can also build your own Docker image with all the dependencies you need for 
 
 Let's look at an example of using Node.js & Ruby in a build.
 
-Specify your [language](/ci/shippableyml/#language) in the `shippable.yml`. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](http://docs.shippable.com/ci/lamguages/node/) for that language.
+Specify your [language](/ci/shippableyml/#language) in the `shippable.yml`. For example: `language: node_js`. This will cause your build to run on the [default Shippable image](http://docs.shippable.com/ci/languages/node/) for that language.
 
 All [official Shippable images](https://hub.docker.com/u/drydock/) have rvm installed, with a default version of Ruby. However, the rvm location is not added to the $PATH environment variable, so you will need to `source` rvm in your YML. This will give you access to both `ruby` and `rvm`. Your `shippable.yml` should look like this:
 
