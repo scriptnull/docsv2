@@ -337,7 +337,7 @@ In the snippet above, replace the following:
 - Minimum requirements for custom CI images are documented TBD: Update Link  
 
 ### ci
-The `ci` section of your yml is where the bulk of your build commands should be included. All commands in this section are executed sequentially inside your build container in the order they appear in your yml. This section is optional, but if you don't have any commands in this section, we some some default commands based on language, e.g. npm install and npm test for node.js projects.
+The `ci` section of your yml is where the bulk of your build commands should be included. All commands in this section are executed sequentially inside your build container in the order they appear in your yml. This section is optional, but if you don't have any commands in this section, we have some default commands based on language, e.g. npm install and npm test for node.js projects.
 
 In general, follow the guidelines below to write the `ci` section:
 
