@@ -69,14 +69,19 @@ These variables are added to the environment for all `IN` and `OUT` resources de
 | Environment variable        | Description           |
 | ------------- |-------------|
 | *RESOURCENAME*_NAME    | The name of the resource.|
+| *RESOURCENAME*_ID    | The ID of the resource.|
 | *RESOURCENAME*_TYPE    | The type of the resource. For example: `image` or `manifest`.|
 | *RESOURCENAME*_PATH    | The directory containing files for the resource.|
 | *RESOURCENAME*_OPERATION    | The operation of the resource; either `IN` or `OUT`.|
 | *RESOURCENAME*_VERSION_VERSIONNAME    | For `image` resources, this is the tag. For `version` resources and `release` jobs, this is the semantic version. Not used for other resource types.|
 | *RESOURCENAME*_VERSION_VERSIONNUMBER    | The number of the version of the resource being used.|
+| *RESOURCENAME*_VERSION_VERSIONID    | The ID of the version of the resource being used.|
+| *RESOURCENAME*\_VERSION\_*FIELDNAME*    | `dockerOptions`-, `params`-, and `replicas`-type resources have a `version` section in the yml. Fields defined in these resources' `version` sections are added as environment variables. The field name is sanitized in the same way as the resource name. Objects and arrays are stringified JSON.|
 | *RESOURCENAME*\_POINTER\_*FIELDNAME*    | Each field defined in that resource's `pointer` section in the yml is added as an environment variable. The field name is sanitized in the same way as the resource name. Objects and arrays are stringified JSON.|
 | *RESOURCENAME*\_SEED\_*FIELDNAME*    | Each field defined in that resource's `seed` section in the yml is added as an environment variable. The field name is sanitized in the same way as the resource name. Objects and arrays are stringified JSON.|
+| *RESOURCENAME*\_PARAMS\_*FIELDNAME*    | Only added for `param`-type resources. Each field defined in that resource's `params` section in the yml is added as an environment variable. The field name is sanitized in the same way as the resource name. Objects and arrays are stringified JSON. Secure variables are decrypted.|
 | *RESOURCENAME*\_INTEGRATION\_*FIELDNAME*    | Explained in the next section.|
+
 
 ### Resource integration variables
 When an `IN` resource uses a subscription integration, the fields associated with that integration are added as environment variables. In the following table, *RESOURCENAME* is the name of the `IN` resource, in uppercase, with any characters other than letters, numbers, and underscores removed. The available environment variables for each integration are as follows:
