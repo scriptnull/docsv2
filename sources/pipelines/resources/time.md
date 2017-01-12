@@ -27,7 +27,7 @@ You can use the time resource as an input for any job you want to trigger at tha
 
 ```
 jobs:
-  - name: nighly-builds
+  - name: nightly-builds
     type: runSh
     steps:
       - IN: nightly-trigger
