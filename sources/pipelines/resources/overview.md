@@ -4,7 +4,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 <br>
 # Resources
-Resources are the basic building blocks of your pipelines. They are inputs for and sometimes outputs from the executable units of your pipeline, aka [Jobs](../jobs/overview/).  
+Resources are the basic building blocks of your pipelines. They are inputs for and sometimes outputs from the executable units of your pipeline, aka [Jobs](../jobs/overview/).
 
 A key characteristic of resources is that they can be versioned and are immutable. A specific version of a resource is idempotent. i.e. it returns the same result every single time it is fetched. For example, git commit sha is always idempotent.
 
@@ -21,7 +21,7 @@ There are several resources that are pre-defined as part of the platform and wor
 - [cluster](cluster/): Cluster that defines a container service
 - [notification](notification/): Notifications for job success or failure
 - [integration](integration/): Credentials for third party services
-- [loadBalancer](loadBalancer/): AWS Classic and Application Load Balancers
+- [loadBalancer](loadBalancer/): AWS Classic and Application Load Balancers, or Google Container Engine (GKE) services.
 - [time](time/): Trigger a job at a specific day and time
 
 At this time, we do not support definition of custom resources. If you need a resource that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)

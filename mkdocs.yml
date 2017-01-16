@@ -81,6 +81,7 @@ pages:
     - manifest: pipelines/jobs/manifest.md
     - deploy: pipelines/jobs/deploy.md
     - release: pipelines/jobs/release.md
+    - provision: pipelines/jobs/provision.md
     - runSh: pipelines/jobs/runSh.md
     - jenkinsJob: pipelines/jobs/jenkinsJob.md
   - Triggers: pipelines/triggers.md
