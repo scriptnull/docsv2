@@ -394,7 +394,7 @@ Top level docker options
   - name: <string>
   - type: dockerOptions
   - version:
-      Service:
+      service:
         loadBalancer:
          - <object>
         desiredCount: <number>
@@ -403,7 +403,7 @@ Top level docker options
         deploymentConfiguration:
           "maximumPercent": <number>,
           "minimumHealthyPercent": <number>
-      Task Definition:
+      taskDefinition:
         family: <string>
         taskRoleArn: <string>
         networkMode: <string>
@@ -420,7 +420,7 @@ resources:
   - name: <string>
   - type: dockerOptions
   - version:
-      Pod:
+      pod:
         terminationGracePeriodSeconds: <number>
         activeDeadlineSeconds: <number>
         dnsPolicy: <string>
