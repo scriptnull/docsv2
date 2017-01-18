@@ -27,8 +27,8 @@ resources:
 	* [AWS Elastic Container Service (ECS)](../../integrations/containerServices/ecs/)
 	* [Google Container Engine (GKE)](../../integrations/containerServices/gke/)
 	* [Joyent Triton](../../integrations/containerServices/triton/)
-  * [Docker Cloud](../../integrations/containerServices/dcl/)
-  * [Docker Datacenter](../../integrations/containerServices/dockerDatacenter/)  
+  	* [Docker Cloud](../../integrations/containerServices/dcl/)
+  	* [Docker Datacenter](../../integrations/containerServices/dockerDatacenter/)  
 	* Microsoft Azure Container Service(coming soon)
 
 
