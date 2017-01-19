@@ -18,13 +18,11 @@ We're going to see how we can replace the question mark in the picture above wit
 
 * Next, create an account integration of type 'Event Trigger'
     * While still on **Account Settings**, go to  **Integrations** in the left sidebar menu and then click on **Add Integration**
-    * Select **Event Trigger** from the dropdown for **Master Integration** and complete the settings as shown below. Please make sure you update the `Authorization` textbox in the format `apiToken <token-value>`. The resource name should be the resource that refers to the image you're pushing as part of your CI.
+    * Click the **Create Integration** button next to **Event Trigger**. In the **Create Event Trigger Integration** tab, complete the settings as shown below. Select the subscription containing your CI project; this will add the account integration to that subscription as a subscription integration. Please make sure you update the `Authorization` textbox in the format `apiToken <token-value>`. The resource name should be the resource that refers to the image you're pushing as part of your CI.
 
     <br>
 
-<img src="../../images/pipelines/samplePipelineEventTrigger.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
-
-* Add the integration to your Subscription (Organization) containing your CI project. To do this, go to your Subscription's **Settings** tab and click on **Integrations** in the sidebar menu. Click on **Add integration**, name your integration, and then in the dropdown, choose the integration you created in the previous step.
+<img src="../../images/pipelines/samplePipelineEventTriggerIntegration.png" alt="Shippable Continuous Integration and Delivery" style="width:800px;"/>
 
 * Next, add the following to the shippable.yml for your CI project:
 
@@ -34,7 +32,7 @@ integrations:
     - integrationName: triggerDemoPipeline #Replace with name of the integration from subscription settings
     type: webhook
     payload:
-      - versionName=$BRANCH.$BUILD_NUMBER  #Replace with the tag of the image you pushed during CI  
+      - versionName=$BRANCH.$BUILD_NUMBER  #Replace with the tag of the image you pushed during CI
     on_success: always
     on_failure: never
 
