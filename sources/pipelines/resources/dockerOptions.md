@@ -131,7 +131,7 @@ resources:
 
 This will create a resource of type `dockerOptions`. You can include any settings shown above that you want as part of your `dockerOptions`. All settings are optional. Read below for a description and format of all settings.
 
-For a table showing the mapping of each setting to a setting in your Container Service, read the [Mapping dockerOptions to your Container Service section](#mappingDockerOptions).
+For a table showing the mapping of each setting to a setting in your Container Service, read the [mapping dockerOptions to your Container Service section](#mappingDockerOptions).
 
 ```
 - name: <string>
@@ -164,25 +164,25 @@ For a table showing the mapping of each setting to a setting in your Container S
     portMappings:
       - "80:80"
 ```
-`portMappings` is an array of port mappings. The format is always `"host port number: container port number"`, e.g. "80:80". Port numbers are always integers. If not provided, no container port is exposed, even if your Dockerfile has the `EXPOSE` statement.
+`portMappings` is an array of port mappings. The format is always `"host port number: container port number"`, e.g. "80:80". Port numbers are always integers. If not provided, no container port is exposed, even if your Dockerfile has an `EXPOSE` statement.
 
 ```
     links:
       - <container name>:<alias>
       - <container name>:<alias>
 ```
-`links` allows containers to communicate with each other without the need for port mappings. The format for this is `"<container name>:<alias>"`, e.g. ""shippabledb:db"".
+`links` allows containers to communicate with each other without the need for port mappings. The format for this is `"<container name>:<alias>"`, e.g. "shippabledb:db".
 
-This setting maps to Links in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a>  of the Docker Remote API and the --link option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to Links in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a>  of the Docker Remote API and the --link option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
 
 ```
     volumes:
       - "<source>:<container path>:<options>"
       - "<source>:<container path>:<options>"
 ```
-`volumes` configures mount points for data volumes in your container. This is a list of objects, format for each object being <source volume>:<container path>:<options>. The source volume is a string and specifies name of the volume to mount, container path is a string and specifies path on the container where volume should be mounted. Options can be set to `rw` if you want the container to be able to write to the volume, and `ro` if you want the container to have read-only access. Default setting is `rw`.
+`volumes` configures mount points for data volumes in your container. This is a list of objects, format for each object being `"<source volume>:<container path>:<options>"`. The source volume is a string specifying the name of the volume to mount; the container path is a string specifying the path on the container where volume should be mounted. Options can be set to `rw` if you want the container to be able to write to the volume, and `ro` if you want the container to have read-only access. Default setting is `rw`.
 
-This setting maps to Volumes in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --volume option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to Volumes in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --volume option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
 
 ```
     logConfig:
@@ -191,9 +191,9 @@ This setting maps to Volumes in the <a href="https://docs.docker.com/reference/a
         <key1>: <value1>
         <key2>: <value2>
 ```
-`logConfig` specifies the log configuration of the container. By default, containers use the same logging driver that the Docker daemon uses. To override this and specify a different logging driver, include this settingin dockerOptions. The available logging drivers depend on your Container Service. For example, `type` can be set to `"syslog"` and you can specify options using key value pairs.
+`logConfig` specifies the log configuration of the container. By default, containers use the same logging driver that the Docker daemon uses. To override this and specify a different logging driver, include this setting in your dockerOptions. The available logging drivers depend on your Container Service. For example, `type` can be set to `"syslog"` and you can specify options using key value pairs.
 
-This setting maps to LogConfig in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --log-driver option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to LogConfig in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --log-driver option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
 
 ```
     entryPoint:
@@ -202,7 +202,7 @@ This setting maps to LogConfig in the <a href="https://docs.docker.com/reference
 ```
 `entryPoint` specifies the entry point(s) passed to the container. It is an array of strings.
 
-This setting maps to Entrypoint in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --entrypoint option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>. Read more information about the Docker ENTRYPOINT parameter at <a href="https://docs.docker.com/reference/builder/#entrypoint" target="_blank">https://docs.docker.com/reference/builder/#entrypoint</a>.
+This setting maps to Entrypoint in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --entrypoint option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>. Read more information about the Docker ENTRYPOINT parameter at <a href="https://docs.docker.com/reference/builder/#entrypoint" target="_blank">https://docs.docker.com/reference/builder/#entrypoint</a>.
 
 ```
     cmd:
@@ -211,7 +211,7 @@ This setting maps to Entrypoint in the <a href="https://docs.docker.com/referenc
 ```
 `cmd` specifies the command(s) is passed to the container.
 
-This setting maps to Cmd in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the COMMAND parameter to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>. For more information about the Docker CMD parameter, go to <a href="https://docs.docker.com/reference/builder/#cmd" target="_blank">https://docs.docker.com/reference/builder/#cmd</a>.
+This setting maps to Cmd in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the COMMAND parameter to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>. For more information about the Docker CMD parameter, go to <a href="https://docs.docker.com/reference/builder/#cmd" target="_blank">https://docs.docker.com/reference/builder/#cmd</a>.
 
 NOTE: Multiple commands provided on a single line are not parsed successfully. Splitting each command on separate lines will correctly create and pass the CMD array.
 
@@ -233,14 +233,14 @@ split each command on a separate line as shown below:
 ```
 `workingDir` specifies the working directory where commands are run inside the container.
 
-This setting maps to WorkingDir in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --workdir option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to WorkingDir in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --workdir option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
 
 ```
     privileged: <boolean>
 ```
 `privileged` specifies the level of access the container has to the host container instance. When set to `true`, the container has elevated privileges on the host container instance, similar to the *root* user.
 
-This setting maps to Privileged in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --privileged option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to Privileged in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --privileged option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
 
 ```
     labels:
@@ -249,7 +249,7 @@ This setting maps to Privileged in the <a href="https://docs.docker.com/referenc
 ```
 `labels` specifies a list of key/value pairs of labels to add to the container.
 
-This setting maps to Labels in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --label option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to Labels in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --label option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
 
 ```
     volumesFrom:
@@ -259,7 +259,7 @@ This setting maps to Labels in the <a href="https://docs.docker.com/reference/ap
 ```
 `volumesFrom` specifies the list of data volumes to mount from another container.
 
-This setting maps to VolumesFrom in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --volumes-from option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>. `options` can be `rw` if you want the container to be able to write to the volume, and `ro` if you want the container to have read-only access. Default setting is `rw`.
+This setting maps to VolumesFrom in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --volumes-from option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>. `options` can be `rw` if you want the container to be able to write to the volume, and `ro` if you want the container to have read-only access. Default setting is `rw`.
 
 ```
     ulimits:
@@ -272,7 +272,7 @@ This setting maps to VolumesFrom in the <a href="https://docs.docker.com/referen
 ```
 `ulimits` specifies a list of ulimits to be set in the container. For alist of
 
-This setting maps to Ulimits in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --ulimit option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to Ulimits in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --ulimit option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
 
 ```
     dnsServers:
@@ -281,7 +281,7 @@ This setting maps to Ulimits in the <a href="https://docs.docker.com/reference/a
 ```
 `dnsServers` specifies a list of DNS servers that are presented to the container.
 
-This setting maps to Dns in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --dns option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to Dns in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --dns option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
 
 
 ```
@@ -290,21 +290,21 @@ This setting maps to Dns in the <a href="https://docs.docker.com/reference/api/d
 ```
 `dnsSearch` specifies a list of DNS search domains that are presented to the container.
 
-This setting maps to DnsSearch in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --dns-search option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to DnsSearch in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --dns-search option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
 
 ```
     user: <string>
 ```
 `user` specifies the user name to be uses inside the container.
 
-This setting maps to User in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">Create a container section</a> of the Docker Remote API and the --user option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
+This setting maps to User in the <a href="https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container" target="_blank">create a container section</a> of the Docker Remote API and the --user option to <a href="https://docs.docker.com/reference/commandline/run/" target="_blank">docker run</a>.
 
 If you do not provide a dockerOptions resource to a manifest job, it will set memory to 400mb by default. No other default settings will be used.
 
 
 <a name="mappingDockerOptions"></a>
 ##Mapping dockerOptions to your Container Service
-Even though `dockerOptions` supports a wide variety of configurations, you can only use options that are relevant for your Container Service. The table below maps our tags to settings in Amazon's ECS, Kubernetes, Google Container Engine, and Joyent Triton Public Cloud.
+Even though `dockerOptions` supports a wide variety of configurations, you can only use options that are relevant for your Container Service. The table below maps our tags to settings in Amazon EC2 Container Service (ECS), Kubernetes, Google Container Engine (GKE), Joyent Triton Public Cloud, Docker Cloud (DCL), and Docker Datacenter (DDC).
 
 There are two levels of mapping in dockerOptions.
 
@@ -360,10 +360,10 @@ The prefix `TOP LEVEL ->` denotes that the field will be mapped to one of the to
 <br>
 Here are links to docs for each Container Service:
 
-* [Amazon ECS docs](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+* [Amazon ECS](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
 * [Kubernetes](http://kubernetes.io/docs/api-reference/v1/definitions/)
-* [Google Container Engine (GKE) docs](http://kubernetes.io/docs/api-reference/v1/definitions/)
-* [Joyent Triton docs](https://docs.docker.com/v1.9/engine/reference/api/docker_remote_api_v1.18/)
+* [Google Container Engine (GKE)](http://kubernetes.io/docs/api-reference/v1/definitions/)
+* [Joyent Triton](https://docs.docker.com/v1.9/engine/reference/api/docker_remote_api_v1.18/)
 * [Docker Cloud](https://docs.docker.com/apidocs/docker-cloud/#service)
 * [Docker Datacenter](https://docs.docker.com/v1.9/engine/reference/api/docker_remote_api_v1.18/)
 
@@ -392,8 +392,8 @@ Container level docker options: These fields map to each objects inside `contain
 ```
 resources:
   - name: <string>
-  - type: dockerOptions
-  - version:
+    type: dockerOptions
+    version:
       essential: boolean
 ```
 
@@ -401,8 +401,8 @@ Top level docker options: There are two top levels for Amazon ECS i.e. `service`
 ```
   resources:
   - name: <string>
-  - type: dockerOptions
-  - version:
+    type: dockerOptions
+    version:
       service:
         loadBalancer:
          - <object>
@@ -410,8 +410,13 @@ Top level docker options: There are two top levels for Amazon ECS i.e. `service`
         clientToken: <string>
         role: <string>
         deploymentConfiguration:
-          "maximumPercent": <number>,
-          "minimumHealthyPercent": <number>
+          maximumPercent: <number>
+          minimumHealthyPercent: <number>
+        placementStrategy:
+         - field: <string>
+           type: <string>
+         - field: <string>
+           type: <string>
       taskDefinition:
         family: <string>
         taskRoleArn: <string>
@@ -431,8 +436,8 @@ Top level docker options: Only one top level is currently supported for Google C
 ```
 resources:
   - name: <string>
-  - type: dockerOptions
-  - version:
+    type: dockerOptions
+    version:
       pod:
         terminationGracePeriodSeconds: <number>
         activeDeadlineSeconds: <number>
@@ -448,14 +453,14 @@ resources:
           - <string>
 ```
 
-###Docker Data Center
+###Docker Datacenter
 
 Container level docker options:
 ```
 resources:
   - name: <string>
-  - type: dockerOptions
-  - version:
+    type: dockerOptions
+    version:
       ExposedPorts: <object>
       StopSignal: <string>
       HostConfig:
@@ -509,8 +514,8 @@ Container level docker options:
 ```
 resources:
   - name: <string>
-  - type: dockerOptions
-  - version:
+    type: dockerOptions
+    version:
        autoredeploy: <boolean>
        autodestroy: <string>
        nickname: <string>
