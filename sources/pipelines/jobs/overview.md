@@ -3,7 +3,7 @@ page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # Jobs
-Jobs are the executable units of your pipelines. They take one or more [resources](../resources/overview/) as inputs, perform some operation on the inputs, and can output to other resources. Jobs can also act as inputs for other jobs, which serves to daisy-chain a series of jobs into a pipeline.   
+Jobs are the executable units of your pipelines. They take one or more [resources](../resources/overview/) as inputs, perform some operation on the inputs, and can output to other resources. Jobs can also act as inputs for other jobs, which serves to daisy-chain a series of jobs into a pipeline.
 
 <img src="../../images/jobs/jobWorkflow.png" alt="Connecting jobs into a pipeline" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
@@ -13,7 +13,7 @@ Shippable supports jobs in two ways - **managed** and **unmanaged**.
 
 **Unmanaged jobs** are available for you to provide you complete flexibility to do pretty much anything you need by configuring the job with custom shell scripts. These jobs can take any supported resource as an input and can output to any resource depending on your configuration.
 
-We currently support 4 types of jobs:
+We currently support 6 types of jobs:
 
 - [manifest](manifest/): This managed job type is used for creating and versioning an application or service definition. Your service definition consists of one or more Docker images, options you want to run your containers with, and environment parameters.
 
@@ -21,7 +21,11 @@ We currently support 4 types of jobs:
 
 - [release](release/): This managed job type is used to perform release management. You can apply semantic versioning to your services or entire application at any stage of your pipeline.
 
+- [provision](provision/): This managed job type is used to create objects on a supported Container Service.
+
 - [runSh](runSh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts.
+
+- [jenkinsJob](jenkinsJob/): This managed job type allows you to connect an existing Jenkins job to your Shippable pipeline.
 
 Jobs, [resources](../resources/overview/), and [triggers](../triggers/) together can be used to model any deployment pipeline, regardless of the complexity of your application.
 
@@ -58,7 +62,7 @@ jobs:
     type: manifest | deploy | release | runSh
     steps:
       - IN: <resource>
-      - IN: <resource>							
+      - IN: <resource>
 
 ```
 This a very simple job which needs 2 INput resources to perform whatever that job is designed to do.

@@ -23,7 +23,7 @@ jobs:
       - IN: <manifest>                			#required
       - IN: <cluster>                      	#required
       - IN: <dockerOptions>						#optional override
-      - IN: <params>                       	#optional override  
+      - IN: <params>                       	#optional override
       - IN: <replicas>							#optional override
 ```
 
@@ -121,14 +121,14 @@ Shippable supports 3 types of deployments:
 
 By default, deployments to Amazon ECS, Google Container Engine and Joyent Triton are blue-green deployments.
 
-* The second type is **upgrade** deployments where we deploy the newer version of the service and bring down the older version without waiting for the newer version to be up and running. Depending on how your Container Service handles this scenario, there might be some downtime with this type of deployment. In our experience, Amazon ECS handles this with no downtime, but with Google Container Engine and Joyent Triton, there might be a brief hiccup if the new container takes some time to come up.  
+* The second type is **upgrade** deployments where we deploy the newer version of the service and bring down the older version without waiting for the newer version to be up and running. Depending on how your Container Service handles this scenario, there might be some downtime with this type of deployment. In our experience, Amazon ECS handles this with no downtime, but with Google Container Engine and Joyent Triton, there might be a brief hiccup if the new container takes some time to come up.
 
-* The third type is **replace** deployments where we bring down the old version and wait until the application is stopped successfully before deploying the new version. This type of deployment always has some downtime, depending on how quickly the Container Service is able to stop and start applications. It is mostly intended to be used for deployments to clusters where it's not possible to run more than one instance of the same task in parallel due to a limited number of machines.  
+* The third type is **replace** deployments where we bring down the old version and wait until the application is stopped successfully before deploying the new version. This type of deployment always has some downtime, depending on how quickly the Container Service is able to stop and start applications. It is mostly intended to be used for deployments to clusters where it's not possible to run more than one instance of the same task in parallel due to a limited number of machines.
 
 If you want to specify upgrade or replace deployment instead of the default blueGreen, you can do it in your `shippable.jobs.yml`:
 
 ```
-jobs:  
+jobs:
   - name: <job name>
     type: deploy
     steps:
@@ -140,9 +140,9 @@ jobs:
 Please make sure the `TASK` tag is the last one in the list of steps.
 
 ##Attaching a Load Balancer
-As part of your job, you can choose to deploy an image in your manifest behind a load balancer. Please note that this option currently only works with AWS Classic and Application Load Balancers. Also, the load balancer must be already created on AWS and then configured on Shippable. We do not handle creation of the load balancer.
+As part of your job, you can choose to deploy an image in your manifest behind a load balancer. Please note that this option currently only works with AWS Classic and Application Load Balancers. (Google Container Engine load balancer-type services can be created using a [provision](provision/) job.) Also, the load balancer must be already created on AWS and then configured on Shippable. We do not handle creation of the load balancer as part of deploy jobs.
 
-```  
+```
 jobs:
   - name: <job name>
     type: deploy
