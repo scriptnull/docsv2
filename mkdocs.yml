@@ -112,6 +112,7 @@ pages:
     - Jfrog Artifactory: integrations/artifactRegistries/jfrogArtifactory.md
   - Container Services:
     - Amazon EC2 Container Service (ECS): integrations/containerServices/ecs.md
+    - Kubernetes: integrations/containerServices/kubernetes.md
     - Google Container Engine (GKE): integrations/containerServices/gke.md
     - Docker Cloud: integrations/containerServices/dockerCloud.md
     - Docker Datacenter: integrations/containerServices/dockerDatacenter.md
