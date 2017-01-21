@@ -313,8 +313,8 @@ Even though `dockerOptions` supports a wide variety of configurations, you can o
 | **cpuShares**                     | cpu                              | cpu                        | cpu                        | CpuShares                 | cpu_shares      | CpuShares               |
 | **portMappings**                  | portMappings                     | port                       | port                       | None                      | container_ports | PortBindings            |
 | **links**                         | links                            | None                       | None                       | Links                     | links           | Links                   |
-| **hostName**                      | hostname                         | TOP LEVEL -> hostname      | TOP LEVEL -> hostname      | Hostname                  | hostname        | Hostname                |
-| **domainName**                    | None                             | TOP LEVEL -> subDomain     | TOP LEVEL -> subDomain     | Domainname                | domainname      | Domainname              |
+| **hostName**                      | hostname                         | hostname      | TOP LEVEL -> hostname      | Hostname                  | hostname        | Hostname                |
+| **domainName**                    | None                             | subDomain     | TOP LEVEL -> subDomain     | Domainname                | domainname      | Domainname              |
 | **user**                          | user                             | runAsUser                  | runAsUser                  | User                      | user            | User                    |
 | **memorySwap*                    | None                             | None                       | None                       | None                      | memswap_limit   | MemorySwap              |
 | **attachStdin**                   | None                             | None                       | None                       | AttachStdin               | None            | AttachStdin             |
@@ -337,7 +337,7 @@ Even though `dockerOptions` supports a wide variety of configurations, you can o
 | **volumesFrom**                   | volumesFrom                      | None                       | None                       | VolumesFrom               | volumes_from    | VolumesFrom             |
 | **capAdd**                        | None                             | add                        | add                        | None                      | cap_add         | CapAdd                  |
 | **capDrop**                       | None                             | drop                       | drop                       | None                      | cap_drop        | resourceslimits         |
-| **restartPolicy**                 | None                             | TOP LEVEL -> restartPolicy | TOP LEVEL -> restartPolicy | RestartPolicy             | restart         | RestartPolicy           |
+| **restartPolicy**                 | None                             | restartPolicy | TOP LEVEL -> restartPolicy | RestartPolicy             | restart         | RestartPolicy           |
 | **network**                       | TOP LEVEL -> networkMode         | None                       | None                       | None                      | net             | NetworkMode             |
 | **devices**                       | None                             | None                       | None                       | None                      | devices         | Devices                 |
 | **ulimits**                       | ulimits                          | None                       | None                       | Ulimits                   | None            | Ulimits                 |
