@@ -38,6 +38,49 @@ For more information on this, please check out our docs on [Deployment pipelines
 
 ---
 
+## Creating the Shippable Account Integration (Kubernetes master does not have a public IP address)
+
+If your Kubernetes master node is not publicly accessible from the internet, Shippable's hosted service cannot communicate with it. To get around this problem, we need you to configure a Bastion host which is publicly accessible and can also communicate with the Kubernetes master node.
+
+The requirement for Bastion host are:
+* Bastion host should have IP address and port 22 open for SSH access
+* You can SSH into the Bastion host
+* Bastion host can access the Kubernetes master node, i.e. it contains the private SSH key
+* Bastion host has kubectl installed. Install it with the following script:
+
+```
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+```
+
+Now, you can create the Shippable account integration:
+
+1. Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Integrations' section.
+2. Click on the `Add Integration` button and choose `Kubernetes` from the list of choices.
+3. For 'Integration Name' use a distinctive name that's easy to associate to the integration and recall. Example: `kube-int`.
+4. 'Cluster Access type' should be set to `Bastion Host`.
+5. SSH into the Bastion host and from there, SSH into your Kubernetes master node and run the following commands:
+
+```
+$ sudo su -
+$ cat /etc/kubernetes/admin.conf
+```
+Copy the output of this file which gives you the [kubeconfig](https://kubernetes.io/docs/user-guide/kubeconfig-file/).
+6. Paste the contents into the 'KubeConfig File' textbox.
+7. Assign this integration to the Subscription(s) containing the repo with your pipelines config. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
+8. Click on `Save`.
+9. You will see a script section which contains a script you need to run on your Bastion host. Run the script and then click on `Done`.
+
+<img src="/ci/images/integrations/containerServices/kubernetes/kubernetes-bastion-integration.png" alt="Google Kubernetes integration" style="width:700px;"/>
+
+You can now use this integration in your pipeline YML config to deploy to your Kubernetes pod.
+
+For more information on this, please check out our docs on [Deployment pipelines](/pipelines/overview/), [deploy job](/pipelines/jobs/deploy/) and [cluster resource](/pipelines/resources/cluster/).
+
+---
+
 ##Deleting the Integration
 
 To remove the Kubernetes integration, you'll need to remove this integration from all dependencies configured to use it. To find all the dependencies:
