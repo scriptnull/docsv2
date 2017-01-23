@@ -313,8 +313,8 @@ Even though `dockerOptions` supports a wide variety of configurations, you can o
 | **cpuShares**                     | cpu                              | cpu                        | cpu                        | CpuShares                 | cpu_shares      | CpuShares               |
 | **portMappings**                  | portMappings                     | port                       | port                       | None                      | container_ports | PortBindings            |
 | **links**                         | links                            | None                       | None                       | Links                     | links           | Links                   |
-| **hostName**                      | hostname                         |               | TOP LEVEL -> hostname      | Hostname                  | hostname        | Hostname                |
-| **domainName**                    | None                             |              | TOP LEVEL -> subDomain     | Domainname                | domainname      | Domainname              |
+| **hostName**                      | hostname                         |  Coming soon...             | TOP LEVEL -> hostname      | Hostname                  | hostname        | Hostname                |
+| **domainName**                    | None                             |   Coming soon...          | TOP LEVEL -> subDomain     | Domainname                | domainname      | Domainname              |
 | **user**                          | user                             | runAsUser                  | runAsUser                  | User                      | user            | User                    |
 | **memorySwap*                    | None                             | None                       | None                       | None                      | memswap_limit   | MemorySwap              |
 | **attachStdin**                   | None                             | None                       | None                       | AttachStdin               | None            | AttachStdin             |
