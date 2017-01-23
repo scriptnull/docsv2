@@ -30,7 +30,7 @@ Copy the output of this file which gives you the [kubeconfig](https://kubernetes
 7. Assign this integration to the Subscription(s) containing the repo with your pipelines config. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
 8. Click on `Save`.
 
-<img src="/ci/images/integrations/containerServices/kubernetes/kubernetes-integration.png" alt="Google Kubernetes integration" style="width:700px;"/>
+<img src="/ci/images/integrations/containerServices/kubernetes/kubernetes-integration.png" alt="Google Kubernetes integration" style="width:500px;"/>
 
 You can now use this integration in your pipeline YML config to deploy to your Kubernetes pods.
 
@@ -73,7 +73,7 @@ Copy the output of this file which gives you the [kubeconfig](https://kubernetes
 8. Click on `Save`.
 9. You will see a script section which contains a script you need to run on your Bastion host. Run the script and then click on `Done`.
 
-<img src="/ci/images/integrations/containerServices/kubernetes/kubernetes-bastion-integration.png" alt="Google Kubernetes integration" style="width:700px;"/>
+<img src="/ci/images/integrations/containerServices/kubernetes/kubernetes-bastion-integration.png" alt="Google Kubernetes integration" style="width:500px;"/>
 
 You can now use this integration in your pipeline YML config to deploy to your Kubernetes pod.
 
