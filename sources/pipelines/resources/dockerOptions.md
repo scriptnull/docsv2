@@ -337,7 +337,7 @@ Even though `dockerOptions` supports a wide variety of configurations, you can o
 | **volumesFrom**                   | volumesFrom                      | None                       | None                       | VolumesFrom               | volumes_from    | VolumesFrom             |
 | **capAdd**                        | None                             | add                        | add                        | None                      | cap_add         | CapAdd                  |
 | **capDrop**                       | None                             | drop                       | drop                       | None                      | cap_drop        | resourceslimits         |
-| **restartPolicy**                 | None                             | Only option is **Always** | TOP LEVEL -> restartPolicy | RestartPolicy             | restart         | RestartPolicy           |
+| **restartPolicy**                 | None                             | TOP LEVEL -> restartPolicy | TOP LEVEL -> restartPolicy | RestartPolicy             | restart         | RestartPolicy           |
 | **network**                       | TOP LEVEL -> networkMode         | None                       | None                       | None                      | net             | NetworkMode             |
 | **devices**                       | None                             | None                       | None                       | None                      | devices         | Devices                 |
 | **ulimits**                       | ulimits                          | None                       | None                       | Ulimits                   | None            | Ulimits                 |
