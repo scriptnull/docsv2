@@ -304,8 +304,15 @@ If you do not provide a dockerOptions resource to a manifest job, it will set me
 
 <a name="mappingDockerOptions"></a>
 ##Mapping dockerOptions to your Container Service
-Even though `dockerOptions` supports a wide variety of configurations, you can only use options that are relevant for your Container Service. The table below maps our tags to settings in Amazon's ECS, Google Container Enginer, and Joyent Triton Public Cloud.
+Even though `dockerOptions` supports a wide variety of configurations, you can only use options that are relevant for your Container Service. The table below maps our tags to settings in Amazon's ECS, Kubernetes, Google Container Engine, and Joyent Triton Public Cloud.
 
+There are two levels of mapping in dockerOptions.
+
+- __Container Level__ : The docker options, which will be mapped to container level fields in the configuration of the container service. Example: Fields present inside [containerDefinitions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definitions) of [taskDefinition](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) in ECS.
+
+- __Top level__ : The docker options, which will be mapped to fields that are common to one or more containers in the configuration of the container service. Example: Fields present at root level of [taskDefinition](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) will be top level options and are common to all containers in [containerDefinitions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definitions).
+
+The prefix `TOP LEVEL ->` denotes that the field will be mapped to one of the top level docker options metioned in  [Provider specific options](dockerOptions/#provider-specific-options).
 
 | Shippable Tag                     | Amazon ECS                       | Kubernetes                        | GKE                        | TRITON [Remote API v1.21] | DCL             | DDC [ Remote API v1.24] |
 |-------------------------------|----------------------------------|----------------------------|----------------------------|---------------------------|-----------------|-------------------------|
@@ -381,7 +388,7 @@ Many options listed above are shared across all providers. For example, every pr
 
 ###Amazon ECS
 
-Image level docker options:
+Container level docker options: These fields map to each objects inside `containerDefinitions` of `taskDefinition`.
 ```
 resources:
   - name: <string>
@@ -389,7 +396,8 @@ resources:
   - version:
       essential: boolean
 ```
-Top level docker options
+
+Top level docker options: There are two top levels for Amazon ECS i.e. `service` and `taskDefinition`. Please refer following yml to find the possible options, that can be given under them.
 ```
   resources:
   - name: <string>
@@ -419,7 +427,7 @@ None at this time.
 
 ###Google Container Engine
 
-Top level docker options
+Top level docker options: Only one top level is currently supported for Google Container Engine i.e. pod. In future, Shippable might support more top level objects like `replication controller`, `namespace`. Please open a [support ticket](https://github.com/Shippable/support), if you are in need of specific top level option.
 ```
 resources:
   - name: <string>
@@ -442,7 +450,7 @@ resources:
 
 ###Docker Data Center
 
-Image level docker options:
+Container level docker options:
 ```
 resources:
   - name: <string>
@@ -497,7 +505,7 @@ resources:
 
 ###Docker Cloud
 
-Image level docker options:
+Container level docker options:
 ```
 resources:
   - name: <string>
