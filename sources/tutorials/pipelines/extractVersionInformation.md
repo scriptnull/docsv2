@@ -59,14 +59,17 @@ You can access anything from this file as long as you know what you need. In our
   "propertyBag": {
     "yml": {
       "name": "dv-image",
-      "type": "i mage",
+      "type": "image",
       "integration": "deepika-docker",
       "pointer": {
         "sourceName": "library/nginx"
       },
       "seed": {
         "versionName": "latest"
-      }
+      },
+      "flags": [
+
+      ]
     }
   },
   "versionDependencyPropertyBag": {
@@ -136,7 +139,10 @@ The example above shows the `version.json` for an `image` resource. To use this 
       "pointer": {
         "sourceName": "ric03uec/infra",
         "branch": "master"
-      }
+      },
+      "flags": [
+
+      ]
     },
     "sysIntegrationName": "ric03uec-github",
     "sysDeployKey": {
@@ -257,14 +263,17 @@ The example above shows the `version.json` for an `image` resource. To use this 
   "propertyBag": {
     "yml": {
       "name": "dv-image",
-      "type": "i mage",
+      "type": "image",
       "integration": "deepika-docker",
       "pointer": {
         "sourceName": "library/nginx"
       },
       "seed": {
         "versionName": "latest"
-      }
+      },
+      "flags": [
+
+      ]
     }
   },
   "versionDependencyPropertyBag": {
@@ -311,7 +320,7 @@ The example above shows the `version.json` for an `image` resource. To use this 
             "stdin":true,
             "stdinOnce":true
          },
-         "flags":[
+         "flags": [
 
          ]
       }
@@ -442,7 +451,10 @@ The example above shows the `version.json` for an `image` resource. To use this 
       "integration": "deepika-ddc",
       "pointer": {
         "sourceName": "docker-cloud-node"
-      }
+      },
+      "flags": [
+
+      ]
     }
   },
   "versionDependencyPropertyBag": {
@@ -457,6 +469,49 @@ The example above shows the `version.json` for an `image` resource. To use this 
     }
   },
   "subscriptionIntegrationId": 4
+}
+
+```
+
+###file
+
+`version.json` for a file resource is:
+
+```
+{
+  "operation": "IN",
+  "resourceId": 14,
+  "name": "file-resource",
+  "sourceName": "https://raw.githubusercontent.com/vici.init.js",
+  "projectId": "5885967df4968d0f00e07015",
+  "isConsistent": true,
+  "type": "file",
+  "propertyBag": {
+    "yml": {
+      "name": "file-resource",
+      "type": "file",
+      "pointer": {
+        "sourceName": "https://raw.githubusercontent.com/vici.init.js"
+      },
+      "seed": {
+        "versionName": "newVersion"
+      },
+      "flags": [
+
+      ]
+    }
+  },
+  "versionDependencyPropertyBag": {
+
+  },
+  "version": {
+    "versionId": 59,
+    "versionNumber": 1,
+    "versionName": "newVersion",
+    "propertyBag": {
+
+    }
+  }
 }
 
 ```
@@ -483,7 +538,10 @@ The example above shows the `version.json` for an `image` resource. To use this 
         "recipients": [
           "#deepika-test"
         ]
-      }
+      },
+      "flags": [
+
+      ]
     }
   },
   "versionDependencyPropertyBag": {
@@ -520,7 +578,10 @@ The example above shows the `version.json` for an `image` resource. To use this 
     "yml": {
       "name": "dockerIntegration",
       "type": "integration",
-      "integration": "deepika-docker"
+      "integration": "deepika-docker",
+      "flags": [
+
+      ]
     }
   },
   "versionDependencyPropertyBag": {
@@ -558,7 +619,10 @@ The example above shows the `version.json` for an `image` resource. To use this 
       "type": "version",
       "seed": {
         "versionName": "0.0.1-beta"
-      }
+      },
+      "flags": [
+
+      ]
     }
   },
   "versionDependencyPropertyBag": {
