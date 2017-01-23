@@ -307,46 +307,46 @@ If you do not provide a dockerOptions resource to a manifest job, it will set me
 Even though `dockerOptions` supports a wide variety of configurations, you can only use options that are relevant for your Container Service. The table below maps our tags to settings in Amazon's ECS, Google Container Enginer, and Joyent Triton Public Cloud.
 
 
-| Shippable Tag                     | Amazon ECS                       | GKE                        | TRITON [Remote API v1.21] | DCL             | DDC [ Remote API v1.24] |
-|-------------------------------|----------------------------------|----------------------------|---------------------------|-----------------|-------------------------|
-| **memory**                        | memory                           | memory                     | Memory                    | mem_limit       | Memory                  |
-| **cpuShares**                     | cpu                              | cpu                        | CpuShares                 | cpu_shares      | CpuShares               |
-| **portMappings**                  | portMappings                     | port                       | None                      | container_ports | PortBindings            |
-| **links**                         | links                            | None                       | Links                     | links           | Links                   |
-| **hostName**                      | hostname                         | TOP LEVEL -> hostname      | Hostname                  | hostname        | Hostname                |
-| **domainName**                    | None                             | TOP LEVEL -> subDomain     | Domainname                | domainname      | Domainname              |
-| **user**                          | user                             | runAsUser                  | User                      | user            | User                    |
-| **memorySwap*                    | None                             | None                       | None                      | memswap_limit   | MemorySwap              |
-| **attachStdin**                   | None                             | None                       | AttachStdin               | None            | AttachStdin             |
-| **attachStdout**                  | None                             | None                       | AttachStdOut              | None            | AttachStdOut            |
-| **attachStderr**                  | None                             | None                       | AttachStderr              | None            | AttachStderr            |
-| **tty**                           | None                             | tty                        | Tty                       | tty             | Tty                     |
-| **stdin**                         | None                             | stdin                      | OpenStdin                 | stdin_open      | OpenStdin               |
-| **stdinOnce**                     | None                             | stdinOnce                  | StdinOnce                 | None            | StdinOnce               |
-| **labels**                        | dockerLabels                     | labels                     | Labels                    | labels          | labels                  |
-| **cmd**                           | command                          | args                       | cmd                       | command         | cmd                     |
-| **entryPoint**                    | entryPoint                       | command                    | EntryPoint                | entrypoint      | EntryPoint              |
-| **volumes**                       | TOP LEVEL -> volumes/mountPoints | volumes/volumeMounts       | Volume                    | volumes         | Volume/binds            |
-| **networkDisabled**               | disableNetworking                | None                       | None                      | None            | NetworkDisabled         |
-| **publishAllPorts**               | None                             | None                       | PublishAllPorts           | None            | PublishAllPorts         |
-| **privileged**                    | privileged                       | privileged                 | Privileged                | privileged      | Privileged              |
-| **readOnlyRootFilesystem**        | readonlyRootFilesystem           | readOnlyRootFilesystem     | ReadonlyRootfs            | read_only       | ReadonlyRootfs          |
-| **dnsServers**                    | dnsServers                       | None                       | Dns                       | dns             | Dns                     |
-| **dnsSearch**                     | dnsSearchDomains                 | None                       | DnsSearch                 | dns_search      | DnsSearch               |
-| **extraHosts**                    | extraHosts                       | None                       | None                      | extra_hosts     | ExtraHosts              |
-| **volumesFrom**                   | volumesFrom                      | None                       | VolumesFrom               | volumes_from    | VolumesFrom             |
-| **capAdd**                        | None                             | add                        | None                      | cap_add         | CapAdd                  |
-| **capDrop**                       | None                             | drop                       | None                      | cap_drop        | resourceslimits         |
-| **restartPolicy**                 | None                             | TOP LEVEL -> restartPolicy | RestartPolicy             | restart         | RestartPolicy           |
-| **network**                       | TOP LEVEL -> networkMode         | None                       | None                      | net             | NetworkMode             |
-| **devices**                       | None                             | None                       | None                      | devices         | Devices                 |
-| **ulimits**                       | ulimits                          | None                       | Ulimits                   | None            | Ulimits                 |
-| **securityOptions**               | dockerSecurityOptions            | None                       | None                      | security_opt    | SecurityOpt             |
-| **logConfig**                     | logConfiguration                 | None                       | LogConfig                 | None            | LogConfig               |
-| **cGroupParent**                  | None                             | None                       | None                      | cgroup_parent   | CgroupParent            |
-| **memoryReservation**  [ in MB ]  | memoryReservation                | None                       | None                      | None            | MemoryReservation              |
-| **workingDir**                    | workingDirectory                 | workingDir                 | None                      | working_dir     | working_dir       |
-| **pid**                           | None                             | None                       | None                      | pid             | PidMode                 |
+| Shippable Tag                     | Amazon ECS                       | Kubernetes                        | GKE                        | TRITON [Remote API v1.21] | DCL             | DDC [ Remote API v1.24] |
+|-------------------------------|----------------------------------|----------------------------|----------------------------|---------------------------|-----------------|-------------------------|
+| **memory**                        | memory                           | memory                     | memory                     | Memory                    | mem_limit       | Memory                  |
+| **cpuShares**                     | cpu                              | cpu                        | cpu                        | CpuShares                 | cpu_shares      | CpuShares               |
+| **portMappings**                  | portMappings                     | port                       | port                       | None                      | container_ports | PortBindings            |
+| **links**                         | links                            | None                       | None                       | Links                     | links           | Links                   |
+| **hostName**                      | hostname                         |  Coming soon...             | TOP LEVEL -> hostname      | Hostname                  | hostname        | Hostname                |
+| **domainName**                    | None                             |   Coming soon...          | TOP LEVEL -> subDomain     | Domainname                | domainname      | Domainname              |
+| **user**                          | user                             | runAsUser                  | runAsUser                  | User                      | user            | User                    |
+| **memorySwap*                    | None                             | None                       | None                       | None                      | memswap_limit   | MemorySwap              |
+| **attachStdin**                   | None                             | None                       | None                       | AttachStdin               | None            | AttachStdin             |
+| **attachStdout**                  | None                             | None                       | None                       | AttachStdOut              | None            | AttachStdOut            |
+| **attachStderr**                  | None                             | None                       | None                       | AttachStderr              | None            | AttachStderr            |
+| **tty**                           | None                             | tty                        | tty                        | Tty                       | tty             | Tty                     |
+| **stdin**                         | None                             | stdin                      | stdin                      | OpenStdin                 | stdin_open      | OpenStdin               |
+| **stdinOnce**                     | None                             | stdinOnce                  | stdinOnce                  | StdinOnce                 | None            | StdinOnce               |
+| **labels**                        | dockerLabels                     | labels                     | labels                     | Labels                    | labels          | labels                  |
+| **cmd**                           | command                          | args                       | args                       | cmd                       | command         | cmd                     |
+| **entryPoint**                    | entryPoint                       | command                    | command                    | EntryPoint                | entrypoint      | EntryPoint              |
+| **volumes**                       | TOP LEVEL -> volumes/mountPoints | volumes/volumeMounts       | volumes/volumeMounts       | Volume                    | volumes         | Volume/binds            |
+| **networkDisabled**               | disableNetworking                | None                       | None                       | None                      | None            | NetworkDisabled         |
+| **publishAllPorts**               | None                              | None                       | None                       | PublishAllPorts           | None            | PublishAllPorts         |
+| **privileged**                    | privileged                       | privileged                 | privileged                 | Privileged                | privileged      | Privileged              |
+| **readOnlyRootFilesystem**        | readonlyRootFilesystem           | readOnlyRootFilesystem     | readOnlyRootFilesystem     | ReadonlyRootfs            | read_only       | ReadonlyRootfs          |
+| **dnsServers**                    | dnsServers                       | None                       | None                       | Dns                       | dns             | Dns                     |
+| **dnsSearch**                     | dnsSearchDomains                 | None                       | None                       | DnsSearch                 | dns_search      | DnsSearch               |
+| **extraHosts**                    | extraHosts                       | None                       | None                       | None                      | extra_hosts     | ExtraHosts              |
+| **volumesFrom**                   | volumesFrom                      | None                       | None                       | VolumesFrom               | volumes_from    | VolumesFrom             |
+| **capAdd**                        | None                             | add                        | add                        | None                      | cap_add         | CapAdd                  |
+| **capDrop**                       | None                             | drop                       | drop                       | None                      | cap_drop        | resourceslimits         |
+| **restartPolicy**                 | None                             | TOP LEVEL -> restartPolicy | TOP LEVEL -> restartPolicy | RestartPolicy             | restart         | RestartPolicy           |
+| **network**                       | TOP LEVEL -> networkMode         | None                       | None                       | None                      | net             | NetworkMode             |
+| **devices**                       | None                             | None                       | None                       | None                      | devices         | Devices                 |
+| **ulimits**                       | ulimits                          | None                       | None                       | Ulimits                   | None            | Ulimits                 |
+| **securityOptions**               | dockerSecurityOptions            | None                       | None                       | None                      | security_opt    | SecurityOpt             |
+| **logConfig**                     | logConfiguration                 | None                        | None                       | LogConfig                 | None            | LogConfig               |
+| **cGroupParent**                  | None                             | None                       | None                       | None                      | cgroup_parent   | CgroupParent            |
+| **memoryReservation**  [ in MB ]  | memoryReservation                | None                       | None                       | None                      | None            | MemoryReservation              |
+| **workingDir**                    | workingDirectory                 | workingDir                 | workingDir                 | None                      | working_dir     | working_dir       |
+| **pid**                           | None                             | None                       | None                       | None                      | pid             | PidMode                 |
 
 
 
@@ -354,6 +354,7 @@ Even though `dockerOptions` supports a wide variety of configurations, you can o
 Here are links to docs for each Container Service:
 
 * [Amazon ECS docs](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+* [Kubernetes](http://kubernetes.io/docs/api-reference/v1/definitions/)
 * [Google Container Engine (GKE) docs](http://kubernetes.io/docs/api-reference/v1/definitions/)
 * [Joyent Triton docs](https://docs.docker.com/v1.9/engine/reference/api/docker_remote_api_v1.18/)
 * [Docker Cloud](https://docs.docker.com/apidocs/docker-cloud/#service)
@@ -371,7 +372,7 @@ In the picture above, `deploy-test` takes `dockerOptions-1` as an input. After t
 
 ##Triggering dependent jobs
 
-When anything in `dockerOptions` changes, a new version of the resource is created. However, this does not automatically trigger subsequent portions of the pipeline since we have no way of knowing if your code commit changing dockerOptions also changed something else in the pipeline. Triggering dependent jobs automatically might lead to unexpected behaviour in this case.
+When anything in `dockerOptions` changes, a new version of the resource is created. However, this does not automatically trigger subsequent portions of the pipeline since we have no way of knowing if your code commit changing dockerOptions also changed something else in the pipeline. Triggering dependent jobs automatically might lead to unexpected behavior in this case.
 
 To trigger the rest of the workflow, you will need to manually trigger any jobs that have this resource as an input. You can do this through the UI by right clicking on the dependent job and clicking on `Run`, or by updating an input [trigger resource](../triggers/) for the job.
 
@@ -411,6 +412,10 @@ Top level docker options
           - "<source>:<container path>:<options>"
           - "<source>:<container path>:<options>"
 ```
+
+###Kubernetes
+
+None at this time.
 
 ###Google Container Engine
 

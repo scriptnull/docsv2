@@ -112,6 +112,7 @@ We support a multitude of languages, tools, services, as well as all popular sou
 
 ## Container Services
 - [Amazon EC2 Container Service (ECS)](/integrations/containerServices/ecs/)
+- [Kubernetes](/integrations/containerServices/kubernetes/)
 - [Google Container Engine (GKE)](/integrations/containerServices/gke/)
 - [Docker Cloud](/integrations/containerServices/dockerCloud/)
 - [Docker Datacenter](/integrations/containerServices/dockerDatacenter/)

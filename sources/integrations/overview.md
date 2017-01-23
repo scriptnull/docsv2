@@ -76,6 +76,7 @@ You need a Container Service integration if you want to push your application to
 We support the following Container Services:
 
 - [Amazon EC2 Container Service (ECS)](containerServices/ecs/)
+- [Kubernetes](containerServices/kubernetes/)
 - [Google Container Engine (GKE)](containerServices/gke/)
 - [Docker Cloud](containerServices/dockerCloud/)
 - [Docker Datacenter](containerServices/dockerDatacenter/)

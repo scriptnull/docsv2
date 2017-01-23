@@ -25,10 +25,11 @@ resources:
 
 * `integration` should be the name of the Subscription Integration you create for you subscription that leverages the credentials you set up in Account Integrations to connect to the Container Service of your choice. To learn how to create integrations for a specific Container Service, please select from the list below:
 	* [AWS Elastic Container Service (ECS)](../../integrations/containerServices/ecs/)
+  * [Kubernetes](../../integrations/containerServices/kubernetes/)
 	* [Google Container Engine (GKE)](../../integrations/containerServices/gke/)
 	* [Joyent Triton](../../integrations/containerServices/triton/)
-  	* [Docker Cloud](../../integrations/containerServices/dcl/)
-  	* [Docker Datacenter](../../integrations/containerServices/dockerDatacenter/)  
+  * [Docker Cloud](../../integrations/containerServices/dcl/)
+  * [Docker Datacenter](../../integrations/containerServices/dockerDatacenter/)    
 	* Microsoft Azure Container Service(coming soon)
 
 
