@@ -181,7 +181,7 @@ pages:
     - Connecting CI and Pipelines: tutorials/pipelines/connectingCiPipelines.md
     - Rolling back deployments: tutorials/pipelines/rollback-deployments.md
     - Deployment tutorials:
-      - Deploy a sample app to Kubernetes: tutorials/pipelines/integrations/container-services/deploy-to-kubernetes.md
+      - Deploy a sample app to Kubernetes: tutorials/pipelines/deploy-to-kubernetes.md
     - runSh tutorials:
       - Using integrations with runSh: tutorials/pipelines/runShUseIntegrations.md
       - Updating resource version: tutorials/pipelines/updateResourceVersion.md
