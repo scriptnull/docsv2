@@ -14,13 +14,13 @@ This is the only resource type that can be added from the UI. You should not add
 ## Adding a syncRepo from the UI
 
 * Go to your Subscription's page and click on `Pipelines`
-* Click on the `Resources` pill and then click on `Add resource` at the right
+* Click on the `+` button in the upper right corner
 * You will first need to select a subscription integration. This should point to the source control system where the repository containing your pipeline definitions is located. To learn how to create subcription integrations for source control, read the [SCM section of integrations overview page](../../integrations/overview.md#scm).
 * Once you add the integration, you will see a list of repositories in your subscription.
 * Select the repository and branch that contains your shippable.jobs.yml and shippable.resources.yml files
 * Name your sync repository and click on `Save`. This should seed your pipeline.
 
-If you click on the SPOG pill, you should see a visualization of the the jobs and resources from your pipeline.
+Once you have added a syncRepo, you will see a visualization of the the jobs and resources from your `shippable.jobs.yml` and your `shippable.resources.yml`.
 
 ## Adding a syncRepo through the yml
 You will always need to add at least one syncRepo through the UI. Subsequent syncRepos can be either added through the UI or you can include them in the `shippable.resources.yml`of the first syncRepo:
@@ -35,7 +35,7 @@ resources:
       branch: <string>                          #optional, default master
 ```
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
+* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view. It is also used to refer to this resource in the jobs yml. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
 
 * `type` is always set to 'syncRepo'.
 

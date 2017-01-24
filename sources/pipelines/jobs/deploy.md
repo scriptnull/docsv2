@@ -27,7 +27,7 @@ jobs:
       - IN: <replicas>							#optional override
 ```
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view and in the list of jobs in the Pipelines `Jobs` tab.
+* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view.
 * `type` is always set to deploy
 * You will need one `manifest` job as an input. This tells us what images are to be deployed. Please read documentation on how to [define a manifest](manifest/) in your jobs yml.
 * `cluster` is also a required input resource. This gives us information about where you want your manifest to be deployed, i.e. your deployment target. Read more on [cluster resource](../resources/cluster/).
@@ -67,7 +67,7 @@ jobs:
           - manifest-2
 ```
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view and in the list of jobs in the Pipelines `Jobs` tab.
+* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view.
 * `type` is always set to deploy
 * You can add any number of `manifest` jobs as an input for this job. This tells us what images are to be deployed. Please read documentation on how to [define a manifest](manifest/) in your jobs yml.
 * `cluster` is also a required input. This gives us information about where you want your manifest to be deployed, i.e. your deployment target. All manifests from your deploy job will be deployed to a single cluster. Read more on [cluster resource](../resources/cluster/).

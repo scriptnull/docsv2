@@ -4,7 +4,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # release
 
-`release` jobs are used to create, manage, or increment semantic versions. 
+`release` jobs are used to create, manage, or increment semantic versions.
 
 `release` jobs are usually connected to `deploy` jobs as an input, though they can also be used as an input for other `release` jobs. The common scenario is this:
 
@@ -15,7 +15,7 @@ The configuration shown above will trigger a deployment each time a new release 
 You can create a release consisting of one or more manifest jobs and/or one or more deploy jobs. The idea is to create immutable, unique version numbers that be used as deployment inputs. You can include releases jobs at any stage of your deployment pipeline depending on your requirements.
 
 ## Manifest release
-If your release job has one or more manifests jobs as inputs and does not have input deploy jobs, it is called a manifest release. 
+If your release job has one or more manifests jobs as inputs and does not have input deploy jobs, it is called a manifest release.
 
 <img src="../../images/jobs/manifestRelease.png" alt="Single manifest releases" style="width:500px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
@@ -36,7 +36,7 @@ jobs:
         bump: minor								#optional
 ```
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view and in the list of jobs in the Pipelines `Jobs` tab.
+* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG.
 * `type` is always set to release
 * A `version` resource is a required input, unless the manifests that are included in the release were versioned by another release job upstream in the pipeline. `version` seeds your release with a starting version number. Each time the release job runs, it will bump up the version number based on how the `bump` tag is configured. Read more on [version resources here](../resources/version/).
 	* `switch` provides a way to specify whether you want the release job to trigger automatically when the `version` resource changes. By default, the value is `on` but you can set it to off here to make sure the release and subsequent workflow will need to be triggered manually. This is a way to provide a manual approval gate in your pipeline.
@@ -60,7 +60,7 @@ If you want to reset the seed version and start over, you can update the `versio
 
 The `trigger` input is optional and gives you a way to manually create releases. Read more [on triggers here](../triggers/).
 
-## Deploy release 
+## Deploy release
 If your release job has one or more deploy jobs as inputs and does not have input manifest jobs, it is called a deploy release. These releases are created from an application or service that ia already deployed to an environment. The typical use case for this is an application running in a Test environment, which can be promoted to production by creating a release which then triggers production deployment.
 
 <img src="../../images/jobs/deployRelease.png" alt="A release can be created from a deployed application from service" style="width:600px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
@@ -114,5 +114,5 @@ If you want to reset the seed version and start over, you can update the `versio
 The `trigger` input is optional and gives you a way to manually create releases. Read more [on triggers here](../triggers/).
 
 
-## Combination release 
+## Combination release
 You can also include `manifest` and `deploy` jobs as inputs to the same `release` job.This is called a combination release. All descriptions of fields above will still apply to this type of release.

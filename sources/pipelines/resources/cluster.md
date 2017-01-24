@@ -19,7 +19,7 @@ resources:
       namespace: "<string>"                     #optional
 ```
 
-* resource `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and in the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
+* resource `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view. It is also used to refer to this resource in the `shippable.jobs.yml`. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
 
 * `type` is always set to 'cluster'.
 
@@ -29,7 +29,7 @@ resources:
 	* [Google Container Engine (GKE)](../../integrations/containerServices/gke/)
 	* [Joyent Triton](../../integrations/containerServices/triton/)
   * [Docker Cloud](../../integrations/containerServices/dcl/)
-  * [Docker Datacenter](../../integrations/containerServices/dockerDatacenter/)    
+  * [Docker Datacenter](../../integrations/containerServices/dockerDatacenter/)
 	* Microsoft Azure Container Service(coming soon)
 
 
@@ -39,7 +39,7 @@ resources:
 in the values that the provider supports:
     * AWS Elastic Container Service (ECS)
     * Google Container Engine (GKE)
-    * Joyent Triton  
+    * Joyent Triton
     * Microsoft Azure Container Service (ACS)
 
 * `namespace` is an option for deployments to Google Container Engine (GKE). If a namespace is specified, deployments will be made to that namespace. Otherwise deployments will be in the default namespace.

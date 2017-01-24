@@ -4,7 +4,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 # gitRepo
 
-You can use a `gitRepo` resource to connect any source control repository to a job. It is typically used as an optional `IN` for [runSh jobs](../jobs/runSh/).  
+You can use a `gitRepo` resource to connect any source control repository to a job. It is typically used as an optional `IN` for [runSh jobs](../jobs/runSh/).
 
 Adding this resource type creates a webhook on the source repoository pointing to Shippable. Due tothis, future commits to the repository will automatically create a new version for this resource with the new commit SHA. This will trigger any job(s) that has this resource as an `IN` as long as automatic trigger isn't explicitly turned off.
 
@@ -18,7 +18,7 @@ You can create this resource by adding it to `shippable.resources.yml`
     branch: <string>                          	#optional
 ```
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml.  If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
+* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view. It is also used to refer to this resource in the `shippable.jobs.yml`.  If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
 
 * `type` is always set to 'gitRepo'.
 

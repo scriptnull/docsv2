@@ -13,13 +13,13 @@ resources:
   - name: <string>                          	#required
     type: params                              	#required
     version:
-      params:                                 
+      params:
         key1: "value1"                   		#required atleast 1
         key2: "value2"                     	#optional
         secure: <encrypted value>  			#optional
 ```
 
-* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view and the list of resources in the Pipelines `Resources` tab. It is also used to refer to this resource in the jobs yml. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
+* `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view. It is also used to refer to this resource in the `shippable.jobs.yml`. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
 
 * `type` is always set to 'params'.
 
@@ -27,7 +27,7 @@ resources:
 	* Include at least one key value pair under params
 	* You can use secure variables to encrypt any key value pairs that contain sensitive information you don't want to include as plain text. To encrypt one or more key value pairs, [follow the instructions in the Subscription Settings guide](../../navigatingUI/subscriptions/settings.md#encrypt). Copy the encrypted value and include it in your resource file as shown in the snippet above.
 
-A new version of this resource is created every time anything in the version section changes.  
+A new version of this resource is created every time anything in the version section changes.
 
 
 ##Overriding params

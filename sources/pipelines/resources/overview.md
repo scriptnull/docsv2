@@ -39,19 +39,19 @@ To learn how to add this file and connect it to pipelines, [click here ](/tutori
 
 Since pipelines are all about dependencies and deployable units are flowing through these pipelines at all times, deleting a resource can significantly alter or irreversibly change the pipeline in unexpected ways. To avoid accidental deletion of resource(s) in ymls, we have made deletion of resources a 2 step process.
 
-First, you need to soft-delete a resource by removing it from your `shippable.resources.yml` file. This removes it from the pipeline, but does not remove it from the database. You can see a list of soft-deleted resources at the bottom of the `Resources` tab. If soft-deleted resources are added back to the resources yml, the system will undelete them and you will retain version history for the undeleted resource.
+First, you need to soft-delete a resource by removing it from your `shippable.resources.yml` file. This removes it from the pipeline, but does not remove it from the database. You can see a list of soft-deleted resources at the bottom of the Single Pane of Glass. If soft-deleted resources are added back to the resources yml, the system will undelete them and you will retain version history for the undeleted resource.
 
 To completely remove a resource from the system, you need to hard delete it through the UI. To do this:
 
 * Go to your Subscription page and click on the `Pipelines` tab
-* Click on the `Resources` pill
-* You will find a list of soft deleted resources at the bottom of the page. To hard delete, just click the 	`Delete` button for the resource you want to delete
+* Select "Soft Deleted Resources" from the arrow dropdown in the upper right. This will display soft-deleted resources at the bottom of the SPOG view.
+* Right-click on the resource, and click `remove`. This will permanently delete the resource from the Shippable database. This action cannot be undone.
 
 A resource must be soft deleted before it can be hard deleted.
 
 ---
 ## Viewing resources
-You can view resources and version histories of resources by going to the Pipelines tab for your subscription and clicking on the `Resources` pill.
+You can view version histories of resources by left-clicking on that resource in the Single Pane of Glass.
 
 ---
 <a name="integration"></a>
