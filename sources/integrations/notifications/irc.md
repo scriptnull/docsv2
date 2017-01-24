@@ -33,7 +33,7 @@ While the above is a sample code for your `shippable.yml`, use the descriptions 
 - `type` is `irc`.
 - `recipients` specifies the IRC public rooms you want to send build status notifications to.
      - For single recipient, use the format `recipients: "chat.freenode.net#channel2"`
-- [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
+- [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches. [Wildcards](../../ci/advancedOptions/branches/) are also supported.
 - [optional] You can set the following options for the `on_success`, `on_failure` tags:
      - The value `change` for `on_success` or `on_failure` fields means you will receive notifications only when the build status changes to success or failure respectively.
      - `always` means that you will always receive a notification for that build status.

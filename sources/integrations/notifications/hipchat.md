@@ -33,10 +33,10 @@ There are two actions to set up the HipChat integration through the UI. They are
 	* Add a friendly name for your integration
 	* In the **Token** field, paste the HipChat token
 * Click on **Save**. You should now see the integration in your list of integrations.
-		 	
+
 ---
 
-##CI notifications 
+##CI notifications
 
 To use your HipChat integration for your CI workflows, follow the steps below:
 
@@ -72,7 +72,7 @@ While the above is a sample code for your `shippable.yml`, use the descriptions 
 - `type` is `hipchat`.
 - `recipients` specifies the rooms and/or users you want to send the notification to. Please note this is a required field for HipChat notifications to work.
      - Even if there is a single recipient, use the format `recipients: "#roomOne"` for rooms and `@userOne` for users.
-- [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
+- [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches. [Wildcards](../../ci/advancedOptions/branches/) are also supported.
 - [optional] You can set the following options for the `on_success`, `on_failure` tags:
      - The value `change` for `on_success` or `on_failure` fields means you will receive notifications only when the build status changes to success or failure respectively.
      - `always` means that you will always receive a notification for that build status.
@@ -87,7 +87,7 @@ Check our blog [on configuring HipChat for both CI and Pipelines](http://blog.sh
 
 ---
 
-##Pipeline notifications 
+##Pipeline notifications
 HipChat notifications for Pipeline jobs are not supported at this time. To request these, open a <a href="https://github.com/Shippable/support/issues/" target="_blank">support issue</a> and we'll get back to you.
 
 ---

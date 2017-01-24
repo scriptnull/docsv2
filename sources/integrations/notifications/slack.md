@@ -71,7 +71,7 @@ Use the descriptions of each field below to modify the `yml` and tailor it to yo
 - `type` is `slack`.
 - `recipients` specifies the channels you want to send the notification to. Please note this is a required field for slack notifications to work.
      - Even if there is a single recipient, use the format `recipients: "#channelOne"`
-- [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
+- [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches. [Wildcards](../../ci/advancedOptions/branches/) are also supported.
 - [optional] You can set the following options for the `on_success`, `on_failure` tags:
      - The value `change` for `on_success` or `on_failure` fields means you will receive notifications only when the build status changes to success or failure respectively.
      - `always` means that you will always receive a notification for that build status.
