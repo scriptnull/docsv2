@@ -121,7 +121,7 @@ As shown above, the `switch: off` tag can be defined for IN resources or jobs in
 
 ## Pausing jobs
 
-You can pause any jobs in your pipeline by going to the `Jobs` pill in the `Pipelines` tab. Click on the `Pause` button for a job to pause it. Paused jobs are never triggered automatically, irrespective of yml configuration. You can unpause a paused job to resume any automatic triggers.
+You can pause any jobs in your pipeline by right-clicking on the job, and clicking `Pause Jobs`. Paused jobs are never triggered automatically, irrespective of yml configuration. You can unpause a paused job to resume any automatic triggers.
 
 ---
 
@@ -159,13 +159,9 @@ You can use `versionNumber`, Shippable's internal incremental numbering system, 
 
 Just like resources, Jobs are also versioned on Shippable. Every run of a job creates a new version of the job, including a unique build object which stores the console output of the Job run.
 
-You can view console output for a job by clicking on it in the SPOG view or going to the `Jobs` pill in your Pipelines tab and clicking on the Job name.
+You can view console output for a job by clicking on it in the SPOG view. The job console looks like this:
 
-<img src="../../images/jobs/viewJobConsole.png" alt="Connecting jobs into a pipeline" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-The job console looks like this:
-
-<img src="../../images/jobs/jobConsole.png" alt="Connecting jobs into a pipeline" style="width:1000px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+<img src="../../images/jobs/jobModal.png" alt="Console output and trace, properties, run, and pause buttons for a job" style="vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 ---
 <a name="jobNotifications"></a>

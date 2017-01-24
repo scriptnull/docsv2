@@ -37,7 +37,7 @@ These configuration files should be committed to a [repository in your source co
 <a name="sync"></a>
 ##Sync repository
 
-A source control repository that contains your pipeline configuration files is called a **Sync Repository**. Each sync repository contains one or more of `shippable.jobs.yml`, `shippable.resources.yml`, and `shippable.triggers.yml` files.  
+A source control repository that contains your pipeline configuration files is called a **Sync Repository**. Each sync repository contains one or more of `shippable.jobs.yml`, `shippable.resources.yml`, and `shippable.triggers.yml` files.
 
 You must seed your pipeline with at least one sync repository through the Shippable UI. Subsequent sync repositories can also be added through the UI following the same process. Instructions are in the [Adding a sync repository](#seedPipeline) section below.
 
@@ -54,8 +54,7 @@ You can add a sync repository by following the steps below:
 * First, add a subscription integration for the source control provider where your sync repository is located. Instructions are here - [Source Control Provider Integrations](../integrations/scm/scmOverview/).
 * Go to your Organization's page on Shippable. A list of all available Organizations can be accessed by clicking on the  <i class="fa fa-bars" aria-hidden="true"></i>  icon.
 * Click on the `Pipelines` tab
-* If you have never added a sync repository, you will land on the `Resources` option in the pill menu. If you have added a sync repository in the past, you will need to click on `Resources` in the pill menu.
-* Click on `Add Resource`.
+* If you have never added a sync repository, your Single Pane of Glass will be empty. Click the `+` button at upper right to add a sync repository.
 * Complete the Add Resource fields:
 	* The subscription integration dropdown should show the subscription you created in the first step. If not, you will need to go through the flow of adding the integration.
 	* The `Select Project` dropdown will show all repositories in the source control you just connected with the integration. Choose your sync repository.
@@ -63,9 +62,9 @@ You can add a sync repository by following the steps below:
 	* Name your sync repository with an easy to remember name.
 * Click on `Save` to apply your sync repository configuration.
 
-At this point, Shippable will parse all configuration files in the sync repository and create your pipeline(s).
+At this point, Shippable will parse all configuration files in the sync repository and create your pipeline(s). You will see a visualization of the the jobs and resources from your `shippable.jobs.yml` and your `shippable.resources.yml` in the Single Pane of Glass.
 
-You can view your configured pipelines created on Shippable. Click on `SPOG` in the pill menu to view your pipelines. Note, if you do not see what you expected, you likely have a configuration error. Click on the rSync resource in the SPOG view to see the console and identify any errors that may exist.
+Note: if you do not see what you expected, you likely have a configuration error. Click on the rSync resource in the SPOG view to see the console and identify any errors that may exist.
 
 ---
 
@@ -79,9 +78,10 @@ Each job in this view will update colors in real time based on the status of the
 You can interact with the SPOG view in the folllowing ways:
 
 - Zoom in and out to see additional details for any part of the pipeline
-- Right click on a job to view status, inputs, latest version number
-- Right click on a job to manually run the job
-- Right click on a resource to view latest version number
+- Right click on a job to run or pause the job. When a job is paused, it will ignore webhooks and not run unless you manually trigger the job.
+- Left click on a job to view console output for each version of the job. You can also use the `trace` feature to see the job's inputs, or `properties` to see additional information about the job.
+
+To see "orphaned" resources (resources that are not inputs to a job in the pipeline) or resources that are soft-deleted (deleted from the yml, but not from the pipeline on Shippable), use the arrow dropdown in the upper right to add them to the view.
 
 You can also filter this view by using Flags. Flags need to be included in your job and/or resource configurations to be available as a filter for SPOG.
 
@@ -98,7 +98,7 @@ jobs:
   - name: <string>
     type: <job type>
     #other job related inputs
-    flags: 
+    flags:
       - <filter name>
 ```
 

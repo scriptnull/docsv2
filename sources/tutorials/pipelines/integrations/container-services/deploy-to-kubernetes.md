@@ -60,7 +60,7 @@ The resources configured in shippable.resources.yml are:
 1. shipdemo-img-opts is a [dockerOptions](../../pipelines/resources/image/) resource which specifies options for the container, like memory, port mappings, etc.
 1. kube-cluster is a [cluster](../../pipelines/resources/cluster/) resource specifying where the demo application should be deployed
 
-The jobs configured in shippable.jobs.yml are:
+The jobs configured in `shippable.jobs.yml` are:
 
 1. shipdemo-manifest is a [manifest](../../pipelines/jobs/manifest/) job that creates a new service manifest each time the image shipdemo-img is updated.
 1. kube-deploy is a [deploy](../../pipelines/jobs/deploy/) job that deploys the manifest shipdemo-manifest to the Test cluster kube-cluster
@@ -69,7 +69,7 @@ The jobs configured in shippable.jobs.yml are:
 
 1. From the Shippable dashboard, go to the Subscription where you forked both repositories
 1. Follow instructions on the Pipelines page to [seed your pipeline](../../pipelines/gettingStarted/#seedPipeline).
-1. Go to the SPOG pill menu of your Pipelines tab and voila! You should see your pipeline there:
+1. Go to your Pipelines tab and voila! You should see your pipeline there:
 
 ###Deploy to Test
 Right click on the **shipdemo-manifest** job in the SPOG view and click on `Run`. This will run the manifest job which creates a new service manifest. The deploy job is set up to run after manifest finishes, so it will be automatically triggered.
@@ -86,7 +86,7 @@ Now that you have your pipeline up and running, you should connect it to your CI
 
 To do this:
 
-1. Create an API token for your account. To do this, go to your **Account Settings** by clicking on the gear icon in the top navbar. Then click on **API tokens** in the left sidebar menu and create a token. Copy the token since you won't be able to see it again.  
+1. Create an API token for your account. To do this, go to your **Account Settings** by clicking on the gear icon in the top navbar. Then click on **API tokens** in the left sidebar menu and create a token. Copy the token since you won't be able to see it again.
 
 1. Next, we will create an account integration of type 'Event Trigger'
     * Go to  **Integrations** in the left sidebar menu and then click on **Add Integration**
