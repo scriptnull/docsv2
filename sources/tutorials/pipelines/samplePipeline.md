@@ -88,7 +88,7 @@ The jobs configured in shippable.jobs.yml are:
 <img src="../../images/pipelines/seedSamplePipeline.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
 
 ###Deploy to Test
-Right click on the **dv-man** job in the SPOG view and click on `Run`. This will run the manifest job which creates a new service manifest. The deploy job is set up to run after manifest finishes, so it will be automatically triggered.
+Right click on the **dv-man** job in the SPOG view and click on `Run Job`. This will run the manifest job which creates a new service manifest. The deploy job is set up to run after manifest finishes, so it will be automatically triggered.
 
 <img src="../../images/pipelines/samplePipelineTestDeploy.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
 
@@ -195,7 +195,7 @@ Make the following changes:
 * Replace `demo-shippable-ecs-prod` with your prod cluster name.
 * Replace `us-east-1` with the region where your cluster is located
 
-This is similar to the job that deploys to test environment, but it is configured with the prod cluster and is sequenced after the releae job in your pipeline. The job as configured will not be triggered automatically when release is updated. You can turn `switch: on` to run it automatically each time a new release is created, or you can add a trigger resource like we did for the release job so you can trigger it with a commit.
+This is similar to the job that deploys to test environment, but it is configured with the prod cluster and is sequenced after the release job in your pipeline. The job as configured will not be triggered automatically when release is updated. You can turn `switch: on` to run it automatically each time a new release is created, or you can add a trigger resource like we did for the release job so you can trigger it with a commit.
 
 <img src="../../images/pipelines/samplePipelineAddProd.png" alt="Shippable Continuous Integration and Delivery" style="width:1000px;"/>
 
@@ -203,7 +203,7 @@ This is similar to the job that deploys to test environment, but it is configure
 
 To create a new release, go to your shippable.triggers.yml and increment the counter by 1. This will trigger the release job and create a release with version 1.1.0.
 
-Next, go to your Shippable UI SPOG view, right click on the production deployment job dv-prod-ecs and click on `Run`. This should deploy your application to your production cluster.
+Next, go to your Shippable Single Pane of Glass view, right click on the production deployment job dv-prod-ecs and click on `Run Job`. This should deploy your application to your production cluster.
 
 Go to your AWS Management Console and check out your application!
 
