@@ -14,7 +14,11 @@ This is a rich list of resources that should help you get started with continuou
 
 [Code coverage with JaCoCo](/tutorials/ci/code-coverage-jacoco/)
 
-### Interacting with Docker Registries
+### JFrog Artifactory
+
+[Pushing to JFrog Artifactory after CI (Blog)](http://blog.shippable.com/pushing-to-jfrog-artifactory-after-ci)
+
+### Interacting with Docker registries
 
 ####Docker Hub
 
@@ -50,3 +54,13 @@ The following tutorials show you how you can deploy your package after CI. For e
 * [Deploy to Digital Ocean](/tutorials/ci/deploy-digital-ocean/)
 * [Deploy to Heroku](/tutorials/ci/deploy-heroku/)
 * [Deploy to AWS OpsWorks](/tutorials/ci/integrations/deploy/usingOpsWorls/)
+* [Deploy a Node.js app to AWS Elastic Beanstalk (Blog)](http://blog.shippable.com/how-to-deploy-to-elastic-beanstalk-part-1)
+* [Deploy a Docker app AWS Elastic Beanstalk (Blog)](http://blog.shippable.com/how-to-deploy-to-elastic-beanstalk-part-2)
+
+### Advanced CI topics
+
+* [Customizing CI workflows based on branch](http://blog.shippable.com/customize-environments-for-different-branches-of-a-continuous-integration-build)
+* [Matrix builds with minor Java versions](http://blog.shippable.com/matrix-builds-for-minor-java-versions-with-maven-and-artifactory)
+* [Customizing the build badge](http://blog.shippable.com/customizing-build-badges-for-a-nodejs-project-status)
+* [Changing the default timeout for a job](http://blog.shippable.com/changing-the-default-timeout-for-a-continuous-integration-project)
+* [Retrying scripts to work around network hiccups](http://blog.shippable.com/automatically-retry-scripts-to-avoid-network-hiccups-during-ci-process)

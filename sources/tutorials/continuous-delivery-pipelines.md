@@ -10,11 +10,17 @@ page_keywords: DevOps, continuous delivery, continuous deployment, CI/CD, Docker
 * [Seeding your first pipeline](/tutorials/pipelines/howToAddSyncRepos/)
 * [Connecting CI and pipelines](/tutorials/pipelines/connectingCIPipelines/)
 * [Versioning overview](/tutorials/pipelines/versioningOverview/)
+* [Rolling back deployments](/tutorials/pipelines/rollback-deployments/)
 
-### Advanced Pipeline topics
+### Deployment to specific endpoints
 
 * [Deployments to Kubernetes](/tutorials/pipelines/deploy-to-kubernetes/)
-* [Rolling back deployments](/tutorials/pipelines/rollback-deployments/)
+* [Continuously deploy your app from GitHub to Amazon ECS (Blog)](http://blog.shippable.com/continuous-delivery-from-github-to-amazon-ecs)
+* [Continuous delivery from Artifactory and Digital Ocean (Blog)](http://blog.shippable.com/continuous-delivery-using-jfrog-artifactory)
+
+### Infrastructure provisioning
+
+* [Provision AWS infrastructure using Terraform (Blog)](http://blog.shippable.com/provisioning-aws-infrastructure-with-terraform)
 
 ### Custom Job (runSh)
 
