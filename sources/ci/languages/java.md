@@ -117,7 +117,7 @@ build:
     - mvn clean cobertura:cobertura
 ```
 
-For Jacoco, we also support more [advanced reporting formats](../../tutorials/ci/integrations/codeCoverage/usingJacoco/).
+For Jacoco, we also support more [advanced reporting formats](../../tutorials/ci/code-coverage-jacoco/).
 
 #### Multi-module Maven builds
 When using multi-module (Reactor) builds, please remember to output all the coverage and tests reports to the (top-level) repository directory. This can be tricky, as the Cobertura plugin resolves output directory differently from Surefire plugin. The most straightforward way of dealing with this issue is to define plugin configuration in the top-level module, using shippable/codecoverage path for Cobertura plugin and ../shippable/testresults for Surefire plugin:
@@ -217,4 +217,4 @@ build:
 
 This will allow Shippable to use additional metadata about your tests to produce more detailed reports. Check out our [Jacoco sample project](https://github.com/shippableSamples/sample_jacoco) on Github to see it in action.
 
-For more details on how to navigate the results, have a look at [our tutorial](../../tutorials/ci/integrations/codeCoverage/usingJacoco.md).
+For more details on how to navigate the results, have a look at [our tutorial](../../tutorials/ci/code-coverage-jacoco.md).

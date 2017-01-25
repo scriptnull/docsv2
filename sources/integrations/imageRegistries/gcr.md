@@ -31,7 +31,23 @@ On your [Shippable dashboard](https://shippable.com):
 
 <img src="/ci/images/integrations/imageRegistries/gcr/addInt.png" alt="Google Container Registry integration" style="width:700px;"/>
 
-The integration will now be available to all your continuous integration and deployment workflows. For a comprehensive tutorial on how to configure your workflows with GCR, read our [Using GCR tutorial](../../tutorials/ci/integrations/imageRegistries/usingGCR/)
+The integration will now be available to all your continuous integration and deployment workflows.
+
+To learn how to use the integration for your scenario, check out the tutorials below.
+
+---
+
+##Tutorials
+
+We have published the following tutorials to help get started on working with images stored in GCR as part of your CI/Pipelines workflows.
+
+* [Pulling a Docker image from GCR](../../../tutorials/ci/hub-gcr-pull-docker-image/)
+
+* [Using a Docker image from GCR to spin up your CI container](../../../tutorials/ci/hub-gcr-custom-ci-image/)
+
+* [Build a Docker image](../../../tutorials/ci/hub-gcr-build-docker-image/)
+
+* [Push a Docker image to GCR](../../../tutorials/ci/hub-gcr-push-docker-image/)
 
 ---
 

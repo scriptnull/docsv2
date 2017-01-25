@@ -11,26 +11,9 @@ An ECR integration lets you configure the following scenarios:
 - Push an image as part of CI
 - Use an [image resource](../../pipelines/resources/image/) as part of your CD [pipeline](../../pipelines/overview/)
 
-Using an Amazon ECR integration is a two step process:
-
-<img src="../../images/accountIntegrationLifecycle.png" alt="Google Container Registry integration" style="width:800px;"/>
-
-* **Adding an integration to your account**
-
-You can get to your account integrations by clicking on the gear icon in the top navbar and clicking on `Integrations` in the left sidebar menu. Click on `Add integration` to add a new integration. Detailed instructions are provided in the [section below](#addAccountIntegration). Please note that while adding your integration, you will need to specify which subscriptions will have access to the integration.
-
-* **Using the integration in your yml**
-
-Once an integration is enabled for a subscription, you can use it in any CI project in that subscription with a few lines of yml configuration. Please note that the integration name should be the one from Subscription Settings. Additional details are in the [Using integration in your yml](#useIntegrationYml) section below.
-
-If you're creating an integration to use with a Pipelines [image resource](../../../pipelines/resources/image/), please refer to the documentation on defining an [integration resource](../../../pipelines/resources/integration/).
-
----
-<a name="addAccountIntegration"></a>
-
 ##Adding the Account Integration
 
-You will need to configure this integration to pull or push images to Amazon ECR.
+You will need to configure this integration to pull from or push images to Amazon ECR.
 
 1. Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Integrations' section.
 2. Click on the `Add Integration` button.
@@ -44,33 +27,7 @@ The integration will now be available to all your Continuous Integration and Dep
 
 <img src="/ci/images/integrations/imageRegistries/ecr/addInt.png" alt="Amazon EC2 Container Registry integration" style="width:700px;"/>
 
----
-
-<a name="useIntegrationYml"></a>
-##Using integration in your yml
-
-**This particular step is only valid for CI. For pipelines, check out the [image resource](../../pipelines/resources/integration/)**
-
-For your CI workflow, you can add the integration to your `shippable.yml` with the following snippet:
-
-```
-integrations:
-  hub:
-    - integrationName: ecr-integration
-      type: ecr
-      region: us-west-2     #optional
-      branches:             #optional
-        only:
-          - master
-          - dev
-```
-
-- `integrationName` value is the name of the ECR integration you added to the 'Subscription' settings. It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match).
-- `type` is `ecr`.
-- [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
-- [optional] By default, the ECR region is set to `us-east-1`. To override and specify a desired region, you can use the `region` tag to specify region as shown above.
-
-Now that you've configured the integration in your yml, you can use docker commands to push or pull images from ECR. For further information about specific scenarios, check out the tutorials below.
+To learn how to use the integration for your scenario, check out the tutorials below.
 
 ---
 
@@ -78,13 +35,13 @@ Now that you've configured the integration in your yml, you can use docker comma
 
 We have published the following tutorials to help get started on working with images stored in ECR as part of your CI/Pipelines workflows.
 
-* [Pulling an image from ECR](../../../tutorials/ci/integrations/imageRegistries/amazon-ecr/pull-docker-image-from-aws-ecr/)
+* [Pulling a Docker image from ECR](../../../tutorials/ci/hub-amazon-ecr-pull-docker-image/)
 
-* [Using an image from ECR to spin up your CI container](../../../tutorials/ci/integrations/imageRegistries/amazon-ecr/use-custom-ecr-docker-image-for-ci/)
+* [Using a Docker image from ECR to spin up your CI container](../../../tutorials/ci/hub-amazon-ecr-custom-ci-image/)
 
-* [Build an image which pulls the base image from ECR](../../../tutorials/ci/integrations/imageRegistries/amazon-ecr/build-docker-image/)
+* [Build a Docker image](../../../tutorials/ci/hub-amazon-ecr-build-docker-image/)
 
-* [Push an image to ECR](../../../tutorials/ci/integrations/imageRegistries/amazon-ecr/push-docker-image-to-aws-ecr/)
+* [Push a Docker image to ECR](../../../tutorials/ci/hub-amazon-ecr-push-docker-image/)
 
 ---
 

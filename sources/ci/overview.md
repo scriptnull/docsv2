@@ -99,3 +99,9 @@ To enable GitHub integration for public repositories:
 - Click `Authorize application` in the next page to enable access to private repositories.
 
 <img src="/ci/images/integrations/scm/github/enablePvtRepoMv.gif" alt="Enable access to GitHub Private Repositories" style="width:700px;"/>
+
+---
+
+## Tutorials
+
+A complete list of CI tutorials is provided on our [CI Tutorials Index page](/tutorials/continuous-integration/)
