@@ -2,7 +2,7 @@
 
 ## Overview
 
-Shippable is a Docker-based continuous integration and deployment platform. This repository contains the documentation, which is open source to allow anyone to make quick changes if needed.
+Shippable is a DevOps platform that lets you automate your end to end pipeline including [CI/CD and Release Automation](https://app.shippable.com). This repository contains the documentation, which is open source to allow anyone to make quick changes if needed.
 
 The source is under `sources/` in the form of .md files. These files use [Markdown](http://daringfireball.net/projects/markdown/syntax) formatting with [Mkdocs](http://www.mkdocs.org/) extensions for structure, cross-linking and some Markdown additional syntax using [Python-Markdown](https://pythonhosted.org/Markdown/extensions/).
 
