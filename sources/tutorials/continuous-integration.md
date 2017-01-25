@@ -64,3 +64,5 @@ The following tutorials show you how you can deploy your package after CI. For e
 * [Customizing the build badge](http://blog.shippable.com/customizing-build-badges-for-a-nodejs-project-status)
 * [Changing the default timeout for a job](http://blog.shippable.com/changing-the-default-timeout-for-a-continuous-integration-project)
 * [Retrying scripts to work around network hiccups](http://blog.shippable.com/automatically-retry-scripts-to-avoid-network-hiccups-during-ci-process)
+* [Configuring cascading builds](http://blog.shippable.com/triggering-a-parameterized-build-after-continuous-integration)
+* [Triggering a custom webhook after CI](http://blog.shippable.com/triggering-a-custom-webhook-after-continuous-integration)
