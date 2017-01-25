@@ -152,35 +152,43 @@ pages:
   - Installing Shippable Server: server/installingShippableServer.md
   - Backup and Restore Procedures: server/backup-restore-procedures.md
 - Tutorials:
+  - CI tutorial Index: tutorials/continuous-integration.md
+  - CD Pipelines tutorial index: tutorials/continuous-delivery-pipelines.md
   - CI Tutorials:
     - Run a sample CI build: tutorials/ci/runSampleCIBuild.md
-    - Source Control Systems Tutorials:
-      - Linking GitHub and Bitbucket accounts on Shippable: tutorials/ci/integrations/scm/linkGitHubAndBitbucket.md
-      - Building Bitbucket Server repos: tutorials/ci/integrations/scm/usingBitbucketServer.md
-      - Building GitLab repos: tutorials/ci/integrations/scm/usingGitLab.md
+    - Source Control Tutorials:
+      - Linking GitHub and Bitbucket accounts on Shippable: tutorials/ci/link-gitHub-bitbucket.md
+      - Building Bitbucket Server repos: tutorials/ci/scm-bitbucket-server-ci.md
+      - Building GitLab repos: tutorials/ci/scm-gitlab-ci.md
     - Docker registry tutorials:
       - Amazon ECR tutorials:
-        - Pull Docker image from ECR: tutorials/ci/integrations/imageRegistries/amazon-ecr/pull-docker-image-from-aws-ecr.md
-        - Build docker image: tutorials/ci/integrations/imageRegistries/amazon-ecr/build-docker-image.md
-        - Push a Docker image to ECR: tutorials/ci/integrations/imageRegistries/amazon-ecr/push-docker-image-to-aws-ecr.md
-        - Use custom Docker image from ECR for CI: tutorials/ci/integrations/imageRegistries/amazon-ecr/use-custom-ecr-docker-image-for-ci.md
-      - Interacting with Docker Hub: tutorials/ci/integrations/imageRegistries/usingDockerHub.md
-      - Interacting with Google Container Registry: tutorials/ci/integrations/imageRegistries/usingGCR.md
+        - Pull Docker image from ECR: tutorials/ci/hub-amazon-ecr-pull-docker-image.md
+        - Build docker image: tutorials/ci/hub-amazon-ecr-build-docker-image.md
+        - Push a Docker image to ECR: tutorials/ci/hub-amazon-ecr-push-docker-image.md
+        - Use custom Docker image from ECR for CI: tutorials/ci/hub-amazon-ecr-custom-ci-image.md
+      - Docker Hub tutorials:
+        - Pull image from Docker Hub: tutorials/ci/hub-docker-pull-image.md
+        - Build docker image: tutorials/ci/hub-docker-build-image.md
+        - Push an image to Docker Hub: tutorials/ci/hub-docker-push-image.md
+        - Use custom image from Docker Hub for CI: tutorials/ci/hub-docker-custom-ci-image.md
+      - GCR tutorials:
+        - Pull Docker image from GCR: tutorials/ci/hub-gcr-pull-docker-image.md
+        - Build docker image: tutorials/ci/hub-gcr-build-docker-image.md
+        - Push a Docker image to GCR: tutorials/ci/hub-gcr-push-docker-image.md
+        - Use custom Docker image from GCR for CI: tutorials/ci/hub-gcr-custom-ci-image.md
     - Test and Code Coverage Tutorials:
-      - Advanced Coverage Reports with JaCoCo: tutorials/ci/integrations/codeCoverage/usingJacoco.md
-    - Container Services Tutorials:
-      - Using Docker Datacenter: tutorials/ci/integrations/containerServices/usingDockerDatacenter.md
+      - Advanced Coverage Reports with JaCoCo: tutorials/ci/code-coverage-jacoco.md
     - Deploy Tutorials:
-      - Using Heroku: tutorials/ci/integrations/deploy/usingHeroku.md
-      - Using OpsWorks: tutorials/ci/integrations/deploy/usingOpsWorks.md
-      - Using Code Deploy: tutorials/ci/integrations/deploy/usingCodeDeploy.md
-      - Using Digital Ocean: tutorials/ci/integrations/deploy/usingDigitalOcean.md
+      - Using Heroku: tutorials/ci/deploy-heroku.md
+      - Using OpsWorks: tutorials/ci/deploy-amazon-opsworks.md
+      - Using Code Deploy: tutorials/ci/deploy-amazon-codedeploy.md
+      - Using Digital Ocean: tutorials/ci/deploy-digital-ocean.md
   - Pipelines Tutorials:
     - Deploying a sample application: tutorials/pipelines/samplePipeline.md
     - Seeding your first pipeline: tutorials/pipelines/howToAddSyncRepos.md
     - Connecting CI and Pipelines: tutorials/pipelines/connectingCiPipelines.md
     - Rolling back deployments: tutorials/pipelines/rollback-deployments.md
-    - Deployment tutorials:
+    - Deploy tutorials:
       - Deploy a sample app to Kubernetes: tutorials/pipelines/deploy-to-kubernetes.md
     - runSh tutorials:
       - Using integrations with runSh: tutorials/pipelines/runShUseIntegrations.md

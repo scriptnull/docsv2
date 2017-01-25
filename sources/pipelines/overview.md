@@ -82,3 +82,9 @@ In this scenario:
 To get started with using pipelines and to understand how they work, you should try deploying our sample application. It will take less than 30 minutes and is a great example to showcase how a simple application can be deployed with Pipelines.
 
 Check out the sample application in our [Pipeline Tutorials section](../../tutorials/pipelines/samplePipeline/)
+
+---
+
+## Tutorials
+
+A complete list of CI tutorials is provided on our [CD Tutorials Index page](/tutorials/continuous-delivery-pipelines/)

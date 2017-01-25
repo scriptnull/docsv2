@@ -1,6 +1,6 @@
-page_title: Advanced Reporitng with Jacoco
-page_description: parsing the Shippable advanced coverage report details.
-page_keywords: java, jacoco, continuous integration, CI/CD, coverage
+page_title: Advanced Reporting with JaCoCo
+page_description: View your JaCoCo reports with rich visualizations in your continuous integration build
+page_keywords: java, jacoco, continuous integration, CI/CD, code coverage
 
 # JaCoCo
 JaCoCo is a free code coverage library for Java, which was created by the [EclEmma](http://www.eclemma.org/jacoco/) team based on the lessons learned from using and integrating existing libraries for many years.  It's a widely used tool, and as a result, finding examples and plugins that utilize it is a breeze.  It helps provide detailed coverage reports for your Java projects.

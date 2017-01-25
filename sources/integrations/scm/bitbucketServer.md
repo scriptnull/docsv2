@@ -24,25 +24,25 @@ Adding an integration is achieved as follows:
 * Click on **Integrations** in the sidebar menu.
 * Click on **Add Integration**.
 * Enter the following:
-	* In the **Master Integration** dropdown, choose **Bitbucket Server** 
+	* In the **Master Integration** dropdown, choose **Bitbucket Server**
 	* Add a friendly name for your integration
 	* Enter the URL for your Bitbucket Server instance. **Ensure there are no trailing slashes here**. Read the [FAQ](../../ci/faq/#i-cannot-start-a-manual-build-for-my-bitbucket-project-why-is-it-not-working) on this topic for more details.
-	* Get your **Bitbucket Server private token** 
+	* Get your **Bitbucket Server private token**
 		* Go to your Bitbucket Server account settings and in the left menu, select
     `Shippable Token`
     	* Copy the private token provided
 		* Paste it in the **Token** textbox in Shippable
 * Click on **Save**. You should now see the integration in your list of integrations.
 
-#####Set up CI for your repositories 
-If you don't want to use your integration to enable repositories for CI, skip this section and go to the next. 
+#####Set up CI for your repositories
+If you don't want to use your integration to enable repositories for CI, skip this section and go to the next.
 
 * In your Account Settings, click on `Sync`.
 * Go to your Home dashboard. Click on the Subscription dropdown on the top left of your screen.
 * You should see your Organizations from Bitbucket Server in your list of subscriptions.
 * Click on any Bitbucket Server organization and you should be able to enable projects for [CI](../../ci/overview/).
 
-#####Use your integration in your Pipeline configuration 
+#####Use your integration in your Pipeline configuration
 
 * Go to your Subscription's Settings tab. This should be the Subscription where you want to set up your pipelines.
 * Click on **Integrations** in the sidebar menu.
@@ -63,12 +63,12 @@ For example, if the integration is called `bbs-foo` in your subscription setting
     sourceName: org/repo                  		#required
     branch: master                          	#optional
 ```
- 
+
 ---
 
 
 ##Bitbucket Server tutorial
 
-[Using Shippable with Bitbucket Server](/tutorials/ci/integrations/scm/usingBitbucketServer/)
+[Using Shippable with Bitbucket Server](/tutorials/ci/scm-bitbucket-server-ci/)
 
 ---

@@ -15,20 +15,18 @@ Follow the steps below to create an account integration with Google's Kubernetes
 <a name="createAccountInt"></a>
 ## Creating the Shippable Account Integration (Kubernetes master has a public IP address)
 
-1. Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Integrations' section.
-2. Click on the `Add Integration` button and choose `Kubernetes` from the list of choices.
-3. For 'Integration Name' use a distinctive name that's easy to associate to the integration and recall. Example: `kube-int`.
-4. 'Cluster Access type' should be set to `Kubernetes master`
-5. SSH into your Kubernetes master node and run the following commands:
-
+* Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Integrations' section.
+* Click on the `Add Integration` button and choose `Kubernetes` from the list of choices.
+* For 'Integration Name' use a distinctive name that's easy to associate to the integration and recall. Example: `kube-int`.
+* 'Cluster Access type' should be set to `Kubernetes master`
+* SSH into your Kubernetes master node and run the following commands. Copy the output of this file which gives you the [kubeconfig](https://kubernetes.io/docs/user-guide/kubeconfig-file/).
 ```
 $ sudo su -
 $ cat /etc/kubernetes/admin.conf
 ```
-Copy the output of this file which gives you the [kubeconfig](https://kubernetes.io/docs/user-guide/kubeconfig-file/).
-6. Paste the contents into the 'KubeConfig File' textbox.
-7. Assign this integration to the Subscription(s) containing the repo with your pipelines config. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
-8. Click on `Save`.
+* Paste the contents into the 'KubeConfig File' textbox.
+* Assign this integration to the Subscription(s) containing the repo with your pipelines config. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
+* Click on `Save`.
 
 <img src="/ci/images/integrations/containerServices/kubernetes/kubernetes-integration.png" alt="Google Kubernetes integration" style="width:500px;"/>
 
@@ -57,21 +55,19 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 Now, you can create the Shippable account integration:
 
-1. Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Integrations' section.
-2. Click on the `Add Integration` button and choose `Kubernetes` from the list of choices.
-3. For 'Integration Name' use a distinctive name that's easy to associate to the integration and recall. Example: `kube-int`.
-4. 'Cluster Access type' should be set to `Bastion Host`.
-5. SSH into the Bastion host and from there, SSH into your Kubernetes master node and run the following commands:
-
+* Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Integrations' section.
+* Click on the `Add Integration` button and choose `Kubernetes` from the list of choices.
+* For 'Integration Name' use a distinctive name that's easy to associate to the integration and recall. Example: `kube-int`.
+* 'Cluster Access type' should be set to `Bastion Host`.
+* SSH into the Bastion host and from there, SSH into your Kubernetes master node and run the following commands. Copy the output of this file which gives you the [kubeconfig](https://kubernetes.io/docs/user-guide/kubeconfig-file/).
 ```
 $ sudo su -
 $ cat /etc/kubernetes/admin.conf
 ```
-Copy the output of this file which gives you the [kubeconfig](https://kubernetes.io/docs/user-guide/kubeconfig-file/).
-6. Paste the contents into the 'KubeConfig File' textbox.
-7. Assign this integration to the Subscription(s) containing the repo with your pipelines config. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
-8. Click on `Save`.
-9. You will see a script section which contains a script you need to run on your Bastion host. Run the script and then click on `Done`.
+* Paste the contents into the 'KubeConfig File' textbox.
+* Assign this integration to the Subscription(s) containing the repo with your pipelines config. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
+* Click on `Save`.
+* You will see a script section which contains a script you need to run on your Bastion host. Run the script and then click on `Done`.
 
 <img src="/ci/images/integrations/containerServices/kubernetes/kubernetes-bastion-integration.png" alt="Google Kubernetes integration" style="width:500px;"/>
 
@@ -85,11 +81,11 @@ For more information on this, please check out our docs on [Deployment pipelines
 
 To remove the Kubernetes integration, you'll need to remove this integration from all dependencies configured to use it. To find all the dependencies:
 
-1. Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` section.
-2. Click on the `Delete` button against your Kubernetes integration.
-3. A window pops up confirming that you want to delete the integration. This window lists all dependencies of this this integration.
-4. If there are dependencies, individually access the `Settings` tab for each Subscription and delete the Kubernetes integration.
-5. Once all dependencies have been removed, Step 3 will show the message: `No dependency`.
-6. Click the `Yes` button to delete the Integration.
+* Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` section.
+* Click on the `Delete` button against your Kubernetes integration.
+* A window pops up confirming that you want to delete the integration. This window lists all dependencies of this this integration.
+* If there are dependencies, individually access the `Settings` tab for each Subscription and delete the Kubernetes integration.
+* Once all dependencies have been removed, Step 3 will show the message: `No dependency`.
+* Click the `Yes` button to delete the Integration.
 
 --------

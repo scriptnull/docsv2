@@ -24,7 +24,12 @@ You will need Docker Hub integration if you want to do the following -
 * Assign this integration to the Subscription(s) you want to use it in. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
 * Click on **Save**. You should now see the integration in your list of integrations.
 
-To learn how to configure your CI and CD workflows to use Docker Hub images, check out our [Docker Hub Tutorial](../../tutorials/ci/integrations/imageRegistries/usingDockerHub/).
+To learn how to configure your CI and CD workflows to use Docker Hub images, check out our [Docker Hub Tutorials:]
+
+* [Build Docker image](/tutorials/ci/hub-docker-build-image/)
+* [Pull image from Docker Hub](/tutorials/ci/hub-docker-pull-image/)
+* [Push image to Docker Hub](/tutorials/ci/hub-docker-push-image/)
+* [Use custom image from Docker Hub for your builds](/tutorials/ci/hub-docker-custom-ci-image/)
 
 ---
 

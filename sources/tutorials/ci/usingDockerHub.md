@@ -20,7 +20,7 @@ If you're interacting with private images, follow the instructions in the Privat
 
 If you want to pull a private image from Docker Hub or want to push an image, you will first need to complete the following steps:
 
-* Add an [account integration for Docker Hub](../../../../integrations/imageRegistries/dockerHub/)
+* Add an [account integration for Docker Hub](/integrations/imageRegistries/dockerHub/)
 * Go to your Subscription's Settings tab. This should be the Subscription containing your project.
 * Click on **Integrations** in the sidebar menu.
 * Click on **Add Integration**.

@@ -122,15 +122,15 @@ We support a multitude of languages, tools, services, as well as all popular sou
 ---
 
 ## IaaS
-- [AWS EC2 (using CodeDeploy)](/tutorials/ci/integrations/deploy/usingCodeDeploy/)
-- [Digital Ocean](/tutorials/ci/integrations/deploy/usingDigitalOcean/)
+- [AWS EC2 (using CodeDeploy)](/tutorials/ci/deploy-amazon-codedeploy/)
+- [Digital Ocean](/tutorials/ci/deploy-digital-ocean/)
 
 ---
 
 ## PaaS
 - [AWS Elastic Beanstalk](/integrations/deploy/eb/)
-- [AWS Opsworks](/tutorials/ci/integrations/deploy/usingOpsWorks/)
-- [Heroku](/tutorials/ci/integrations/deploy/usingHeroku/)
+- [AWS Opsworks](/tutorials/ci/deploy-amazon-opsworks/)
+- [Heroku](/tutorials/ci/deploy-heroku/)
 - Red Hat Openshift (coming soon)
 
 ---
