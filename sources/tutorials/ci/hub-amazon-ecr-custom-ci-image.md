@@ -44,7 +44,7 @@ build:
 
 Your build should now pull the custom image and use it to run the CI commands.
 
-###Important note for customers [overriding default image for CI](../../../../../ci/shippableyml.md#pre-ci-boot)
+###Important note for customers [overriding default image for CI](/ci/shippableyml/#pre-ci-boot)
 
 If you are using a custom image for your CI workflow, we will try to login to ECR on your behalf from inside your CI build container. This means that you will need the AWS Command Line Interface (CLI) installed inside your custom image if you want this to succeed, else you will get a `aws: command not found` error.
 
