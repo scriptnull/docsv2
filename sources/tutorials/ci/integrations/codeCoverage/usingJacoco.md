@@ -43,7 +43,7 @@ jdk:
   - oraclejdk7
 
 build:
-  # set the advanceReporting flag to true.
+  # set the advancedReporting flag to true.
   # this is optional, but highly recommended. It tells Shippable
   # to look for additional information in the results, and use it to produce
   # a more detailed coverage report, visible from the Shippable UI.
@@ -52,11 +52,12 @@ build:
   ci:
 
     # mvn install will create a `target` folder which will contain a jacoco.xml
-    # jacoco.xml will be present at path `target/site/jacoco/`
+    # jacoco.xml will be present at path `target/site/jacoco/jacoco.xml`
     - mvn install
 
     # copy this target folder to the `shippable/codecoverage` folder
-    # target folder should have `/site/jacoco/jacoco.xml` file
+    # Shippable will look for the jacoco.xml file at
+    # shippable/codecoverage/target/site/jacoco/jacoco.xml
     - cp -r target shippable/codecoverage
 
 ```
