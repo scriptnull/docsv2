@@ -16,22 +16,23 @@ If you want to build repositories in your [GitHub Enterprise](/integrations/scm/
 
 ## Authorizing Shippable
 
-When signing in to Shippable, you will be prompted to give Shippable access to your repos. GitHub and Bitbucket auth behave a little differently as follows -
+When signing in to Shippable, you will be prompted to give Shippable access to your repos. GitHub and Bitbucket auth behave a little differently as described below.
 
-**GitHub**- By default, we will only ask for access to public repos.
+**GitHub**
 
-If you want to use Shippable to build your private repos, you will need to authorize us for private repositories.
+When you sign in to Shippable for the first time, we only ask for access to public repos. This is because customers who only want to build open source projects do not want to grant a higher level of access.
 
-This is done from your Account Settings Page. Read [our documentation](/integrations/scm/github/#adding-a-github-account-integration) for more details.
+If you want to use Shippable to build your private repos, you will need to authorize us for private repositories. This is done from your Account Settings Page. Read [our documentation](/ci/overview/#enabling-github-private-repositories) for more details.
 
-**Bitbucket**- The Bitbucket API does not have public/private granularity, so we ask for access to all repos on Bitbucket by default.
+**Bitbucket**
 
-Read [our documentation](/integrations/scm/bitbucket/#adding-a-bitbucket-integration) for more details.
+The Bitbucket API does not have public/private granularity, so we ask for access to all repos on Bitbucket by default.
 
 > **Note**
 >
 > We realize that most people do not want to give write access to their repo. However, we need write permissions to add deploy keys to your repos for our webhooks to work. We do not touch anything else in the repo.
 
+---
 
 ## Who has access?
 
