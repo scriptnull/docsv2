@@ -30,8 +30,6 @@ jobs:
       - OUT: <resource>
       - OUT: <resource>
       - IN: <resource>
-      - TASK:
-        - script: <command>
     on_success:                                 #optional
       - script: echo 'This block executes after the TASK section executes successfully'
       - NOTIFY: slackNotification
