@@ -87,10 +87,11 @@ When a build is triggered, it is executed in the sequence below -
 ##Enabling GitHub private repositories
 
 If you want to use Shippable to build private repositories, you'll need to authorize Shippable. You can do this by following the outlined steps:
-- Ensure you have logged in to [Shippable](https://app.shippable.com) using your GitHub credentials.
-- Click on the Account settings (gear icon on the top navigation bar).
-- In the 'Accounts' section and under 'Git Identities', click 'Enable' under 'GitHub'.
-- Click `Authorize application` in the next page to enable access to private repositories.
+
+* Ensure you have logged in to [Shippable](https://app.shippable.com) using your GitHub credentials.
+* Click on the Account settings (gear icon on the top navigation bar).
+* In the 'Accounts' section and under 'Git Identities', click 'Enable' under 'GitHub'.
+* Click `Authorize application` in the next page to enable access to private repositories.
 
 <img src="/ci/images/integrations/scm/github/enablePvtRepoMv.gif" alt="Enable access to GitHub Private Repositories" style="width:700px;"/>
 
