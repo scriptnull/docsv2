@@ -1,4 +1,4 @@
-page_title: Docker buuld, push to Docker Hub, and deploy to  Kubernetes
+page_title: Docker build, push to Docker Hub, and deploy to  Kubernetes
 page_description:Docker buuld, push to Docker Hub, and deploy to  Kubernetes
 page_keywords: getting started, formations, quick start, documentation, shippable
 
