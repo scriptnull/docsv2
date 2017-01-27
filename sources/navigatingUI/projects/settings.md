@@ -139,6 +139,7 @@ You can configure the timeout setting between 1 and 60/120 minutes for your proj
 - Click 'Edit'
 - Input a number between 1 and 60 (for free accounts) or 1 and 120 minutes (for
 paid accounts)
+     - NOTE: Subscriptions with custom nodes ([BYON](http://docs.shippable.com/ci/advancedOptions/byon/)) can set timeouts up to 1440 minutes (24 hours)
 - Click 'Save'
 - Once you set a custom timeout, it'll be in effect immediately
 - Click on 'Clear' to revert back to the default setting of 120 minutes
