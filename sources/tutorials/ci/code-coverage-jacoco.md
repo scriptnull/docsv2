@@ -79,6 +79,16 @@ Once the button is clicked, you'll see some additional information beyond what i
 
 <img src="/ci/images/integrations/codeCoverage/jacoco/overallCoverageSummary.png" alt="initial expand" style="width:700px;"/>
 
+In the Job Coverage Files section you can download the code coverage file in the .tar.gz format.
+
+<img src="/ci/images/integrations/codeCoverage/jacoco/downloadButton.png" alt="download file section" style="width:700px;"/>
+
+Below the Overall Coverage Summary section, you can see average line coverage trend graph and branch coverage trend graph for overall
+coverage results of the last ten runs.
+The Red color shows the missed line and branch coverage, whereas the green color depicts the covered line and branch coverage.
+
+<img src="/ci/images/integrations/codeCoverage/jacoco/trendGraph.png" alt="trend graph section" style="width:700px;"/>
+
 In the Coverage Breakdown Report section, you can see a dropdown, which will allow you to switch between a package level view, and a file level view.
 
 <img src="/ci/images/integrations/codeCoverage/jacoco/packagesVsFiles.png" alt="packages vs files" style="width:700px;"/>
@@ -87,7 +97,8 @@ From the packages view, it is possible to narrow your results down to a specific
 
 <img src="/ci/images/integrations/codeCoverage/jacoco/leftColumnHighlight.png" alt="drill down" style="width:700px;"/>
 
-Now you're looking at that particular package. You can see all of the classes in that package, as well as the stats for each class.
+Now you're looking at that particular package. You can see all of the classes in that package, stats for each class as well as
+the average package line and branch trend graph of last ten runs for that particular package.
 
 <img src="/ci/images/integrations/codeCoverage/jacoco/packageDetail.png" alt="package details" style="width:700px;"/>
 
@@ -95,6 +106,10 @@ From there, you can take it one step further and focus on a single class within 
 
 <img src="/ci/images/integrations/codeCoverage/jacoco/classDetails.png" alt="class in session" style="width:700px;"/>
 
-This allows you to really get to the bottom of any missed lines.
+Now all the methods in a particular class will be shown, and to see the details of a specific method, simply click on that method name
+and then that particular file will be shown with the lines and branches that are fully covered (shown in dark green), partially covered
+(shown in grey) and uncovered (shown in dark red).
 
-That's as far as Shippable's Jacoco report will let you go for now. We're currently working on the ability to take this workflow one step further and see the actual lines of code where coverage was missed.
+<img src="/ci/images/integrations/codeCoverage/jacoco/colorDetails.png" alt="source code view" style="width:700px;"/>
+
+This allows you to really get to the bottom of any missed lines.
