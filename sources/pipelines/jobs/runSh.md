@@ -55,34 +55,33 @@ These variables are available for use in the TASK section(s) of every runSh job.
 
 | Env variable        | Description           |
 | ------------- |-------------|
-| RESOURCE_ID    | The ID of the runSh job.|
-| JOB_NAME    | The name of the runSh job.|
-| JOB_TYPE    | The type of the runSh job; this will always be `runSh`.|
-| BUILD_ID    | The ID of the currently running build.|
-| BUILD_NUMBER    | An alternate ID for the build.|
-| BUILD_JOB_ID    | The ID of the currently running buildJob.|
-| BUILD_JOB_NUMBER    | The number of the currently running buildJob, within the build. This is always `1`.|
-| SUBSCRIPTION_ID    | ID of the subscription.|
-| *JOBNAME*_PATH    | The path of the directory containing files for the runSh job. For a runSh job named `myRunShJob`, the variable name would be `MYRUNSHJOB_PATH`. This directory contains two subdirectories: `state` (contains the files that will be saved when the job is complete), and `previousState` (contains the files saved in the previous build).|
+| RESOURCE_ID    | The ID of the runSh job. |
+| JOB_NAME    | The name of the runSh job. |
+| JOB_TYPE    | The type of the runSh job; this will always be `runSh`. |
+| BUILD_ID    | The ID of the currently running build. |
+| BUILD_NUMBER    | An alternate ID for the build. |
+| BUILD_JOB_ID    | The ID of the currently running buildJob. |
+| BUILD_JOB_NUMBER    | The number of the currently running buildJob, within the build. This is always `1`. |
+| SUBSCRIPTION_ID    | ID of the subscription. |
+| *JOBNAME*_PATH    | The path of the directory containing files for the runSh job. For a runSh job named `myRunShJob`, the variable name would be `MYRUNSHJOB_PATH`. This directory contains two subdirectories: `state` (contains the files that will be saved when the job is complete), and `previousState` (contains the files saved in the previous build). |
 
 ### Resource variables
 These variables are added to the environment for all `IN` and `OUT` resources defined for the runSh job. In this case, jobs used as inputs to the runSh job are also considered to be "resources". *RESOURCENAME* is the name of the `IN` or `OUT` resource, in uppercase, with any characters other than letters, numbers, and underscores removed.
 
 | Environment variable        | Description           |
 | ------------- |-------------|
-| *RESOURCENAME*_NAME    | The name of the resource.|
-| *RESOURCENAME*_ID    | The ID of the resource.|
-| *RESOURCENAME*_TYPE    | The type of the resource. For example: `image` or `manifest`.|
-| *RESOURCENAME*_PATH    | The directory containing files for the resource.|
-| *RESOURCENAME*_OPERATION    | The operation of the resource; either `IN` or `OUT`.|
-| *RESOURCENAME*_VERSION_VERSIONNAME    | For `image` resources, this is the tag. For `version` resources and `release` jobs, this is the semantic version. Not used for other resource types.|
-| *RESOURCENAME*_VERSION_VERSIONNUMBER    | The number of the version of the resource being used.|
-| *RESOURCENAME*_VERSION_VERSIONID    | The ID of the version of the resource being used.|
-| *RESOURCENAME*\_VERSION\_*FIELDNAME*    | `dockerOptions`-, `params`-, and `replicas`-type resources have a `version` section in the yml. Fields defined in these resources' `version` sections are added as environment variables. The field name is sanitized in the same way as the resource name. Objects and arrays are stringified JSON.|
-| *RESOURCENAME*\_POINTER\_*FIELDNAME*    | Each field defined in that resource's `pointer` section in the yml is added as an environment variable. The field name is sanitized in the same way as the resource name. Objects and arrays are stringified JSON.|
-| *RESOURCENAME*\_SEED\_*FIELDNAME*    | Each field defined in that resource's `seed` section in the yml is added as an environment variable. The field name is sanitized in the same way as the resource name. Objects and arrays are stringified JSON.|
-| *RESOURCENAME*\_PARAMS\_*FIELDNAME*    | Only added for `param`-type resources. Each field defined in that resource's `params` section in the yml is added as an environment variable. The field name is sanitized in the same way as the resource name. Objects and arrays are stringified JSON. Secure variables are decrypted.|
-| *RESOURCENAME*\_INTEGRATION\_*FIELDNAME*    | Explained in the next section.|
+| *RESOURCENAME*_NAME    | The name of the resource. |
+| *RESOURCENAME*_ID    | The ID of the resource. |
+| *RESOURCENAME*_TYPE    | The type of the resource. For example: `image` or `manifest`. |
+| *RESOURCENAME*_PATH    | The directory containing files for the resource. |
+| *RESOURCENAME*_OPERATION    | The operation of the resource; either `IN` or `OUT`. |
+| *RESOURCENAME*_VERSIONNAME    | For `image` resources, this is the tag. For `version` resources and `release` jobs, this is the semantic version. Not used for other resource types. |
+| *RESOURCENAME*_VERSIONNUMBER    | The number of the version of the resource being used. |
+| *RESOURCENAME*_VERSIONID    | The ID of the version of the resource being used. |
+| *RESOURCENAME*_SOURCENAME    | For resources with pointer sections in the yml, this is the sourceName defined in the pointer. |
+| *RESOURCENAME*\_SEED\_VERSIONNAME    | If a resource has a seed section in the yml, this is the versionName defined in the seed. |
+| *RESOURCENAME*\_PARAMS\_*FIELDNAME*    | Only added for `param`-type resources. Each field defined in that resource's `params` section in the yml is added as an environment variable. The field name is sanitized in the same way as the resource name. Objects and arrays are stringified JSON. Secure variables are decrypted. |
+| *RESOURCENAME*\_INTEGRATION\_*FIELDNAME*    | Explained in the next section. |
 
 
 ### Resource integration variables
@@ -118,6 +117,25 @@ When an `IN` resource uses a subscription integration, the fields associated wit
 | Quay.io                                 | *RESOURCENAME*_INTEGRATION_USERNAME <br/> *RESOURCENAME*_INTEGRATION_URL <br/> *RESOURCENAME*_INTEGRATION_PASSWORD <br/> *RESOURCENAME*_INTEGRATION_EMAIL <br/> *RESOURCENAME*_INTEGRATION_ACCESSTOKEN |
 | Slack                                   | *RESOURCENAME*_INTEGRATION_WEBHOOKURL |
 | SSH key                                 | *RESOURCENAME*_INTEGRATION_PUBLICKEY <br/> *RESOURCENAME*_INTEGRATION_PRIVATEKEY |
+
+
+### gitRepo resource variables
+If an `IN` resource is a [gitRepo](../resources/gitRepo.md), the following environment variables are added. The environment variables reflect the commit SHA information contained in the version of the `gitRepo` resource. In the following table, *RESOURCENAME* is the name of the `gitRepo` resource, in uppercase, with any characters other than letters, numbers, and underscores removed.
+
+| Environment variable             | Description                                                |
+|----------------------------------|------------------------------------------------------------|
+| *RESOURCENAME*_BASE_BRANCH       | If the version was created for a pull request, this is the name of the base branch into which the pull request changes will be merged. |
+| *RESOURCENAME*_BRANCH            | When the version was created for a commit, this is the name of branch on which the commit occurred. If it was created for a pull request, this is the base branch. |
+| *RESOURCENAME*_COMMIT            | SHA of the most recent commit. |
+| *RESOURCENAME*_COMMIT_MESSAGE    | Commit message for the most recent commit. |
+| *RESOURCENAME*_COMMITTER         | Name of the last committer. |
+| *RESOURCENAME*_GIT_TAG_NAME      | For git tags, the name of the tag. This env variable is currently supported for GitHub only. |
+| *RESOURCENAME*_HEAD_BRANCH       | This is only set for pull requests and is the name of the branch the pull request was opened from. |
+| *RESOURCENAME*_IS_GIT_TAG        | Set to true if the version was created for a git tag. If not, this will be set to false. This env variable is currently supported for GitHub only. |
+| *RESOURCENAME*_IS_RELEASE        | Set to true if the version was created for a release. If not, this will be set to false. This env variable is currently supported for GitHub only. |
+| *RESOURCENAME*_PULL_REQUEST      | Pull request number if the version was created for a pull request. If not, this will be set to false. |
+| *RESOURCENAME*_RELEASE_NAME      | If the version was created for a release, this is the release title. This env variable is currently supported for GitHub only. |
+| *RESOURCENAME*_RELEASED_AT       | This is only set for releases, and is the timestamp when the release was published. This env variable is currently supported for GitHub only. |
 
 
 <a name="advancedRunSh"></a>
