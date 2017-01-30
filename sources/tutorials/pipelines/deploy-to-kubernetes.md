@@ -2,7 +2,7 @@ page_title: Deploying to Kubernetes
 page_description: This tutorial shows you how to implement a CI/CD workflow with Docker build, GCR, and deployments to Kubernetes
 page_keywords: kubernetes, docker, continuous deployment, continuous delivery, shippable
 
-# Continuous Delivery for a Node.js app GCR and GKE
+# Continuous Delivery for a Node.js app with GitHub, Docker Hub, and Kubernetes
 
 This tutorial walks you through how to configure a continuous delivery pipeline using Shippable.
 
