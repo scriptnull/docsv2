@@ -32,44 +32,84 @@ GET /projects
 |200|success|
 
 ```
-   {
-    "repositoryProvider": "github",
-    "providerId": "561f7fe7a120200d00ac0725",
+[
+  {
+    "branches": [
+      "master"
+    ],
     "sourceRepoOwner": {
-      "login": "shippableapi",
-      "id": 17489387,
-      "avatar_url": "https://avatars.githubusercontent.com/u/17489387?v=3",
+      "login": "Shippable",
+      "id": 5647221,
+      "avatar_url": "https://avatars.githubusercontent.com/u/5647221?v=3",
       "gravatar_id": "",
-      "url": "https://api.github.com/users/shippableapi",
-      "html_url": "https://github.com/shippableapi",
-      "followers_url": "https://api.github.com/users/shippableapi/followers",
-      "following_url": "https://api.github.com/users/shippableapi/following{/other_user}",
-      "gists_url": "https://api.github.com/users/shippableapi/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/shippableapi/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/shippableapi/subscriptions",
-      "organizations_url": "https://api.github.com/users/shippableapi/orgs",
-      "repos_url": "https://api.github.com/users/shippableapi/repos",
-      "events_url": "https://api.github.com/users/shippableapi/events{/privacy}",
-      "type": "User",
+      "url": "https://api.github.com/users/Shippable",
+      "html_url": "https://github.com/Shippable",
+      "followers_url": "https://api.github.com/users/Shippable/followers",
+      "following_url": "https://api.github.com/users/Shippable/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Shippable/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Shippable/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Shippable/subscriptions",
+      "organizations_url": "https://api.github.com/users/Shippable/orgs",
+      "repos_url": "https://api.github.com/users/Shippable/repos",
+      "events_url": "https://api.github.com/users/Shippable/events{/privacy}",
+      "type": "Organization",
       "site_admin": false
     },
-    "sourcePushed": "2016-02-26T00:08:34.000Z",
-    "repositoryHtmlUrl": "https://github.com/shippableapi/sample_node",
-    "isFork": true,
+    "propertyBag": {
+      "repositoryHttpsUrl": "https://github.com/Shippable/docsv2.git",
+      "isPaused": false,
+      "enablePullRequestBuild": true,
+      "enableCommitBuild": true,
+      "enableTagBuild": false,
+      "enableReleaseBuild": false,
+      "cacheTag": 0,
+      "serialize": false,
+      "serializeBranches": [],
+      "lowCoverageLimit": 0,
+      "unstableOnLowCoverage": false,
+      "dashboardBranchSettings": {
+        "runFilter": "commit",
+        "branchFilter": [
+          "master"
+        ]
+      }
+    },
+    "id": "55511f38edd7f2c052e8c637",
+    "projectId": 4675042,
+    "name": "docsv2",
+    "fullName": "Shippable/docsv2",
+    "subscriptionId": "540e75583479c5ea8f9e71e1",
+    "ownerAccountId": "540e7735399939140041d885",
+    "builderAccountId": "540e652c399939140040eb8a",
+    "repositoryUrl": "https://api.github.com/repos/Shippable/docsv2",
+    "repositorySshUrl": "git@github.com:Shippable/docsv2.git",
+    "repositoryHtmlUrl": "https://github.com/Shippable/docsv2",
+    "sourceDefaultBranch": "master",
     "isPrivateRepository": false,
-    "sourceDescription": "",
-    "language": "JavaScript",
-    "repositoryUrl": "https://api.github.com/repos/shippableapi/sample_node",
-    "fullName": "shippableapi/sample_node",
-    "name": "sample_node",
-    "subscriptionId": "56cfe9f3c77dae78a8eaa746",
-    "isPaused": false,
-    "created": "2016-02-26T05:59:20.980Z",
-    "autoBuild": false,
-    "isOrg": false,
-    "branches": [],
-    "id": "56cfe9f4c77dae78a8eaa748"
+    "isOrg": true,
+    "isFork": false,
+    "sourceId": "35451002",
+    "sourcePushedAt": "2017-01-30T23:08:05.000Z",
+    "sourceCreatedAt": "2015-05-11T21:26:37.000Z",
+    "sourceUpdatedAt": "2016-10-25T04:25:37.000Z",
+    "lastBuildGroupNumber": 1275,
+    "autoBuild": true,
+    "deployPublicKey": "ssh-rsa abc123 Shippable\n",
+    "language": "CSS",
+    "providerId": "562dbd9710c5980d003b0451",
+    "providerLastSyncEndDate": "2017-01-30T23:17:40.740Z",
+    "providerLastSyncStartDate": "2017-01-30T23:17:40.391Z",
+    "enabledDate": "2015-05-13T00:47:37.105Z",
+    "enabledBy": "540e7735399939140041d88b",
+    "enabledByUserName": "avinci",
+    "type": "ci",
+    "consolidateReports": false,
+    "createdBy": "540e55445e5bad6f98764522",
+    "updatedBy": "540e55445e5bad6f98764522",
+    "createdAt": "2016-07-23T10:48:21.580Z",
+    "updatedAt": "2017-01-30T23:17:40.740Z"
   }
+]
 ```
 ---
 
@@ -90,69 +130,80 @@ GET /projects/:projectId
 
 ```
 {
-    "repositoryProvider": "github",
-    "sourceId": "52582289",
-    "providerId": "561f7fe7a120200d00ac0725",
-    "updatedDate": "2016-02-26T05:59:20.977Z",
-    "sourceRepoOwner": {
-        "login": "shippableapi",
-        "id": 17489387,
-        "avatar_url": "https://avatars.githubusercontent.com/u/17489387?v=3",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/shippableapi",
-        "html_url": "https://github.com/shippableapi",
-        "followers_url": "https://api.github.com/users/shippableapi/followers",
-        "following_url": "https://api.github.com/users/shippableapi/following{/other_user}",
-        "gists_url": "https://api.github.com/users/shippableapi/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/shippableapi/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/shippableapi/subscriptions",
-        "organizations_url": "https://api.github.com/users/shippableapi/orgs",
-        "repos_url": "https://api.github.com/users/shippableapi/repos",
-        "events_url": "https://api.github.com/users/shippableapi/events{/privacy}",
-        "received_events_url": null,
-        "type": "User",
-        "site_admin": false
-    },
-    "sourceUpdated": "2016-02-26T05:58:58.000Z",
-    "sourceCreated": "2016-02-26T05:58:57.000Z",
-    "sourcePushed": "2016-02-26T00:08:34.000Z",
-    "repositorySshUrl": "git@github.com:shippableapi/sample_node.git",
-    "repositoryHtmlUrl": "https://github.com/shippableapi/sample_node",
-    "isFork": true,
-    "isPrivateRepository": false,
-    "sourceDescription": "",
-    "language": "JavaScript",
-    "repositoryUrl": "https://api.github.com/repos/shippableapi/sample_node",
-    "fullName": "shippableapi/sample_node",
-    "name": "sample_node",
-    "subscriptionId": "56cfe9f3c77dae78a8eaa746",
-    "providerLastSyncStartDate": "2016-02-26T06:04:21.458Z",
-    "sourceDefaultBranch": "master",
+  "branches": [
+    "master"
+  ],
+  "sourceRepoOwner": {
+    "login": "Shippable",
+    "id": 5647221,
+    "avatar_url": "https://avatars.githubusercontent.com/u/5647221?v=3",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/Shippable",
+    "html_url": "https://github.com/Shippable",
+    "followers_url": "https://api.github.com/users/Shippable/followers",
+    "following_url": "https://api.github.com/users/Shippable/following{/other_user}",
+    "gists_url": "https://api.github.com/users/Shippable/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/Shippable/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/Shippable/subscriptions",
+    "organizations_url": "https://api.github.com/users/Shippable/orgs",
+    "repos_url": "https://api.github.com/users/Shippable/repos",
+    "events_url": "https://api.github.com/users/Shippable/events{/privacy}",
+    "type": "Organization",
+    "site_admin": false
+  },
+  "propertyBag": {
+    "repositoryHttpsUrl": "https://github.com/Shippable/docsv2.git",
     "isPaused": false,
+    "enablePullRequestBuild": true,
+    "enableCommitBuild": true,
+    "enableTagBuild": false,
+    "enableReleaseBuild": false,
     "cacheTag": 0,
-    "projectAuthorizationLastSyncEndDate": "1970-01-01T00:00:00.000Z",
-    "providerLastSyncEndDate": "2016-02-26T06:04:23.337Z",
-    "created": "2016-02-26T05:59:20.980Z",
-    "settings": {
-        "environmentVariables": [],
-        "imageOptions": {
-            "ports": [],
-            "mounts": []
-        }
-    },
-    "autoBuild": false,
-    "sourceSize": 30,
-    "sourceWatchersCount": 0,
-    "sourceStargazersCount": 0,
-    "sourceForksCount": 0,
-    "isOrg": false,
-    "branches": [
-        "dockerpush",
-        "master",
-        "test",
-        "testdockerbuildrepo"
-    ],
-    "id": "56cfe9f4c77dae78a8eaa748"
+    "serialize": false,
+    "serializeBranches": [],
+    "lowCoverageLimit": 0,
+    "unstableOnLowCoverage": false,
+    "dashboardBranchSettings": {
+      "runFilter": "commit",
+      "branchFilter": [
+        "master"
+      ]
+    }
+  },
+  "id": "55511f38edd7f2c052e8c637",
+  "projectId": 4675042,
+  "name": "docsv2",
+  "fullName": "Shippable/docsv2",
+  "subscriptionId": "540e75583479c5ea8f9e71e1",
+  "ownerAccountId": "540e7735399939140041d885",
+  "builderAccountId": "540e652c399939140040eb8a",
+  "repositoryUrl": "https://api.github.com/repos/Shippable/docsv2",
+  "repositorySshUrl": "git@github.com:Shippable/docsv2.git",
+  "repositoryHtmlUrl": "https://github.com/Shippable/docsv2",
+  "sourceDefaultBranch": "master",
+  "isPrivateRepository": false,
+  "isOrg": true,
+  "isFork": false,
+  "sourceId": "35451002",
+  "sourcePushedAt": "2017-01-30T23:08:05.000Z",
+  "sourceCreatedAt": "2015-05-11T21:26:37.000Z",
+  "sourceUpdatedAt": "2016-10-25T04:25:37.000Z",
+  "lastBuildGroupNumber": 1275,
+  "autoBuild": true,
+  "deployPublicKey": "ssh-rsa abc123 Shippable\n",
+  "language": "CSS",
+  "providerId": "562dbd9710c5980d003b0451",
+  "providerLastSyncEndDate": "2017-01-30T23:17:40.740Z",
+  "providerLastSyncStartDate": "2017-01-30T23:17:40.391Z",
+  "enabledDate": "2015-05-13T00:47:37.105Z",
+  "enabledBy": "540e7735399939140041d88b",
+  "enabledByUserName": "avinci",
+  "type": "ci",
+  "consolidateReports": false,
+  "createdBy": "540e55445e5bad6f98764522",
+  "updatedBy": "540e55445e5bad6f98764522",
+  "createdAt": "2016-07-23T10:48:21.580Z",
+  "updatedAt": "2017-01-30T23:17:40.740Z"
 }
 ```
 ---
@@ -171,41 +222,38 @@ GET /projects/:projectId
 |500|Internal Server Error| Check project id.|
 
 ```
-    {
-        "id": "56cfe31f388a4f2d00382db1",
-        "runNumber": 26,
-        "projectId": "56a9b50ad78fc6fc596b61e5",
-        "projectName": "micro-sample",
-        "subscriptionOrgName": "manishas",
-        "subscriptionId": "564eb6dfd78fc6fc5965369a",
-        "isPrivate": false,
-        "lastCommitShortDescription": "Update shippable.yml",
-        "commitSha": "f8d84e86e40b4ae8dc8a6ff83d6cc3f6772838bb",
-        "triggeredBy": {
-            "avatarUrl": "https://avatars.githubusercontent.com/u/2983749?v=3",
-            "email": "",
-            "displayName": "Manisha",
-            "login": "manishas"
-        },
-        "statusCode": 30,
-        "startedAt": "2016-02-26T05:31:12.886Z",
-        "createdAt": "2016-02-26T05:31:11.085Z",
-        "endedAt": "2016-02-26T05:32:11.442Z",
-        "branchName": "master",
-        "isPullRequest": false,
-        "pullRequestNumber": null,
-        "projectHtmlUrl": "https://github.com/manishas/micro-sample",
-        "providerName": "GITHUB",
-        "commitUrl": "https://github.com/manishas/micro-sample/commit/f8d84e86e40b4ae8dc8a6ff83d6cc3f6772838bb",
-        "committer": {
-            "avatarUrl": "https://avatars.githubusercontent.com/u/2983749?v=3",
-            "email": "manisha@shippable.com",
-            "displayName": "Manisha",
-            "login": "manishas"
-        },
-        "runLengthInMS": 58556,
-        "isRun": true
-    }
+{
+  "projectId": "55511f38edd7f2c052e8c637",
+  "branchName": "master",
+  "runNumber": 1275,
+  "runLengthInMS": 278663,
+  "id": "588fc758e8c7130f000b45bd",
+  "statusCode": 30,
+  "subscriptionId": "540e75583479c5ea8f9e71e1",
+  "isPrivate": false,
+  "lastCommitShortDescription": "Update shippable.yml",
+  "commitSha": "edba134e13c3cd189e1d7db231cee5cf1e8c405b",
+  "triggeredBy": {
+    "login": "manishas",
+    "displayName": "Manisha",
+    "email": "manishas@users.noreply.github.com",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/2983749?v=3"
+  },
+  "startedAt": "2017-01-30T23:08:28.791Z",
+  "createdAt": "2017-01-30T23:08:08.682Z",
+  "endedAt": "2017-01-30T23:13:07.454Z",
+  "isPullRequest": false,
+  "pullRequestNumber": null,
+  "commitUrl": "https://github.com/Shippable/docsv2/commit/edba134e13c3cd189e1d7db231cee5cf1e8c405b",
+  "committer": {
+    "login": "web-flow",
+    "displayName": "GitHub Web Flow",
+    "email": "noreply@github.com",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/19864447?v=3"
+  },
+  "isGitTag": false,
+  "isRun": true
+}
 ```
 
 ---
