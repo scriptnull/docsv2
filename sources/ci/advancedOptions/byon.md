@@ -4,7 +4,7 @@ page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deplo
 
 # Running builds on your own machines (BYON)
 
-By default, all your builds run in build containers hosted on Shippable's infrastructure. 
+By default, all your builds run in build containers hosted on Shippable's infrastructure.
 
 However, some organizations have very specific security requirements that do not allow them to run builds on hosted infrastructure. Others need bigger machines since their builds are resource intensive and take too long on Shippable's infrastructure.
 
@@ -59,7 +59,7 @@ If you run into any issues, contact us through [support](https://github.com/ship
 
 ## Configuring BYON
 
-BYON is configured through your Subscription Settings UI. 
+BYON is configured through your Subscription Settings UI.
 
 To start, click on the `Settings` tab of your Subscription page and then click on `Nodes` in the sidebar menu.
 
@@ -104,16 +104,14 @@ will run on your machines.
 You can click on the `Edit` button for a build node to edit the node name. Nothing
 else can be edited for a node.
 
-### Re-initializing a build node
-You can reinitialize a node by clicking on the `Reinitialize` button. This will reset the node and initialize/install everything from scratch.
+### Resetting a build node
+You can reset a node by clicking on the `Reset` button. This action will initialize/install everything from scratch.
 
-You can only reinitialize nodes provisioned on Shippable's infrastructure.
+You can only reset nodes provisioned on Shippable's infrastructure.
 
-If you have added your own build nodes, you will need to re-download the initialization script and
-run it on your node.
+If you have added your own build nodes, you will need to re-download the initialization script and run it on your node.
 
 ### Deleting a build node
 Click on `Delete` to delete your build node. This action is final and cannot be undone.
 
 ---
-
