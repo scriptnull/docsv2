@@ -182,8 +182,11 @@ Then, you can use that resource in your `shippable.jobs.yml` to configure when n
       - NOTIFY: <notification resource name>
     on_failure:
       - NOTIFY: <notification resource name>
+    always:
+      - NOTIFY: <notification resource name>
 ```
 
 * `on_start` specifies that notifications are sent when the job starts.
 * `on_success` specifies that notifications are sent when the job completes successfully.
 * `on_failure` specifies that notifications are sent when the job fails.
+* `always` specifies that notifications are sent when the job succeeds or fails.
