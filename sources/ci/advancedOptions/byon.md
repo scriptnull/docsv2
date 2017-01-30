@@ -107,8 +107,6 @@ else can be edited for a node.
 ### Resetting a build node
 You can reset a node by clicking on the `Reset` button. This action will initialize/install everything from scratch.
 
-You can only reset nodes provisioned on Shippable's infrastructure.
-
 If you have added your own build nodes, you will need to re-download the initialization script and run it on your node.
 
 ### Deleting a build node
