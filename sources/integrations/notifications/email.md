@@ -7,9 +7,9 @@ By default, we send email notifications to the last committer and project owner 
 
 We get your email address from your source control management system (GitHub/Bitbucket).
 
-To customize email notifications, you'll need to configure options in the `shippable.yml` file. 
+To customize email notifications, you'll need to configure options in the `shippable.yml` file.
 
-##CI notifications 
+##CI notifications
 
 Follow instructions below to configure email notifications for your CI workflows. This is configured in `shippable.yml`.
 
@@ -38,7 +38,7 @@ Use the descriptions of each field below to modify the `yml` above and tailor it
 - `recipients` specifies the email addresses you want to send build status notifications to. This overrides the default setting of 'last committer' and 'project owner(s)' email address that we get from your source control management system (GitHub/Bitbucket). NOTE: We do not use the email address specified in your 'Account Settings' for notifications.
      - To specify 'last committer' and 'project owner(s)' as part of this list, you can use --last_committer and --owners.
      - For single recipient, use the format `recipients: example@org.com`
-- [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches.
+- [optional] `branches` allows you to choose the branches you want to send notifications for. By default, notifications are sent for all branches. The `only` tag should be used when you want to send notifications to specific branches. You can also use the `except` tag to exclude specific branches. [Wildcards](../../ci/advancedOptions/branches/) are also supported.
 - [optional] You can set the following options for the `on_success`, `on_failure` tags:
      - The value `change` for `on_success` or `on_failure` fields means you will receive notifications only when the build status changes to success or failure respectively.
      - `always` means that you will always receive a notification for that build status.
@@ -66,7 +66,7 @@ notifications:
 
 ## Pipeline notifications
 
-Pipeline notifications are sent by defining the [notification resource](../../pipelines/resources/notification/) in your `shippable.resources.yml` and then using it in your `shippable.jobs.yml`. More on this is explained in our [Jobs documentation](../../pipelines/jobs/overview/#jobNotifications). 
+Pipeline notifications are sent by defining the [notification resource](../../pipelines/resources/notification/) in your `shippable.resources.yml` and then using it in your `shippable.jobs.yml`. More on this is explained in our [Jobs documentation](../../pipelines/jobs/overview/#jobNotifications).
 
 ---
 
@@ -86,4 +86,3 @@ You can add an Email account integration to receive notifications for monitored 
 <img src="/ci/images/integrations/notifications/email/monitorImages.png" alt="Configure an email address to be notified while monitoring a Docker image" style="width:700px;"/>
 
 ---
-
