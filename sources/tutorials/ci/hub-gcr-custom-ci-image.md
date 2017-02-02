@@ -61,6 +61,6 @@ integrations:
 
 ```
 
-If `agent_only` tag is set to true, we will not attempt to login to the registry from inside your CI build container. However, this also means that you will only be able to pull from or push to GCR in the [`pre_ci`](/ci/shippableyml.md#pre-ci) and [`push`]((/ci/shippableyml.md#push)) sections of the yml.
+If `agent_only` tag is set to true, we will not attempt to login to the registry from inside your CI build container. However, this also means that you will only be able to pull from or push to GCR in the [`pre_ci`](/ci/shippableyml/pre-ci) and [`push`](/ci/shippableyml/#push) sections of the yml.
 
 * If you want to use docker commands to interact with GCR in your `ci`, `post_ci`, `on_success` or `on_failure` sections within your `shippable.yml`, then please install the gcliud sdk in your Dockerfile.
