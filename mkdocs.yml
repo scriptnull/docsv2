@@ -86,6 +86,7 @@ pages:
     - release: pipelines/jobs/release.md
     - provision: pipelines/jobs/provision.md
     - runSh: pipelines/jobs/runSh.md
+    - runCLI: pipelines/jobs/runCLI.md
     - jenkinsJob: pipelines/jobs/jenkinsJob.md
   - Triggers: pipelines/triggers.md
   - Trace: pipelines/trace.md

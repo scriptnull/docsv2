@@ -13,7 +13,7 @@ Shippable supports jobs in two ways - **managed** and **unmanaged**.
 
 **Unmanaged jobs** are available for you to provide you complete flexibility to do pretty much anything you need by configuring the job with custom shell scripts. These jobs can take any supported resource as an input and can output to any resource depending on your configuration.
 
-We currently support 6 types of jobs:
+We currently support 7 types of jobs:
 
 - [manifest](manifest/): This managed job type is used for creating and versioning an application or service definition. Your service definition consists of one or more Docker images, options you want to run your containers with, and environment parameters.
 
@@ -24,6 +24,8 @@ We currently support 6 types of jobs:
 - [provision](provision/): This managed job type is used to create objects on a supported Container Service.
 
 - [runSh](runSh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts.
+
+- [runCLI](runCLI/): This unmanaged job is like runSh, but with the addition of automatically configured CLI tools.
 
 - [jenkinsJob](jenkinsJob/): This managed job type allows you to connect an existing Jenkins job to your Shippable pipeline.
 
