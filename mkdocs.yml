@@ -67,6 +67,7 @@ pages:
   - Getting Started: pipelines/gettingStarted.md
   - Resources:
     - Overview: pipelines/resources/overview.md
+    - cliConfig: pipelines/resources/cliConfig.md
     - cluster: pipelines/resources/cluster.md
     - dockerOptions: pipelines/resources/dockerOptions.md
     - file: pipelines/resources/file.md

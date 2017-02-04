@@ -21,8 +21,10 @@ There are several resources that are pre-defined as part of the platform and wor
 - [cluster](cluster/): Cluster that defines a container service
 - [notification](notification/): Notifications for job success or failure
 - [integration](integration/): Credentials for third party services
+- [cliConfig](cliConfig/): Configuration information for command-line tools
 - [loadBalancer](loadBalancer/): AWS Classic and Application Load Balancers, or Google Container Engine (GKE) services.
 - [time](time/): Trigger a job at a specific day and time
+- [file](file/): Specifies a file
 
 At this time, we do not support definition of custom resources. If you need a resource that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 
