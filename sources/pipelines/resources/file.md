@@ -3,7 +3,7 @@ page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # file
-This resource type is used to specify a file, that could be transferred to cluser of nodes, during deployment.
+This resource type is used to specify a file that could be transferred to cluster of nodes during deployment.
 
 It can be given as input to `manifest` job. During the deployment, of the
 
