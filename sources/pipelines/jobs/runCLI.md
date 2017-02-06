@@ -55,9 +55,12 @@ The runCLI job uses the subscription integration specified in the [cliConfig](..
 | AWS                                 | [AWS CLI](https://aws.amazon.com/cli/); [EB (Elastic Beanstalk) CLI](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html) |
 | Amazon EC2 Container Registry (ECR) | [Docker Engine](https://docs.docker.com/engine/reference/commandline/docker/) |
 | Docker Hub                          | [Docker Engine](https://docs.docker.com/engine/reference/commandline/docker/) |
+| Docker Trusted Registry             | [Docker Engine](https://docs.docker.com/engine/reference/commandline/docker/) |
 | Google Container Engine             | [gcloud](https://cloud.google.com/sdk/gcloud/); [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) |
 | Google Container Registry (GCR)     | [Docker Engine](https://docs.docker.com/engine/reference/commandline/docker/) |
+| JFrog Artifactory                   | [JFrog CLI](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory) |
 | Kubernetes                          | [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) |
+| Private Docker Registry             | [Docker Engine](https://docs.docker.com/engine/reference/commandline/docker/) |
 | Quay.io                             | [Docker Engine](https://docs.docker.com/engine/reference/commandline/docker/) |
 
 It's worth noting that if a runCLI job receives multiple `cliConfig` resources for the same provider, we will use the credentials contained in the last listed `cliConfig` when authenticating.
