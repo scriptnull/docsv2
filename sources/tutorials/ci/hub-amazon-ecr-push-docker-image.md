@@ -1,6 +1,6 @@
-#Pushing a Docker image to GCR
+#Pushing a Docker image to Amazon ECR
 
-You can push your image to GCR in any section of your yml.  
+You can push your image to Amazon ECR in any section of your yml.  
 
 To do this:
 
@@ -13,13 +13,15 @@ integrations:
   hub:
     - integrationName: ecr-integration
       type: ecr
+      region: us-east-1
       branches:
         only:
           - master
           - dev
 ```
 - `integrationName` value is the name of the ECR integration you added in the previous step. It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match).
-- `type` is `docker`.
+- `type` is `ecr`.
+- [optional] `region` specifies the region you want to push to. Default is us-east-1.
 - [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
 
 * Add the following to your `shippable.yml` file:
