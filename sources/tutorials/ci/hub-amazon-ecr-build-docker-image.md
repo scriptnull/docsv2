@@ -25,7 +25,7 @@ integrations:
 ```
 - `integrationName` value is the name of the ECR integration you added in the previous step. It is important the name matches exactly. If not, the build will fail with an error as [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match).
 - `type` is `ecr`.
-- [optional] `region` specifies the region you want to push to. Default is us-east-1.
+- [optional] `region` specifies the region you want to pull from. Default is us-east-1.
 - [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
 
 * You can configure `shippable.yml` to build a container as part of your workflow by including the following:
