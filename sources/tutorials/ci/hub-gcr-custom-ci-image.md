@@ -21,7 +21,7 @@ integrations:
           - dev
 ```
 - `integrationName` value is the name of the GCR integration you added in the previous step. It is important the name matches exactly. If not, the build will fail with an error as  [described here](/ci/troubleshoot/#integration-name-specified-in-yml-does-not-match).
-- `type` is `docker`.
+- `type` is `gcr`.
 - [optional] `branches` section: specify the branches this integration is applicable to. You can skip this if you want your integration to be applicable for all branches.. The `only` tag should be used when you want the integration on specific branches. You can also use the `except` tag to exclude specific branches.
 
 * If you want to build a Docker image and then use it for your CI, you should follow instructions in our [Build a Docker image](/tutorials/ci/hub-gcr-build-docker-image/) tutorial. Please note that you should build the image in the `pre-ci` section of the yml.
