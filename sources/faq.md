@@ -332,13 +332,13 @@ This `yml` configuration should cover a lot of scenarios. If you want a more tai
 
 ---
 
-### How do I identify the node on which the build ran?
+### How do I identify the node on which the job ran?
 
-There are two ways to identify the node on which the build ran:
+There are two ways to identify the node on which the job ran:
 
-1. In the UI, the build console has a section called `Job node info`, under which is `uname -a` that shows you the hostname of the node
+1. In the UI, the job console has a section called `Job node info`, under which is `uname -a` that shows you the hostname of the node
 1. For API users, each job has a "nodeId" property that can be used to identify the node
 
-While the build is running, you can view the build being run on a particular node by going into your Subscription Settings>Nodes section
+While the job is running, you can view the job being run on a particular node by going into your Subscription Settings>Nodes section
 
 ---
