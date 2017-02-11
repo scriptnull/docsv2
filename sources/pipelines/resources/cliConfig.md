@@ -75,7 +75,7 @@ resources:
 
 ### Docker
 
-A Docker integration is used to authenticate with Docker Hub and will be used in a [runCLI job](../jobs/runCLI/) to `docker login` before the scripts in the `TASK` section. It may be created in `shippable.resources.yml` as follows:
+A [Docker](../../integrations/imageRegistries/dockerHub/) integration is used to authenticate with Docker Hub and will be used in a [runCLI job](../jobs/runCLI/) to `docker login` before the scripts in the `TASK` section. It may be created in `shippable.resources.yml` as follows:
 
 ```
 resources:
@@ -87,6 +87,21 @@ resources:
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view.
 * `type` is 'cliConfig'
 * `integration` should be the name of a [Docker](../../integrations/imageRegistries/dockerHub/) integration that has been [enabled for the subscription](../../navigatingUI/subscriptions/settings/#adding-integrations). Make sure that this name matches the name used in the subscription settings.
+
+### Docker Trusted Registry
+
+A [Docker Trusted Registry](../../integrations/imageRegistries/dockerTrustedRegistry/) integration is used to authenticate with that registry and if this resource is added to a [runCLI job](../jobs/runCLI/), it will be used to `docker login` before the scripts in the `TASK` section. It may be created in `shippable.resources.yml` as follows:
+
+```
+resources:
+  - name: <string>                              #required
+    type: cliConfig                             #required
+    integration: <string>                       #required
+```
+
+* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view.
+* `type` is 'cliConfig'
+* `integration` should be the name of a [Docker Trusted Registry](../../integrations/imageRegistries/dockerTrustedRegistry/) integration that has been [enabled for the subscription](../../navigatingUI/subscriptions/settings/#adding-integrations). Make sure that this name matches the name used in the subscription settings.
 
 ### Google Container Registry (GCR)
 
@@ -127,6 +142,21 @@ resources:
 
 *NOTE:* Using multiple Google Container Engine (GKE) integrations, GKE and Kubernetes integrations, or GKE and Google Container Registry (GCR) integrations in the same runCLI job is not supported.
 
+### JFrog Artifactory
+
+A [JFrog Artifactory](../../integrations/artifactRegistries/jfrogArtifactory/) integration may be used to configure credentials with the JFrog Artifactory CLI in a [runCLI job](../jobs/runCLI/) before the scripts in the `TASK` section. It is specified as follows:
+
+```
+resources:
+  - name: <string>                              #required
+    type: cliConfig                             #required
+    integration: <string>                       #required
+```
+
+* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view.
+* `type` is 'cliConfig'
+* `integration` should be the name of a [JFrog Artifactory](../../integrations/artifactRegistries/jfrogArtifactory/) integration that has been [enabled for the subscription](../../navigatingUI/subscriptions/settings/#adding-integrations). Make sure that this name matches the name used in the subscription settings.
+
 ### Kubernetes
 
 A [Kubernetes](../../integrations/containerServices/kubernetes/) integration may be used to authenticate with the Kubernetes master in a [runCLI job](../jobs/runCLI/) before the scripts in the `TASK` section. It is specified as follows:
@@ -143,6 +173,21 @@ resources:
 * `integration` should be the name of a [Kubernetes](../../integrations/containerServices/kubernetes/) integration that has been [enabled for the subscription](../../navigatingUI/subscriptions/settings/#adding-integrations). Make sure that this name matches the name used in the subscription settings. Kubernetes integrations using a bastion host are not supported with [runCLI jobs](../jobs/runCLI/) at this time.
 
 *NOTE:* Using multiple Kubernetes integrations or both Kubernetes and Google Container Engine (GKE) integrations in the same runCLI job is not supported.
+
+### Private Docker Registry
+
+A [Private Docker Registry](../../integrations/imageRegistries/privateRegistry/) integration is used to authenticate with that registry and will be used to `docker login` before the scripts in the `TASK` section in a [runCLI job](../jobs/runCLI/). It may be created in `shippable.resources.yml` as follows:
+
+```
+resources:
+  - name: <string>                              #required
+    type: cliConfig                             #required
+    integration: <string>                       #required
+```
+
+* `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view.
+* `type` is 'cliConfig'
+* `integration` should be the name of a [Private Docker Registry](../../integrations/imageRegistries/privateRegistry/) integration that has been [enabled for the subscription](../../navigatingUI/subscriptions/settings/#adding-integrations). Make sure that this name matches the name used in the subscription settings.
 
 ### Quay.io
 
