@@ -60,6 +60,7 @@ The following tutorials show you how you can deploy your package after CI. For e
 ### Advanced CI topics
 
 * [Customizing CI workflows based on branch](http://blog.shippable.com/customize-environments-for-different-branches-of-a-continuous-integration-build)
+* [Specifying different deployment targets based on branch](http://blog.shippable.com/specifying-deployment-targets-for-different-git-branches)
 * [Matrix builds with minor Java versions](http://blog.shippable.com/matrix-builds-for-minor-java-versions-with-maven-and-artifactory)
 * [Customizing the build badge](http://blog.shippable.com/customizing-build-badges-for-a-nodejs-project-status)
 * [Changing the default timeout for a job](http://blog.shippable.com/changing-the-default-timeout-for-a-continuous-integration-project)

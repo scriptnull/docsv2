@@ -32,6 +32,8 @@ build:
 
 You can replace your myOrg, myImageRepo, and myTag as required in the snippet above.
 
+If you also want to build the image as part of your CI workflow, check out the tutorial for [building a Docker image](/tutorials/ci/hub-gcr-build-docker-image/).
+
 ###Pushing the CI container with all artifacts intact
 
 If you are pushing your CI container to GCR and you want all build artifacts preserved, you should commit the container before pushing it as shown below:
@@ -46,3 +48,17 @@ build:
 ```
 
 The environment variable `$SHIPPABLE_CONTAINER_NAME` contains the name of your CI container.
+
+###Pushing Docker images with multiple tags
+
+If you want to push the container image with multiple tags, you can just push twice as shown below:
+
+
+```
+build:
+  post_ci:
+    #Commit the container only if you want all the artifacts from the CI step
+    - docker push gcr.io/myOrg/myImageRepo:myTag1
+    - docker push gcr.io/myOrg/myImageRepo:myTag2
+
+```
