@@ -57,7 +57,6 @@ If you want to push the container image with multiple tags, you can just push tw
 ```
 build:
   post_ci:
-    #Commit the container only if you want all the artifacts from the CI step
     - docker push gcr.io/myOrg/myImageRepo:myTag1
     - docker push gcr.io/myOrg/myImageRepo:myTag2
 

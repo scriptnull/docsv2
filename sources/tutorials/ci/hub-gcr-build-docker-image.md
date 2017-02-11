@@ -34,3 +34,17 @@ build:
     - docker build -t gcr.io/myOrg/myImageRepo:myTag .
 ```
 The `docker build` command will work in the `pre_ci`, `ci`, `post_ci`, `on_success` and `on_failure` sections of your yml.
+
+###Building Docker images with multiple tags
+
+If you want to build the image with multiple tags, here is how you can do it:
+
+```
+build:
+  ci:
+    -  docker build -t gcr.io/myOrg/myImageRepo:myTag1 -t gcr.io/myOrg/myImageRepo:myTag2
+```
+
+###Docker build reference
+
+For a complete list of everything supported by the `docker build` command, refer to the [official Docker docs](https://docs.docker.com/engine/reference/commandline/build/).

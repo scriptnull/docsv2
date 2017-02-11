@@ -58,7 +58,6 @@ If you want to push the container image with multiple tags, you can just push tw
 ```
 build:
   post_ci:
-    #Commit the container only if you want all the artifacts from the CI step
     - docker push aws-account-id.dkr.ecr.us-east-1.amazonaws.com/image-name:myTag1
     - docker push aws-account-id.dkr.ecr.us-east-1.amazonaws.com/image-name:myTag2
 

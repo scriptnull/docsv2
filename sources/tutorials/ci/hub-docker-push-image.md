@@ -28,7 +28,7 @@ build:
     - docker push docker-hub-org/image-name:image-tag
 ```
 
-You can replace your docker-hub-org, image-name, and image-tag as required in the snippet above. If you also want to build the image as part of your CI workflow, check out the tutorial for [building a Docker image](/tutorials/ci/hub-docker-build-image/)
+You can replace your docker-hub-org, image-name, and image-tag as required in the snippet above. If you also want to build the image as part of your CI workflow, check out the tutorial for [building a Docker image](/tutorials/ci/hub-docker-build-image/).
 
 ###Pushing the CI container with all artifacts intact
 
@@ -53,7 +53,6 @@ If you want to push the container image with multiple tags, you can just push tw
 ```
 build:
   post_ci:
-    #Commit the container only if you want all the artifacts from the CI step
     - docker push docker-hub-org/image-name:image-tag-1
     - docker push docker-hub-org/image-name:image-tag-2
 
