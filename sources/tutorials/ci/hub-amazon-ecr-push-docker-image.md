@@ -34,6 +34,8 @@ build:
 
 You can replace your myOrg, myImageRepo, and myTag as required in the snippet above.
 
+If you also want to build the image as part of your CI workflow, check out the tutorial for [building a Docker image](/tutorials/ci/hub-amazon-ecr-build-docker-image/).
+
 ###Pushing the CI container with all artifacts intact
 
 If you are pushing your CI container to ECR and you want all build artifacts preserved, you should commit the container before pushing it as shown below:
@@ -47,3 +49,16 @@ build:
 
 ```
 The environment variable `$SHIPPABLE_CONTAINER_NAME` contains the name of your CI container.
+
+###Pushing Docker images with multiple tags
+
+If you want to push the container image with multiple tags, you can just push twice as shown below:
+
+
+```
+build:
+  post_ci:
+    - docker push aws-account-id.dkr.ecr.us-east-1.amazonaws.com/image-name:myTag1
+    - docker push aws-account-id.dkr.ecr.us-east-1.amazonaws.com/image-name:myTag2
+
+```
