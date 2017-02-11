@@ -72,7 +72,7 @@ This a very simple job which needs 2 INput resources to perform whatever that jo
 
 * `name` should be an easy to remember text string. This will appear in the visualization of this job in the SPOG view and in the list of jobs in the Pipelines `Resources` tab.
 
-* `type` is always set to type of job - manifest, deploy, release, or runSh.
+* `type` is always set to type of job - manifest, deploy, release, runSh, provision, runCLI, or jenkinsJob.
 
 * `steps` is an array of instructions consisting of `IN`, `OUT` & `TASK` objects.
 
