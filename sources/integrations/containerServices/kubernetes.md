@@ -19,11 +19,7 @@ Follow the steps below to create an account integration with Google's Kubernetes
 * Click on the `Add Integration` button and choose `Kubernetes` from the list of choices.
 * For 'Integration Name' use a distinctive name that's easy to associate to the integration and recall. Example: `kube-int`.
 * 'Cluster Access type' should be set to `Kubernetes master`
-* SSH into your Kubernetes master node and run the following commands. Copy the output of this file which gives you the [kubeconfig](https://kubernetes.io/docs/user-guide/kubeconfig-file/).
-```
-$ sudo su -
-$ cat /etc/kubernetes/admin.conf
-```
+* Copy the contents of your [kubeconfig](https://kubernetes.io/docs/user-guide/kubeconfig-file/) file, usually found at ~/.kube/config, that contains credentials for accessing your Kubernetes cluster. You may copy the entire kubeconfig file or only the details related to a particular cluster
 * Paste the contents into the 'KubeConfig File' textbox.
 * Assign this integration to the Subscription(s) containing the repo with your pipelines config. Since you're likely a member of many organizations, you need to specify which of them can use this integration.
 * Click on `Save`.
