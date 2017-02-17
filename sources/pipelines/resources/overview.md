@@ -12,19 +12,20 @@ Shippable internally maintains its own version numbers for every resource so tha
 
 There are several resources that are pre-defined as part of the platform and work as documented in the sections below:
 
+- [ciRepo](ciRepo/): Represents a project in Shippable CI
+- [cliConfig](cliConfig/): Configuration information for command-line tools
+- [cluster](cluster/): Cluster that defines a container service
+- [dockerOptions](dockerOptions/): Options for docker images
+- [file](file/): Specifies a file
 - [gitRepo](gitRepo/): Source repository for your code
 - [image](image/): Docker image definition
-- [dockerOptions](dockerOptions/): Options for docker images
+- [integration](integration/): Credentials for third party services
+- [loadBalancer](loadBalancer/): AWS Classic and Application Load Balancers, or Google Container Engine (GKE) services.
+- [notification](notification/): Notifications for job success or failure
 - [params](params/): Parameters for your apps/services/microservices
 - [replicas](replicas/): Number of copies of the service to run
-- [version](version/): Semantic versions
-- [cluster](cluster/): Cluster that defines a container service
-- [notification](notification/): Notifications for job success or failure
-- [integration](integration/): Credentials for third party services
-- [cliConfig](cliConfig/): Configuration information for command-line tools
-- [loadBalancer](loadBalancer/): AWS Classic and Application Load Balancers, or Google Container Engine (GKE) services.
 - [time](time/): Trigger a job at a specific day and time
-- [file](file/): Specifies a file
+- [version](version/): Semantic versions
 
 At this time, we do not support definition of custom resources. If you need a resource that is not listed above, send us an email at [support@shippable.com](mailto:support@shippable.com)
 

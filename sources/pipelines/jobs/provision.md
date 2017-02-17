@@ -1,5 +1,5 @@
-page_title: Unified Pipeline Resources
-page_description: List of supported resources
+page_title: Unified Pipeline Jobs - provision
+page_description: List of supported jobs
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # provision

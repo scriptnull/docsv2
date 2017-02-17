@@ -67,6 +67,7 @@ pages:
   - Getting Started: pipelines/gettingStarted.md
   - Resources:
     - Overview: pipelines/resources/overview.md
+    - ciRepo: pipelines/resources/ciRepo.md
     - cliConfig: pipelines/resources/cliConfig.md
     - cluster: pipelines/resources/cluster.md
     - dockerOptions: pipelines/resources/dockerOptions.md
@@ -78,16 +79,18 @@ pages:
     - notification: pipelines/resources/notification.md
     - params: pipelines/resources/params.md
     - replicas: pipelines/resources/replicas.md
+    - syncRepo: pipelines/resources/syncRepo.md
     - time: pipelines/resources/time.md
     - version: pipelines/resources/version.md
   - Jobs:
     - Overview: pipelines/jobs/overview.md
-    - manifest: pipelines/jobs/manifest.md
     - deploy: pipelines/jobs/deploy.md
-    - release: pipelines/jobs/release.md
+    - manifest: pipelines/jobs/manifest.md
     - provision: pipelines/jobs/provision.md
-    - runSh: pipelines/jobs/runSh.md
+    - release: pipelines/jobs/release.md
+    - runCI: pipelines/jobs/runCI.md
     - runCLI: pipelines/jobs/runCLI.md
+    - runSh: pipelines/jobs/runSh.md
     - jenkinsJob: pipelines/jobs/jenkinsJob.md
   - Triggers: pipelines/triggers.md
   - Trace: pipelines/trace.md
@@ -192,6 +195,7 @@ pages:
     - Deploying a sample application: tutorials/pipelines/samplePipeline.md
     - Seeding your first pipeline: tutorials/pipelines/howToAddSyncRepos.md
     - Connecting CI and Pipelines: tutorials/pipelines/connectingCiPipelines.md
+    - Migrating from Event Trigger to runCI: tutorials/pipelines/migrateEventTrigger.md
     - Rolling back deployments: tutorials/pipelines/rollback-deployments.md
     - Deploy tutorials:
       - Deploy a sample app to Kubernetes: tutorials/pipelines/deploy-to-kubernetes.md

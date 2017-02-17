@@ -1,4 +1,4 @@
-page_title: Unified Pipeline Resources
+page_title: Unified Pipeline Resources - cliConfig
 page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 

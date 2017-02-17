@@ -8,7 +8,7 @@ page_keywords: DevOps, continuous delivery, continuous deployment, CI/CD, Docker
 
 * [Deploy your first Pipeline](/tutorials/pipelines/samplePipeline/)
 * [Seeding your first pipeline](/tutorials/pipelines/howToAddSyncRepos/)
-* [Connecting CI and pipelines](/tutorials/pipelines/connectingCIPipelines/)
+* [Connecting CI and pipelines](/tutorials/pipelines/connectingCiPipelines/)
 * [Versioning overview](/tutorials/pipelines/versioningOverview/)
 * [Rolling back deployments](/tutorials/pipelines/rollback-deployments/)
 
