@@ -59,6 +59,7 @@ pages:
     - Running builds on your own machines (BYON): ci/advancedOptions/byon.md
     - Test and Coverage Reports: ci/advancedOptions/testCoverage.md
     - Timeouts: ci/advancedOptions/timeouts.md
+    - Console logs: ci/advancedOptions/console-logs.md
     - Node Machine Images: ci/advancedOptions/machineImages.md
   - Permissions: ci/permissions.md
   - Troubleshooting CI: ci/troubleshoot.md
