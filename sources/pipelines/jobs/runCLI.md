@@ -63,6 +63,8 @@ The runCLI job uses the subscription integration specified in the [cliConfig](..
 | Private Docker Registry             | [Docker Engine](https://docs.docker.com/engine/reference/commandline/docker/) |
 | Quay.io                             | [Docker Engine](https://docs.docker.com/engine/reference/commandline/docker/) |
 
+Terraform and Packer are also installed by default, and will be available in the path but not configured.
+
 It's worth noting that if a runCLI job receives multiple `cliConfig` resources for the same provider, we will use the credentials contained in the last listed `cliConfig` when authenticating.
 
 ## shippable_replace
