@@ -34,7 +34,7 @@ This will produce the standard Shippable coverage results that look something li
 
 <img src="/ci/images/integrations/codeCoverage/jacoco/noAdvancedReporting.png" alt="Basic results" style="width:700px;"/>
 
-However, the real power of Jacoco is clear when you turn on the advancedReporting flag in your yml.  Additionally, you must copy more than just the xml file to get the full results.
+In order to get advanced reports, you must copy more than just the xml file to get the full results.
 
 ```yml
 language: java
@@ -43,12 +43,6 @@ jdk:
   - oraclejdk7
 
 build:
-  # set the advancedReporting flag to true.
-  # this is optional, but highly recommended. It tells Shippable
-  # to look for additional information in the results, and use it to produce
-  # a more detailed coverage report, visible from the Shippable UI.
-  advancedReporting: true
-
   ci:
 
     # mvn install will create a `target` folder which will contain a jacoco.xml
@@ -63,7 +57,6 @@ build:
 ```
 
 Now you're ready to see some advanced results.
-
 
 ## Navigating the results
 

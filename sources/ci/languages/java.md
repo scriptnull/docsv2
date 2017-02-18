@@ -194,18 +194,9 @@ To avoid executing the default command, include a simple command in like `pwd` o
 
 ##Advanced test reports
 
-When using Jacoco for code coverage, Shippable supports creating advanced test reports that provide information well beyond the typical summary.  In order to utilize this feature, there are a couple steps you must take.
+When using Jacoco for code coverage, Shippable supports creating advanced test reports that provide information well beyond the typical summary.
 
-* update your yml to add `advancedReporting: true`.  It should look like this:
-
-```
-build:
-  advancedReporting: true
-  ci:
-    - mvn install  
-```
-
-* Additionally, you must make sure to save all of the correct output from the result of the Jacoco processing.  Typically, Jacoco creates a folder structure like `target/site/jacoco/jacoco.xml`.  For simple reporting, copying the jacoco.xml file is good enough, but for advanced reporting, Shippable requires that the whole `target` directory is copied to the `shippable/codecoverage` folder.
+* You must make sure to save all of the correct output from the result of the Jacoco processing.  Typically, Jacoco creates a folder structure like `target/site/jacoco/jacoco.xml`.  For simple reporting, copying the jacoco.xml file is good enough, but for advanced reporting, Shippable requires that the whole `target` directory is copied to the `shippable/codecoverage` folder.
 
 ```
 build:
@@ -215,6 +206,9 @@ build:
     - cp -r target shippable/codecoverage
 ```
 
-This will allow Shippable to use additional metadata about your tests to produce more detailed reports. Check out our [Jacoco sample project](https://github.com/shippableSamples/sample_jacoco) on Github to see it in action.
+This will allow Shippable to use additional metadata about your tests to produce more detailed reports.
 
-For more details on how to navigate the results, have a look at [our tutorial](../../tutorials/ci/code-coverage-jacoco.md).
+Note:
+`advancedReporting` flag has been deprecated. All test reports will have advanced reporting turned on by default.
+
+ Check out our [Jacoco sample project](https://github.com/shippableSamples/sample_jacoco) on Github to see it in action.
