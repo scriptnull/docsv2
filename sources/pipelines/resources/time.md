@@ -1,4 +1,4 @@
-page_title: Continuous Delivery Pipelines time resource
+page_title: Continuous Delivery Pipelines time resource - time
 page_description: Shows how to set up time based triggers for CI/CD
 page_keywords: builds, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 

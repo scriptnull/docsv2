@@ -13,17 +13,19 @@ Shippable supports jobs in two ways - **managed** and **unmanaged**.
 
 **Unmanaged jobs** are available for you to provide you complete flexibility to do pretty much anything you need by configuring the job with custom shell scripts. These jobs can take any supported resource as an input and can output to any resource depending on your configuration.
 
-We currently support 7 types of jobs:
-
-- [manifest](manifest/): This managed job type is used for creating and versioning an application or service definition. Your service definition consists of one or more Docker images, options you want to run your containers with, and environment parameters.
+We currently support 8 types of jobs:
 
 - [deploy](deploy/): This managed job type is used to for deploying your application or service to any supported Container Service, including Amazon Elastic Compute Service (ECS), Google Container Engine (GKE), Joyent Triton, Azure Container Service (ACS), Docker Cloud and Docker Data Center.
 
-- [release](release/): This managed job type is used to perform release management. You can apply semantic versioning to your services or entire application at any stage of your pipeline.
+- [manifest](manifest/): This managed job type is used for creating and versioning an application or service definition. Your service definition consists of one or more Docker images, options you want to run your containers with, and environment parameters.
 
 - [provision](provision/): This managed job type is used to create objects on a supported Container Service.
 
+- [release](release/): This managed job type is used to perform release management. You can apply semantic versioning to your services or entire application at any stage of your pipeline.
+
 - [runSh](runSh/): This is an unmanaged job that can be configured to do almost anything with custom shell scripts.
+
+- [runCI](runCI/): This unmanaged job is used to connect Shippable CI to the rest of your pipeline.
 
 - [runCLI](runCLI/): This unmanaged job is like runSh, but with the addition of automatically configured CLI tools.
 
@@ -78,9 +80,9 @@ This a very simple job which needs 2 INput resources to perform whatever that jo
 
 	* `IN` is the name of the resource or job that is an input, i.e. information from the resource or job is required to run this job.
 
-	* `OUT` is the name of the resource which is output from this job. Currently, only runSh jobs can have output resources.
+	* `OUT` is the name of the resource which is output from this job. Only certain job types support `OUT`: runSh, runCI, and runCLI.
 
-	* `TASK` is an operation that is executed as part of this job. For runSh jobs, these can be custom shell scripts. For other job types, specific configs are done through the TASK section.
+	* `TASK` is an operation that is executed as part of this job. For runSh and runCLI jobs, these can be custom shell scripts. For other job types, specific configs are done through the TASK section.
 
 For a detailed explanation of the yml for each job type, visit the page for that specific job.
 

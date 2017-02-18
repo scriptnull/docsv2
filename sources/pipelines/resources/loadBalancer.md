@@ -1,3 +1,7 @@
+page_title: Unified Pipeline Resources - loadBalancer
+page_description: List of supported resources
+page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
+
 # loadBalancer
 
 There are two ways that a `loadBalancer` resource can be used.  It may be used as an input to a [deploy job](../jobs/deploy/) to deploy a service manifest with a load balancer; this is only supported for Amazon's EC2 Container Service (ECS) at this time. Or, it can be used as an input to a [provision job](../jobs/provision/) to create a new load balancer in a Google Container Engine (GKE) cluster.

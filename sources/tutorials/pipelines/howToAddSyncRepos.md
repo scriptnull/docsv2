@@ -4,7 +4,7 @@ page_keywords: containers, lxc, docker, Continuous Integration, Continuous Deplo
 
 #Seeding your first pipeline
 
-A source control repository that contains your pipeline configuration files is called a **Sync Repository** and can only contain one each of the `shippable.jobs.yml`, `shippable.resources.yml`, and `shippable.triggers.yml` files.
+A source control repository that contains your pipeline configuration files is called a [**Sync Repository**](../../pipelines/resources/syncRepo.md).  The configuration files are `shippable.jobs.yml`, `shippable.resources.yml`, and `shippable.triggers.yml`.
 
 You must seed your pipeline with at least one sync repository through the Shippable UI. Subsequent sync repositories can also be added through the UI following the same process. Instructions are in the section below.
 
