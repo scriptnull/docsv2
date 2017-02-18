@@ -58,12 +58,10 @@ A project on Shippable corresponds to a repository on your source control provid
 Once a project is enabled, we build all commits and pull requests for that project, irrespective of who commits and opens the pull request. Refer the [projects section](/navigatingUI/projects/status/) for additional details.
 
 ---
-### What is the difference between a Build Container (cexec) and Shippable Agent (mexec) on the Shippable platform?
+### What is the difference between a Build Container (cexec) and Shippable Agent (genExec) on the Shippable platform?
 A Build Container (also called cexec) is a Docker Container that is spun up on the host Node machine that executes the Continuous Integration related tasks. These include installing the required dependencies, cloning information from the source control system repository, executing unit tests and running test/code coverage reports, all of which have to be specified in the `shippable.yml` file.  
 
-Shippable Agent (mexec) on the other hand is also a Docker Container that is spun up on the host Node machine. The main function of the Shippable Agent is to interact with the Shippable platform and the Build Container and, performs actions outside the build container. Within the `shippable.yml` file, the `pre_ci`, `pre_ci_boot` and the `push` sections are executed on the Shippable Agent.
-
-Read the blog [Key concepts to get most out of Shippable's Continuous Integration](/ci/overview/) for a deeper understanding of the functions and interaction between the Build Container and Shippable Agent.
+Shippable Agent (genExec) on the other hand is also a Docker Container that is spun up on the host Node machine. The main function of the Shippable Agent is to interact with the Shippable platform and the Build Container and, performs actions outside the build container. Within the `shippable.yml` file, the `pre_ci`, `pre_ci_boot` and the `push` sections are executed on the Shippable Agent. Pipeline related enhancements and runSH jobs are also executed on the Shippable Agent.
 
 ---
 ### Why can't I see some of my repositories in my Shippable account?
@@ -342,3 +340,6 @@ There are two ways to identify the node on which the job ran:
 While the job is running, you can view the job being run on a particular node by going into your Subscription Settings>Nodes section
 
 ---
+
+### Builds fail on all my custom nodes
+We've made key changes to the Shippable agent that runs on custom nodes (BYON). To implement this change, all custom nodes were reset in the [5.2.3 release](https://github.com/Shippable/support/wiki/5-2-3). With this release, builds will fail on *un-reset* custom nodes that were initialized using a script. [Reset all your custom nodes](http://docs.shippable.com/ci/advancedOptions/byon/#resetting-a-build-node) for builds to run successfully.
