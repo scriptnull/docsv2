@@ -68,7 +68,7 @@ We have a standard build image for C/C++ projects, which should be sufficient fo
 If this official images do not satisfy your requirements, you can do one of 2 things:
 
 - Continue using official images and include commands to install any missing dependencies or packages in your yml
-- Use a custom build image that contains exactly what you need for yout CI
+- Use a custom build image that contains exactly what you need for your CI
 	
 #### Using a custom build image
 If you do decide to use a custom CI image, you will need to configure the `pre_ci_boot` section and optionally, the `pre_ci` section if you're also building the CI image as part of the workflow. Details on how to configure this are available in the [`pre_ci` and `pre_ci_boot` sections of the Build configuration page](../shippableyml.md#build). 
