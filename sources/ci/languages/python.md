@@ -20,7 +20,7 @@ language: python
 Our official build images for Python come pre-installed with the following versions:
 
 * 2.6
-* 2.7.6 (default if no runtime specified)
+* 2.7 (default if no runtime specified)
 * 3.2
 * 3.3
 * 3.4
@@ -69,7 +69,7 @@ We have 2 primary build images for Python projects, which should be sufficient f
 	* Python packages python-pip, python-software-properties, python-dev
 	* Git
 	* Basic packages sudo, build-essential, curl, gcc, make, openssl, software-properties-common, wget, nano, unzip, libxslt-dev, libxml2-dev
-	* Default Java versions: default-jre, default-jdk, openjdk-6, oracle jdk 7  
+	* Default Java versions: default-jre, default-jdk, openjdk-6, oracle jdk 7
 	* Node version 0.10
 	* Default Ruby version
 	* awscli
@@ -119,7 +119,7 @@ Your tests results data needs to be in junit format and your code coverage resul
 
 Sample yml snippet using nose and python coverage:
 
-```  
+```
 build:
   ci:
     #Create folders for test and code coverage
