@@ -146,10 +146,18 @@ If an `IN` resource is a [gitRepo](../resources/gitRepo.md), the following envir
 | *RESOURCENAME*_HEAD_BRANCH       | This is only set for pull requests and is the name of the branch the pull request was opened from. |
 | *RESOURCENAME*_IS_GIT_TAG        | Set to true if the version was created for a git tag. If not, this will be set to false. This env variable is currently supported for GitHub only. |
 | *RESOURCENAME*_IS_RELEASE        | Set to true if the version was created for a release. If not, this will be set to false. This env variable is currently supported for GitHub only. |
+| *RESOURCENAME*_KEYPATH           | Path to the ssh keyfile associated with the gitRepo. This is the key that is used to clone the repo |
 | *RESOURCENAME*_PULL_REQUEST      | Pull request number if the version was created for a pull request. If not, this will be set to false. |
 | *RESOURCENAME*_RELEASE_NAME      | If the version was created for a release, this is the release title. This env variable is currently supported for GitHub only. |
 | *RESOURCENAME*_RELEASED_AT       | This is only set for releases, and is the timestamp when the release was published. This env variable is currently supported for GitHub only. |
 
+
+### integration resource variables
+If an `IN` resource is an [integration](../resources/integration.md), the following environment variables could be added, depending on the account integration type associated with the `integration` resource.  In the following table, *RESOURCENAME* is the name of the `integration` resource, in uppercase, with any characters other than letters, numbers, and underscores removed.
+
+| Environment variable        | Account integration type | Description                                |
+|-----------------------------|--------------------------|--------------------------------------------|
+| *RESOURCENAME*_KEYPATH      | ssh-key or pem-key       | points directly to the private key file. |
 
 <a name="advancedRunSh"></a>
 ##runSh scenarios
