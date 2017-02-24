@@ -144,12 +144,14 @@ If an `IN` resource is a [gitRepo](../resources/gitRepo.md), the following envir
 | *RESOURCENAME*_COMMITTER         | Name of the last committer. |
 | *RESOURCENAME*_GIT_TAG_NAME      | For git tags, the name of the tag. This env variable is currently supported for GitHub only. |
 | *RESOURCENAME*_HEAD_BRANCH       | This is only set for pull requests and is the name of the branch the pull request was opened from. |
+| *RESOURCENAME*_HTTPS_URL       | The HTTPS URL for the Git repository. |
 | *RESOURCENAME*_IS_GIT_TAG        | Set to true if the version was created for a git tag. If not, this will be set to false. This env variable is currently supported for GitHub only. |
 | *RESOURCENAME*_IS_RELEASE        | Set to true if the version was created for a release. If not, this will be set to false. This env variable is currently supported for GitHub only. |
 | *RESOURCENAME*_KEYPATH           | Path to the ssh keyfile associated with the gitRepo. This is the key that is used to clone the repo |
 | *RESOURCENAME*_PULL_REQUEST      | Pull request number if the version was created for a pull request. If not, this will be set to false. |
 | *RESOURCENAME*_RELEASE_NAME      | If the version was created for a release, this is the release title. This env variable is currently supported for GitHub only. |
 | *RESOURCENAME*_RELEASED_AT       | This is only set for releases, and is the timestamp when the release was published. This env variable is currently supported for GitHub only. |
+| *RESOURCENAME*_SSH_URL      | The SSH URL for the Git repository. |
 
 
 ### integration resource variables
