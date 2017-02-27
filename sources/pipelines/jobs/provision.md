@@ -6,7 +6,10 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 
 Provision jobs are used to create objects on a [supported Container Service](../../integrations/overview/#container-services). When provision jobs are deleted, the resulting objects are also deleted from the container service.
 
-Provision jobs are only supported for Google Container Engine (GKE) services at this time.
+Provision jobs are supported for
+
+- Google Container Engine (GKE) services.
+- Kubernetes services.
 
 A provision job is configured in the `shippable.jobs.yml` file. Here is an example:
 
@@ -29,5 +32,9 @@ jobs:
 The resources you can provision vary by container service. Below is a list of currently supported objects for each service.
 
 ### Google Container Engine
+#### Services
+All four Kubernetes [service](https://kubernetes.io/docs/user-guide/services/) types are supported: LoadBalancer, NodePort, ExternalName, and ClusterIP. Services are configured as [loadBalancer](../resources/loadBalancer/) resources in the `shippable.resources.yml`.
+
+### Kubernetes
 #### Services
 All four Kubernetes [service](https://kubernetes.io/docs/user-guide/services/) types are supported: LoadBalancer, NodePort, ExternalName, and ClusterIP. Services are configured as [loadBalancer](../resources/loadBalancer/) resources in the `shippable.resources.yml`.
