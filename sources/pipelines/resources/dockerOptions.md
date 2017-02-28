@@ -428,7 +428,46 @@ Top level docker options: There are two top levels for Amazon ECS i.e. `service`
 
 ###Kubernetes
 
-None at this time.
+Pod Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      pod:
+        terminationGracePeriodSeconds: <number>
+        activeDeadlineSeconds: <number>
+        dnsPolicy: <string>
+        nodeSelector:
+          <object>
+        serviceAccountName: <string>
+        serviceAccount: <string>
+        nodeName: <string>
+        hostNetwork: <boolean>
+        hostPID: <boolean>
+        imagePullSecrets:
+          - <string>
+```
+
+Deployment Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      deployment:
+        minReadySeconds: <number>
+        paused: <boolean>
+        progressDeadlineSeconds: <number>
+        replicas: <number>
+        revisionHistoryLimit: <number>
+        rollbackTo:
+          <object>
+        selector:
+          <object>
+        strategy:
+          <object>
+```
 
 ###Google Container Engine
 
