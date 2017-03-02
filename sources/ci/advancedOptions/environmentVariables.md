@@ -126,7 +126,7 @@ env:
   - FOO=foo BAR=bar
 ```
 
-If you want to trigger builds against combinations of environment variables, you can include the combinations you need, one on each line. FOr example, the yml below will trigger 2 builds for each commit:
+If you want to trigger builds against combinations of environment variables, you can include the combinations you need, one on each line. For example, the yml below will trigger 2 builds for each commit:
 
 ```
 # environment variable
@@ -139,6 +139,17 @@ Env variables can create an exponential number of builds when combined with `jdk
 
 For an example, please check out the [Matrix Builds section](/ci/advancedOptions/matrixBuilds/).
 
+Note that, the environment variables can also be given in yaml dictionary format as specified below.
+
+```
+# environment variable
+env:
+  - TEST: true
+    PROD: false
+
+  - TEST: false
+    PROD: true
+```
 To avoid a matrix build and kick off a single build with all environments, you can use the global tag as detailed in the section below.
 
 ###Global variables
@@ -165,6 +176,19 @@ env:
 
 ```
 The snippet above will trigger 2 builds: one with environment variables (TEST=test, FOO=true, BAR=false) and another with (PROD=prod, FOO=true, BAR=false).
+
+Note that, the environment variables can also be given in yaml dictionary format for both `global` and `matrix` variables, as specified below.
+
+```
+env:
+  global:
+    - FOO: true
+    - BAR: false
+  matrix:
+    - TEST: test
+    - PROD: prod
+
+```
 
 You can also use encrypted variables in the global or matrix sections if needed. More on encrypted variables below.
 
