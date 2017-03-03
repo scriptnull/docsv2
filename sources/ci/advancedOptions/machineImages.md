@@ -10,19 +10,19 @@ The green arrow in the picture below shows where the build machine image is used
 <img src="../../images/advancedOptions/shippableOverview.png"
 alt="Machine Image for a Subscription" style="width:1000px;"/>
 
-Our default `Stable` machine image is extensively tested and should serve the needs of almost all customers. However, there are some situations where customers need a later version of a tool, such as latest Docker version. To address this need, we also offer an `Unstable` version of the Machine Image which is regularly updated if required. The unstable version is tested for common scenarios.
+The `Stable` machine image has been extensively tested and has served the needs of almost all customers for a very long time. However, this image is now deprecated and is not recommended for use on newer projects. If you are currently using this image, please plan to migrate to a more recent image.
 
-All builds use the `Stable` image, unless you explicitly set the machine image to `Unstable`in your Subscription settings. .
+The `Unstable` machine image was introduced to enable scenarios that need newer versions of Docker for customers that need it. It has been tested for the common scenario. This image is deprecated and is not recommended for use on newer projects. If you are currently using this image, please plan to migrate to a more recent image.
 
-You can switch between the 2 versions at any time and your subsequent builds will use the specified image.
+From release 5.3.1 onwards, Shippable will introduce new machine images on each release with the latest tooling and official Docker images. The images are named after each release version (`v5.3.1`, `v5.4.1`, and so on). They are tested for all scenarios and are recommended for general use.
 
 ---
 ## Selecting an image
 
-You can choose to continue using the default image or switch to the Unstable image based on the contents of both images listed below:
+Your subscription is configured to use the latest default image the first time your run a build on Shippable. You can switch between the available images at any point in time.
 
-* **Stable (default)**
-    * Shippable Official Docker Images
+* **Stable (deprecated)**
+    * Shippable Official Docker Images (tag: `prod`)
     * Docker Server Version: 1.9.1
     * Storage Driver: aufs
     * Root Dir: /data/aufs
@@ -33,8 +33,8 @@ You can choose to continue using the default image or switch to the Unstable ima
     * Kernel Version: 3.19.0-51-generic
     * Operating System: Ubuntu 14.04.3 LTS
 
-* **Unstable**
-    * Shippable Official Docker Images
+* **Unstable (deprecated)**
+    * Shippable Official Docker Images (tag: `prod`)
     * Docker Server Version: 1.11.1
     * Storage Driver: aufs
     * Root Dir: /data/aufs
@@ -44,7 +44,16 @@ You can choose to continue using the default image or switch to the Unstable ima
     * Kernel Version: 3.19.0-51-generic
     * Operating System: Ubuntu 14.04.3 LTS
 
-Please note that the stable version has been tested rigorously to work generically across the board and the unstable image has been tested for specific requirements.
+* **v5.3.1 (Current default, released March 3, 2017)**
+    * Shippable Official Docker Images (tag: `v5.3.1`)
+    * Docker Server Version: 1.13.0
+    * Storage Driver: aufs
+    * Root Dir: /data/aufs
+    * Backing Filesystem: extfs
+    * Dirperm1 Supported: true
+    * Cgroup Driver: cgroupfs
+    * Kernel Version: 3.19.0-51-generic
+    * Operating System: Ubuntu 14.04.5 LTS
 
 ---
 ## Setting an image
