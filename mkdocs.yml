@@ -138,6 +138,7 @@ pages:
     - Integrations: navigatingUI/accountSettings/integrations.md
     - Cards: navigatingUI/accountSettings/cards.md
     - API: navigatingUI/accountSettings/api.md
+    - My Dashboard: navigatingUI/accountSettings/myDashboard.md
   - Subscription:
     - CI: navigatingUI/subscriptions/ci.md
     - Pipelines: navigatingUI/subscriptions/pipelines.md
