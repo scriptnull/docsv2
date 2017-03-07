@@ -16,7 +16,7 @@ This is a powerful hybrid approach that gives you the benefit of using a SaaS se
 
 ---
 
-##Advantages of BYON  
+##Advantages of BYON
 
 **Security**: Your build machines can be inside your VPC and/or behind your firewall, which  gives you the ability to configure access, IAM, etc.
 
@@ -44,8 +44,16 @@ The minimum requirements for a build machine that can be attached to Shippable a
 
 * 1.8GB RAM
 * 30GB SSD
-* Ubuntu 14.04 OS
 * 64-bit architecture
+* Supported OS and Docker versions
+
+|OS|Docker Version|
+|---|---|
+|Ubuntu 14.04|1.9|
+|Ubuntu 14.04|1.11|
+|Ubuntu 14.04|1.13|
+|Ubuntu 16.04|1.13|
+
 
 **Please note that you will need to attach one build machine per parallel build.**
 
@@ -54,6 +62,9 @@ We have tested this extensively using machines on Amazon EC2 and Digital Ocean.
 We expect machines from other providers to work without issues as long as they satisfy the above requirements.
 
 If you run into any issues, contact us through [support](https://github.com/shippable/support/issues) or email our [support alias](mailto:support@shippable.com).
+
+All the scripts for initializing the nodes are are publicly available [here](https://github.com/Shippable/node). We update this repository consistently to fix
+any bugs and to add support for new operating systems.
 
 ---
 
@@ -77,6 +88,9 @@ Please note that you need to add one build node per parallel build, up to a maxi
 * You can choose to initialize the build host through Shippable or run the initialization scripts yourself. Initialization through Shippable requires you to grant SSH access, so if you do not want to grant that for any reason, select the radio button for `I want to run the scripts myself`
 * To initialize the node through Shippable,
     * Enter the SSH port for your build host. This is usually port 22, but is configurable.
+	* Choose one of the supported OS and Docker versions from the drop down
+	  labelled `Node Type`. Selecting this will run the appropriate script for
+	  initializing the node.
     * Choose whether you want to enable swap space on your machine. This is recommended.
     * Copy the command shown and run it on your build host. This will create a
     shippable user on your host and allow us to run initialization scripts on
