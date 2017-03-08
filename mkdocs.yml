@@ -150,12 +150,7 @@ pages:
     - Detail: navigatingUI/builds/detail.md
 - API:
   - Overview: api/overview.md
-  - Account routes: api/account.md
-  - Subscription routes: api/subscription.md
-  - Project routes: api/project.md
-  - Job routes: api/job.md
-  - Run routes: api/run.md
-  - Status Code Mapping: api/statusMapping.md
+  - Docs: api/docs.md
 - Shippable Server:
   - Overview: server/overview.md
   - Installing Shippable Server: server/installingShippableServer.md

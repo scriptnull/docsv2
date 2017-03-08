@@ -22,24 +22,25 @@
   <link rel="icon" href="/static/ash/images/favicon.ico">
 
   {% include 'scripts_top.html' %}
-
+  <!-- Swagger includes -->
+  {% if meta and meta.is_swagger %}
+    {% include 'swagger_top.html' %}
+  {% endif %}
 </head>
-<body data-spy="scroll" data-target="#scrollTarget" data-offset="150">
+  <!-- Swagger needs a special class. -->
+  {% if meta and meta.is_swagger %}
+    <body class='swagger-section' data-spy="scroll" data-target="#scrollTarget" data-offset="150">
+  {% else %}
+    <body data-spy="scroll" data-target="#scrollTarget" data-offset="150">
+  {% endif %}
 
   <div id="globalWrapper" class="localscroll container container-override">
-
     {% include 'header.html' %}
-
     {% include 'article.html' %}
-
     {% include 'footer.html' %}
-
   </div>
 
   {% include 'modals.html' %}
-
   {% include 'scripts_bottom.html' %}
-
-
 </body>
 </html>
