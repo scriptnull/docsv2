@@ -15,25 +15,25 @@ Advanced configurations are addressed in the **CI->Advanced Options** section in
 The structure of a basic shippable.yml is shown below. The sections below explore each section of the yml in greater detail.
 
 ```
-language:        						
+language:
 
-node_js:									  
-  - #language version					
+node_js:
+  - #language version
 
-services:										
-  - #any supported service						
+services:
+  - #any supported service
 
-env:												
-  - #env1=foo							
+env:
+  - #env1=foo
   - #env2=bar
 
-matrix:																	
+matrix:
 
-build:													
+build:
 
-  pre_ci:								
+  pre_ci:
 
-  pre_ci_boot:							
+  pre_ci_boot:
     image_name:
     image_tag:
     pull:
@@ -46,7 +46,7 @@ build:
     - #command2
   on_success:
     - #command1
-    - #command2  
+    - #command2
   on_failure:
     - #command1
     - #command2
