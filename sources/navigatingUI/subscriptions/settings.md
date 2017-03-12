@@ -8,11 +8,19 @@ You can perform subscription level actions by clicking on the 'Settings' tab on 
 ##Options
 ###Machine Images
 
-Machine images are used to spin up a VM for your build. Our default `Stable` machine image is extensively tested and should serve the needs of almost all customers. However, there are some situations where customers need a later version of a tool, such as latest Docker version. To address this need, we also offer an `Unstable` version of the Machine Image which is regularly updated if required. The unstable version is tested for common scenarios.
+Machine images are used to spin up a VM for your build.
+
+The `Stable` machine image has been extensively tested and has served the needs of almost all customers for a very long time. However, this image is being retired and should not be used on newer projects. If you are currently using this image, please plan to migrate to a more recent image.
+
+The `Unstable` machine image was introduced to enable scenarios that required a newer release of Docker. This image is also being retired and should not be used on newer projects. If you are currently using this image, please plan to migrate to a more recent image.
+
+From release 5.3.1 onwards, Shippable will introduce new machine images every month with the latest tooling and official Docker images. The images are named after each release version (`v5.3.1`, `v5.4.1`, and so on). They are tested for all scenarios and are recommended for general use.
+
+You are free to switch you subscription between machine images at any point in time.
 
 For a complete list of what is installed on each machine image, read our [CI Machine images section.](/ci/advancedOptions/machineImages/)
 
-**Machine image should not be confused with the actual build container image where your CI workflow is executed.** The CI container is spun up on the build VM and the actual build is run inside the CI container. This is described in the [CI overview](/ci/overview/#ci-workflow). 
+**Machine image should not be confused with the actual build container image where your CI workflow is executed.** The CI container is spun up on the build VM and the actual build is run inside the CI container. This is described in the [CI overview](/ci/overview/#ci-workflow).
 
 
 ###Deployment key
