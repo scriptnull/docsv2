@@ -197,6 +197,7 @@ pages:
     - Seeding your first pipeline: tutorials/pipelines/howToAddSyncRepos.md
     - Connecting CI and Pipelines: tutorials/pipelines/connectingCiPipelines.md
     - Migrating from Event Trigger to runCI: tutorials/pipelines/migrateEventTrigger.md
+    - Migrating resources or jobs from one project to another: tutorials/pipelines/migrateResources.md
     - Rolling back deployments: tutorials/pipelines/rollback-deployments.md
     - Deploy tutorials:
       - Deploy a sample app to Kubernetes: tutorials/pipelines/deploy-to-kubernetes.md
