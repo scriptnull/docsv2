@@ -3,13 +3,13 @@ page_description: Code examples, FAQs, language & platform support
 page_keywords: containers, lxc, Docker, Continuous Integration, Continuous Deployment, CI/CD, testing, automation
 
 # Running builds on your own machines (BYON)
-For customers who want complete control over their build hosts, we offer a novel approach called **Bring Your Own Node (BYON)**. 
+For customers who want complete control over their build hosts, we offer a novel approach called **Bring Your Own Node (BYON)**.
 
 BYON lets you run builds on your own infrastructure, so you can attach your machines to your Shippable subscription and all your builds are routed to those machines. This is a powerful hybrid approach that gives you the benefit of using a SaaS service for CI orchestration, while still giving you full control over the infrastructure and security of your build machines.
 
 ---
 
-##Advantages of BYON  
+##Advantages of BYON
 
 **Security**: Your build machines can be inside your VPC and/or behind your firewall, which  gives you the ability to configure access, IAM, etc. We even have a way of configuring these machines so that you do not have to grant Shippable SSH access! This means your code never leaves your firewall and no external entity can access your machines.
 
@@ -23,7 +23,7 @@ BYON lets you run builds on your own infrastructure, so you can attach your mach
 
 ---
 
-## Pricing 
+## Pricing
 BYON is a feature for Continuous Integration and is not priced separately. The number of minions in your pricing plan determines how many parallel builds we run at a time.
 
 ---
@@ -42,7 +42,7 @@ We have tested this extensively using machines on Amazon EC2 and Digital Ocean. 
 
 ---
 
-## Configuring BYON 
+## Configuring BYON
 To set up your BYON for your subscription, go to [Subscription settings section explaining how to configure your subscription to use your own build infrastructure](ci_subscriptions.md#ci_byon) to learn more.
 
 ---
