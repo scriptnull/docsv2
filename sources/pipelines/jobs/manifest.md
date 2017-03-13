@@ -81,6 +81,3 @@ jobs:
 
 
 ---
-
-##manifest tutorials
-[Using a combination manifest pattern](../../tutorials/usingCombinationManifests/])
