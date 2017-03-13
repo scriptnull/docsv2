@@ -2,8 +2,11 @@
 <script type="text/javascript" src="/static/ash/js/custom.js"></script>
 <!-- Search -->
 <script type="text/javascript" src="/static/ash/js/search-redirect.js"></script>
-<script>var base_url = '{{ base_url }}';</script>
-<script data-main="{{ base_url }}/mkdocs/js/search.js" src="{{ base_url }}/mkdocs/js/require.js"></script>
+{% if page_title == "Search" %}
+  <script>var base_url = '{{ base_url }}';</script>
+  <<script data-main="{{ base_url }}/mkdocs/js/search.js" src="{{ base_url }}/mkdocs/js/require.js"></script>>
+{% endif %}
+
 <!-- Accordion Menu -->
 <script type="text/javascript" src="/static/ash/js/accordion.js"></script>
 
@@ -35,7 +38,7 @@ var google_remarketing_only = true;
   <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
 </script>
 <noscript>
-  <div style="display:inline;"> 
+  <div style="display:inline;">
     <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/991921306/?value=0&amp;guid=ON&amp;script=0"/>
   </div>
 </noscript>
