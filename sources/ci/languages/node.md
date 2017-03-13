@@ -22,8 +22,18 @@ Our official build images for Node.js come pre-installed with the following vers
 * 0.10
 * 0.12 (default if no runtime specified)
 * 4.2.3
+* 4.6.0
+* 5.12.0
+* 6.7.0
+* 6.8.0
+* 6.9.4
+* 7.0.0
+* 7.2.1
+* 7.3.0
+* 7.4.0
 * iojs 1.0
 * iojs 2.0
+* iojs 3.3.1
 
 You can set the runtime to any version(s) using the `node_js` tag:
 
@@ -37,7 +47,7 @@ If you want to test against several versions of Node, you can specify multiple r
 ```
 node_js:
   - "0.10"
-  - 0.12
+  - 7.4.0
 ```
 Please note that the `0.10` version is inside double quotes. This is to prevent our parser from incorrectly interpreting the language version to be `0.1`. For any version ending with a 0, remember to use double quotes around the version number.
 
@@ -64,37 +74,37 @@ If you do not want to do either of the above, you should skip these tags in the 
 #### Default Node.js images
 We have 2 primary build images for Node.js projects, which should be sufficient for most Node.js projects:
 
-* [dry-dock/u14nod](https://github.com/dry-dock/u14nod) is used if you specify `language: node_js` in your yml and do not specify a `services` tag. This image contains the following:
+* [dry-dock/u16nodall](https://github.com/dry-dock/u16nodall): Ubuntu 16.04 image with Node
+* [dry-dock/u14nodall](https://github.com/dry-dock/u14nodall): Ubuntu 14.04 image with Node
 
-	* Ubuntu 14.04
-	* Node versions 4.23, 0.12, 0.10, io.js 2.0, io.js 1.0
-	* Node.js packages grunt-cli, mocha, vows, phantomjs, casperjs
-	* Selenium 2.48.2
-	* Bower
-	* Git
-	* Basic packages sudo, build-essential, curl, gcc, make, openssl, software-properties-common, wget, nano, unzip, libxslt-dev, libxml2-dev
-	* Default Java versions: default-jre, default-jdk, openjdk-6, oracle jdk 7  
-	* Default Ruby version  
-	* Python packages python-pip, python-software-properties, python-dev
-	* awscli
-	* google-cloud-sdk
+The images contain the following components:
+	* Multiple node versions listed above installed using nvm
+	* nvm
+	* Basic packages: build-essential, curl, gcc, gettext, git, htop, jq, libxml2-dev, libxslt-dev, make, nano, openssh-client, openssl, python-dev, python-pip, python-software-properties, software-properties-common, software-properties-common, sudo, texinfo, unzip, virtualenv, wget
+	* Java 1.8
+	* Ruby 2.3.3
+	* awscli 1.11.44
+	* awsebcli 3.9
+	* gcloud 145.0.0
+	* jfrog-cli 1.7.0
+	* kubectl 1.5.1
+	* packer 0.12.2
+	* terraform 0.8.7
 
-* [dry-dock/u14nodall](https://github.com/dry-dock/u14nodall) is used if you specify one or more services and set the language to node_js in the yml. This image contains the following in addition to everything that is listed for the u14nod image above:
-
+The following services are pre-installed:
 	* couchdb 1.6
-	* elasticsearch 1.5
-	* neo4j 2.2
-	* memcached 1.4
-	* mongodb 3.0
-	* mysql 5.6
-	* postgres 9.4
-	* rabbitmq 3.5
-	* redis 3.0
-	* rethinkdb 2.0
-	* riak
-	* selenium 2.52
+	* elasticsearch 5.1.2
+	* neo4j 3.1.1
+	* memcached 1.4.34
+	* mongodb 3.4
+	* mysql 5.7
+	* postgres 9.6
+	* rabbitmq 3.6
+	* redis 3.2
+	* rethinkdb 2.3
+	* riak 2.2.0
+	* selenium 3.0.1
 	* sqllite 3
-
 
 If the official images do not satisfy your requirements, you can do one of 2 things:
 

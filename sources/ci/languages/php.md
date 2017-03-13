@@ -19,24 +19,23 @@ language: php
 ### runtime
 Our official build images for PHP come pre-installed with the following versions:
 
-* 5.4
-* 5.5
 * 5.6
-* 7
+* 7.0
+* 7.1
 
 You can set the runtime to any version(s) using the `php` tag:
 
 ```
 php:
-  - 5.5
+  - 7.0
 ```
 
 If you want to test against several versions of PHP, you can specify multiple runtimes. The snippet below will trigger 2 builds, one against each version:
 
 ```
 php:
-  - 5.4
-  - 5.5
+  - 5.6
+  - 7.0
 ```
 
 **Important note:** The runtime tag only works with official CI images provided by Shippable. If you are using a custom image for your build, you will need to switch the runtime in the `ci` section of your yml.
@@ -55,41 +54,37 @@ If you do not want to do either of the above, you should skip these tags in the 
 #### Default PHP images
 We have 2 primary build images for PHP projects, which should be sufficient for most projects:
 
-* [dry-dock/u14php](https://github.com/dry-dock/u14php) is used if you specify `language: php` in your yml and do not specify a `services` tag. This image contains the following:
+* [dry-dock/u16phpall](https://github.com/dry-dock/u16phpall): Ubuntu 16.04 image with PHP
+* [dry-dock/u14phpall](https://github.com/dry-dock/u16phpall): Ubuntu 14.04 image with PHP
 
-	* Ubuntu 14.04
-	* PHP versions 5.4, 5.5, 5.6 with extensions memcache, memcached, mongo, amqp-1.6.8, zmq-beta, redis
-	* PHP version 7 with no extensions
-	* phpUnit
-	* composer
+The images contain the following components:
+	* PHP 5.6, 7.0 and 7.1 installed with php-build
 	* phpenv
-	* pickle
-	* librabbitmq
-	* Packages wget cmake, libmcrypt-dev, libreadline-dev, libzmq-dev, wget, cmake, libmcrypt-dev, libreadline-dev, libzmq-dev, php5-dev
-	* Git
-	* Basic packages sudo, build-essential, curl, gcc, make, openssl, software-properties-common, wget, nano, unzip, libxslt-dev, libxml2-dev
-	* Default Java versions: default-jre, default-jdk, openjdk-6, oracle jdk 7  
-	* Python packages python-pip, python-software-properties, python-dev
-	* Node version 0.10
-	* Default Ruby version
-	* Python 2.7.6
-	* awscli
-	* google-cloud-sdk
+	* Basic packages: build-essential, curl, gcc, gettext, git, htop, jq, libxml2-dev, libxslt-dev, make, nano, openssh-client, openssl, python-dev, python-pip, python-software-properties, software-properties-common, software-properties-common, sudo, texinfo, unzip, virtualenv, wget
+	* Java 1.8
+	* Node 7.x
+	* Ruby 2.3.3
+	* awscli 1.11.44
+	* awsebcli 3.9
+	* gcloud 145.0.0
+	* jfrog-cli 1.7.0
+	* kubectl 1.5.1
+	* packer 0.12.2
+	* terraform 0.8.7
 
-* [dry-dock/u14phpall](https://github.com/dry-dock/u14phpall) is used if you specify one or more services and set the language to go in the yml. This image contains the following **in addition** to everything that is listed for the u14php image above:
-
+The following services are pre-installed:
 	* couchdb 1.6
-	* elasticsearch 1.5
-	* neo4j 2.2
-	* memcached 1.4
-	* mongodb 3.0
-	* mysql 5.6
-	* postgres 9.4
-	* rabbitmq 3.5
-	* redis 3.0
-	* rethinkdb 2.0
-	* riak
-	* selenium 2.52
+	* elasticsearch 5.1.2
+	* neo4j 3.1.1
+	* memcached 1.4.34
+	* mongodb 3.4
+	* mysql 5.7
+	* postgres 9.6
+	* rabbitmq 3.6
+	* redis 3.2
+	* rethinkdb 2.3
+	* riak 2.2.0
+	* selenium 3.0.1
 	* sqllite 3
 
 

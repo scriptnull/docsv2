@@ -49,20 +49,38 @@ If you do not want to do either of the above, you should skip these tags in the 
 #### Default C/C++ image
 We have a standard build image for C/C++ projects, which should be sufficient for most projects: 
 
-* [dry-dock/u14cpp](https://github.com/dry-dock/u14cpp) is used if you specify `language: C` in your yml and do not specify a `services` tag. This image contains the following:
+* [dry-dock/u16cppall](https://github.com/dry-dock/u16cppall): Ubuntu 16.04 image with CPP
+* [dry-dock/u14cppall](https://github.com/dry-dock/u14cppall): Ubuntu 14.04 image with CPP
 	
-	* Ubuntu 14.04
-	* gcc: v5.3.0
-	* clang: v3.8.0
-	* Git
-	* Basic packages sudo, build-essential, curl, gcc, make, openssl, software-properties-common, wget, nano, unzip, libxslt-dev, libxml2-dev
-	* Default Java versions: default-jre, default-jdk, openjdk-6, oracle jdk 7  
-	* Python packages python-pip, python-software-properties, python-dev
-	* Node version 0.10 
-	* Default Ruby version
-	* Python 2.7.6
-	* awscli
-	* google-cloud-sdk 
+The images contain the following components:
+	* gcc 6
+	* clang 3.9.0
+	* Basic packages: build-essential, curl, gcc, gettext, git, htop, jq, libxml2-dev, libxslt-dev, make, nano, openssh-client, openssl, python-dev, python-pip, python-software-properties, software-properties-common, software-properties-common, sudo, texinfo, unzip, virtualenv, wget
+	* Java 1.8
+	* Node 7.x
+	* Ruby 2.3.3
+	* awscli 1.11.44
+	* awsebcli 3.9
+	* gcloud 145.0.0
+	* jfrog-cli 1.7.0
+	* kubectl 1.5.1
+	* packer 0.12.2
+	* terraform 0.8.7
+
+The following services are pre-installed:
+	* couchdb 1.6
+	* elasticsearch 5.1.2
+	* neo4j 3.1.1
+	* memcached 1.4.34
+	* mongodb 3.4
+	* mysql 5.7
+	* postgres 9.6
+	* rabbitmq 3.6
+	* redis 3.2
+	* rethinkdb 2.3
+	* riak 2.2.0
+	* selenium 3.0.1
+	* sqllite 3
 
 
 If this official images do not satisfy your requirements, you can do one of 2 things:

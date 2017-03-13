@@ -20,17 +20,20 @@ language: ruby
 Our official build images for Go come pre-installed with the following versions:
 
 * 1.8.7
-* 1.9.2
 * 1.9.3
-* 2.0
-* 2.1.x
-* 2.2.x
-* jruby-18mode
-* jruby-19mode
-* jruby-head
-* rbx
-* ruby-head
-* ree
+* 2.0.0
+* 2.1.5
+* 2.2.1
+* 2.2.5
+* 2.3.0
+* 2.3.1
+* 2.3.2
+* 2.3.3
+* jruby 1.7.19
+* jruby 9.0.0
+* jruby 9.1.2
+* jruby 9.1.5
+* ree 1.8.7
 
 You can set the runtime to any version(s) using the `rvm` tag:
 
@@ -43,11 +46,11 @@ If you want to test against several versions of Ruby, you can specify multiple r
 
 ```
 rvm:
-  - 1.9.3
-  - 2.0
+  - 2.2.1
+  - 2.3.3
 ```
 
-You can also set this value to any patch level as long as it is available as a binary for Ubuntu 14.04:
+You can also set this value to any patch level as long as it is available as a binary for Ubuntu 14.04/16.04:
 
 ```
 rvm: 2.0.0-p247
@@ -70,35 +73,36 @@ If you do not want to do either of the above, you should skip these tags in the 
 #### Default Ruby images
 We have 2 primary build images for Go projects, which should be sufficient for most projects:
 
-* [dry-dock/u14rub](https://github.com/dry-dock/u14rub) is used if you specify `language: go` in your yml and do not specify a `services` tag. This image contains the following:
+* [dry-dock/u16ruball](https://github.com/dry-dock/u16ruball): Ubuntu 16.04 image with Ruby
+* [dry-dock/u14ruball](https://github.com/dry-dock/u14ruball): Ubuntu 14.04 image with Ruby
 
-	* Ubuntu 14.04
-	* Ruby versions 1.8.7, 1.9.2, 1.9.3, 2.0, 2.1.x, 2.2.x, jruby, ree
-	* bundler for each Ruby version
+The images contain the following components:
+	* Ruby versions listed above managed with rvm
 	* rvm
-	* Git
-	* Basic packages sudo, build-essential, curl, gcc, make, openssl, software-properties-common, wget, nano, unzip, libxslt-dev, libxml2-dev
-	* Default Java versions: default-jre, default-jdk, openjdk-6, oracle jdk 7  
-	* Python packages python-pip, python-software-properties, python-dev
-	* Node version 0.10
-	* Python 2.7.6
-	* awscli
-	* google-cloud-sdk
+	* Basic packages: build-essential, curl, gcc, gettext, git, htop, jq, libxml2-dev, libxslt-dev, make, nano, openssh-client, openssl, python-dev, python-pip, python-software-properties, software-properties-common, software-properties-common, sudo, texinfo, unzip, virtualenv, wget
+	* Java 1.8
+	* Node 7.x
+	* awscli 1.11.44
+	* awsebcli 3.9
+	* gcloud 145.0.0
+	* jfrog-cli 1.7.0
+	* kubectl 1.5.1
+	* packer 0.12.2
+	* terraform 0.8.7
 
-* [dry-dock/u14ruball](https://github.com/dry-dock/u14ruball) is used if you specify one or more services and set the language to go in the yml. This image contains the following **in addition** to everything that is listed for the u14rub image above:
-
+The following services are pre-installed:
 	* couchdb 1.6
-	* elasticsearch 1.5
-	* neo4j 2.2
-	* memcached 1.4
-	* mongodb 3.0
-	* mysql 5.6
-	* postgres 9.4
-	* rabbitmq 3.5
-	* redis 3.0
-	* rethinkdb 2.0
-	* riak
-	* selenium 2.52
+	* elasticsearch 5.1.2
+	* neo4j 3.1.1
+	* memcached 1.4.34
+	* mongodb 3.4
+	* mysql 5.7
+	* postgres 9.6
+	* rabbitmq 3.6
+	* redis 3.2
+	* rethinkdb 2.3
+	* riak 2.2.0
+	* selenium 3.0.1
 	* sqllite 3
 
 
@@ -212,3 +216,4 @@ build:
 ```
 
 To avoid executing the default command, include a simple command in like `pwd` or `ls` in this section.
+
