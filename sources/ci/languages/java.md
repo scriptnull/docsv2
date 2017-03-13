@@ -19,8 +19,8 @@ language: java
 ### runtime
 Our official build images for Java come pre-installed with the following versions:
 
-* openjdk6
 * openjdk7 (default if no runtime specified)
+* openjdk8
 * oraclejdk7
 * oraclejdk8
 
@@ -55,36 +55,35 @@ If you do not want to do either of the above, you should skip these tags in the 
 #### Default Java images
 We have 2 primary build images for Java projects, which should be sufficient for most projects:
 
-* [dry-dock/u14jav](https://github.com/dry-dock/u14jav) is used if you specify `language: java` in your yml and do not specify a `services` tag. This image contains the following:
+* [dry-dock/u16javall](https://github.com/dry-dock/u16javall): Ubuntu 16.04 image with Java
+* [dry-dock/u14javall](https://github.com/dry-dock/u14javall): Ubuntu 14.04 image with Java
 
-	* Ubuntu 14.04
-	* Java versions openjdk6, openjdk7, oraclejdk7, oraclejdk8
-	* Gradle 2.3
-	* Apache maven 3.2.5
-	* Apache ant 1.9.6
-	* Git
-	* Basic packages sudo, build-essential, curl, gcc, make, openssl, software-properties-common, wget, nano, unzip, libxslt-dev, libxml2-dev
-	* Python packages python-pip, python-software-properties, python-dev
-	* Node version 0.10
-	* Python 2.7.6
-	* Default Ruby version
-	* awscli
-	* google-cloud-sdk
+The images contain the following components:
+	* Java versions 7 and 8 (openjdk and oraclejdk)
+	* Basic packages: build-essential, curl, gcc, gettext, git, htop, jq, libxml2-dev, libxslt-dev, make, nano, openssh-client, openssl, python-dev, python-pip, python-software-properties, software-properties-common, software-properties-common, sudo, texinfo, unzip, virtualenv, wget
+	* Node 7.x
+	* Ruby 2.3.3
+	* awscli 1.11.44
+	* awsebcli 3.9
+	* gcloud 145.0.0
+	* jfrog-cli 1.7.0
+	* kubectl 1.5.1
+	* packer 0.12.2
+	* terraform 0.8.7
 
-* [dry-dock/u14javall](https://github.com/dry-dock/u14javall) is used if you specify one or more services and set the language to java in the yml. This image contains the following **in addition** to everything that is listed for the u14java image above:
-
+The following services are pre-installed:
 	* couchdb 1.6
-	* elasticsearch 1.5
-	* neo4j 2.2
-	* memcached 1.4
-	* mongodb 3.0
-	* mysql 5.6
-	* postgres 9.4
-	* rabbitmq 3.5
-	* redis 3.0
-	* rethinkdb 2.0
-	* riak
-	* selenium 2.52
+	* elasticsearch 5.1.2
+	* neo4j 3.1.1
+	* memcached 1.4.34
+	* mongodb 3.4
+	* mysql 5.7
+	* postgres 9.6
+	* rabbitmq 3.6
+	* redis 3.2
+	* rethinkdb 2.3
+	* riak 2.2.0
+	* selenium 3.0.1
 	* sqllite 3
 
 

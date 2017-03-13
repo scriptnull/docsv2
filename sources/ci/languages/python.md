@@ -25,8 +25,9 @@ Our official build images for Python come pre-installed with the following versi
 * 3.3
 * 3.4
 * 3.5
-* pypy
-* pypy3
+* 3.6
+* pypy 4.0.1
+* pypy3 2.4.0
 
 You can set the runtime to any version(s) using the `python` tag:
 
@@ -59,38 +60,38 @@ If you do not want to do either of the above, you should skip these tags in the 
 #### Default Python images
 We have 2 primary build images for Python projects, which should be sufficient for most projects:
 
-* [dry-dock/u14pyt](https://github.com/dry-dock/u14pyt) is used if you specify `language: python` in your yml and do not specify a `services` tag. This image contains the following:
+* [dry-dock/u16pyt](https://github.com/dry-dock/u16pytall): Ubuntu 16.04 image with Python
+* [dry-dock/u14pyt](https://github.com/dry-dock/u14pytall): Ubuntu 14.04 image with Python
 
-	* Ubuntu 14.04
-	* Python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, pypy, pypy3
-	* Pip 7.1.2
-	* Virtualenv 13.1.2
-	* Python pre-reqs libxml2, libxml2-dev, libxslt1.1, libxslt1-dev, libffi-dev, libssl-dev
-	* Python packages python-pip, python-software-properties, python-dev
-	* Git
-	* Basic packages sudo, build-essential, curl, gcc, make, openssl, software-properties-common, wget, nano, unzip, libxslt-dev, libxml2-dev
-	* Default Java versions: default-jre, default-jdk, openjdk-6, oracle jdk 7
-	* Node version 0.10
-	* Default Ruby version
-	* awscli
-	* google-cloud-sdk
+The images contain the following components:
+	* Python versions listed above managed with virtualenv
+	* virtualenv
+	* Basic packages: build-essential, curl, gcc, gettext, git, htop, jq, libxml2-dev, libxslt-dev, make, nano, openssh-client, openssl, python-dev, python-pip, python-software-properties, software-properties-common, software-properties-common, sudo, texinfo, unzip, virtualenv, wget
+	* Java 1.8
+	* Node 7.x
+	* Ruby 2.3.3
+	* awscli 1.11.44
+	* awsebcli 3.9
+	* gcloud 145.0.0
+	* jfrog-cli 1.7.0
+	* kubectl 1.5.1
+	* packer 0.12.2
+	* terraform 0.8.7
 
-* [dry-dock/u14pytall](https://github.com/dry-dock/u14pytall) is used if you specify one or more services and set the language to python in the yml. This image contains the following **in addition** to everything that is listed for the u14pyt image above:
-
+The following services are pre-installed:
 	* couchdb 1.6
-	* elasticsearch 1.5
-	* neo4j 2.2
-	* memcached 1.4
-	* mongodb 3.0
-	* mysql 5.6
-	* postgres 9.4
-	* rabbitmq 3.5
-	* redis 3.0
-	* rethinkdb 2.0
-	* riak
-	* selenium 2.52
+	* elasticsearch 5.1.2
+	* neo4j 3.1.1
+	* memcached 1.4.34
+	* mongodb 3.4
+	* mysql 5.7
+	* postgres 9.6
+	* rabbitmq 3.6
+	* redis 3.2
+	* rethinkdb 2.3
+	* riak 2.2.0
+	* selenium 3.0.1
 	* sqllite 3
-
 
 If these official images do not satisfy your requirements, you can do one of 2 things:
 
