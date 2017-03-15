@@ -203,7 +203,7 @@ Our [advanced topic guide for environment variables](advancedOptions/environment
 
 *Creating a build matrix with custom environment variables*
 
-*Protecting secsitive data with Secure variables*
+*Protecting sensitive data with Secure variables*
 
 *Defining global variables*
 
