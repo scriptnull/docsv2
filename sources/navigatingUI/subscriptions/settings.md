@@ -14,7 +14,7 @@ The `Stable` machine image has been extensively tested and has served the needs 
 
 The `Unstable` machine image was introduced to enable scenarios that required a newer release of Docker. This image is also being retired and should not be used on newer projects. If you are currently using this image, please plan to migrate to a more recent image.
 
-From release 5.3.1 onwards, Shippable will introduce new machine images every month with the latest tooling and official Docker images. The images are named after each release version (`v5.3.1`, `v5.4.1`, and so on). They are tested for all scenarios and are recommended for general use.
+From release 5.3.2 onwards, Shippable will introduce new machine images every month with the latest tooling and official Docker images. The images are named after each release version (`v5.3.2`, `v5.4.1`, and so on). They are tested for all scenarios and are recommended for general use.
 
 You are free to switch you subscription between machine images at any point in time.
 
