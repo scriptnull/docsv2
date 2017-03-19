@@ -67,6 +67,7 @@ We have 2 primary build images for Go projects, which should be sufficient for m
 * [dry-dock/u14golall](https://github.com/dry-dock/u14golall): Ubuntu 14.04 image with Go
 
 The images contain the following components:
+
 	* Go versions 1.1 through 1.7
 	* gvm
 	* Basic packages: build-essential, curl, gcc, gettext, git, htop, jq, libxml2-dev, libxslt-dev, make, nano, openssh-client, openssl, python-dev, python-pip, python-software-properties, software-properties-common, software-properties-common, sudo, texinfo, unzip, virtualenv, wget
@@ -82,6 +83,7 @@ The images contain the following components:
 	* terraform 0.8.7
 
 The following services are pre-installed:
+
 	* couchdb 1.6
 	* elasticsearch 5.1.2
 	* neo4j 3.1.1

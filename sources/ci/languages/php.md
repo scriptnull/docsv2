@@ -58,6 +58,7 @@ We have 2 primary build images for PHP projects, which should be sufficient for 
 * [dry-dock/u14phpall](https://github.com/dry-dock/u16phpall): Ubuntu 14.04 image with PHP
 
 The images contain the following components:
+
 	* PHP 5.6, 7.0 and 7.1 installed with php-build
 	* phpenv
 	* Basic packages: build-essential, curl, gcc, gettext, git, htop, jq, libxml2-dev, libxslt-dev, make, nano, openssh-client, openssl, python-dev, python-pip, python-software-properties, software-properties-common, software-properties-common, sudo, texinfo, unzip, virtualenv, wget
@@ -73,6 +74,7 @@ The images contain the following components:
 	* terraform 0.8.7
 
 The following services are pre-installed:
+
 	* couchdb 1.6
 	* elasticsearch 5.1.2
 	* neo4j 3.1.1
