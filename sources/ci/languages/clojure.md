@@ -45,6 +45,7 @@ We have 2 primary build images for Clojure projects, which should be sufficient 
 * [dry-dock/u14cloall](https://github.com/dry-dock/u14cloall): Ubuntu 14.04 image with Clojure
 
 The images contain the following components:
+
 	* Clojure versions 1.3.0, 1.4.0, 1.5.1, 1.6.0, 1.7.0, 1.8.0
 	* leiningen
 	* Basic packages: build-essential, curl, gcc, gettext, git, htop, jq, libxml2-dev, libxslt-dev, make, nano, openssh-client, openssl, python-dev, python-pip, python-software-properties, software-properties-common, software-properties-common, sudo, texinfo, unzip, virtualenv, wget
@@ -60,6 +61,7 @@ The images contain the following components:
 	* terraform 0.8.7
 
 The following services are pre-installed:
+
 	* couchdb 1.6
 	* elasticsearch 5.1.2
 	* neo4j 3.1.1

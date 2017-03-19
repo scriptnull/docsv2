@@ -64,6 +64,7 @@ We have 2 primary build images for Python projects, which should be sufficient f
 * [dry-dock/u14pyt](https://github.com/dry-dock/u14pytall): Ubuntu 14.04 image with Python
 
 The images contain the following components:
+
 	* Python versions listed above managed with virtualenv
 	* virtualenv
 	* Basic packages: build-essential, curl, gcc, gettext, git, htop, jq, libxml2-dev, libxslt-dev, make, nano, openssh-client, openssl, python-dev, python-pip, python-software-properties, software-properties-common, software-properties-common, sudo, texinfo, unzip, virtualenv, wget
@@ -79,6 +80,7 @@ The images contain the following components:
 	* terraform 0.8.7
 
 The following services are pre-installed:
+
 	* couchdb 1.6
 	* elasticsearch 5.1.2
 	* neo4j 3.1.1

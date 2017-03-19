@@ -59,6 +59,7 @@ We have 2 primary build images for Java projects, which should be sufficient for
 * [dry-dock/u14javall](https://github.com/dry-dock/u14javall): Ubuntu 14.04 image with Java
 
 The images contain the following components:
+
 	* Java versions 7 and 8 (openjdk and oraclejdk)
 	* Basic packages: build-essential, curl, gcc, gettext, git, htop, jq, libxml2-dev, libxslt-dev, make, nano, openssh-client, openssl, python-dev, python-pip, python-software-properties, software-properties-common, software-properties-common, sudo, texinfo, unzip, virtualenv, wget
 	* Node 7.x
@@ -72,6 +73,7 @@ The images contain the following components:
 	* terraform 0.8.7
 
 The following services are pre-installed:
+
 	* couchdb 1.6
 	* elasticsearch 5.1.2
 	* neo4j 3.1.1

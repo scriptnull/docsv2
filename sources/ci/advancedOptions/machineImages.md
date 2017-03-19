@@ -14,7 +14,7 @@ The `Stable` machine image has been extensively tested and has served the needs 
 
 The `Unstable` machine image was introduced to enable scenarios that need newer versions of Docker for customers that need it. It has been tested for the common scenario. This image is deprecated and is not recommended for use on newer projects. If you are currently using this image, please plan to migrate to a more recent image.
 
-From release 5.3.1 onwards, Shippable will introduce new machine images on each release with the latest tooling and official Docker images. The images are named after each release version (`v5.3.1`, `v5.4.1`, and so on). They are tested for all scenarios and are recommended for general use.
+From release 5.3.2 onwards, Shippable will introduce new machine images on each release with the latest tooling and official Docker images. The images are named after each release version (`v5.3.2`, `v5.4.1`, and so on). They are tested for all scenarios and are recommended for general use.
 
 ---
 ## Selecting an image
@@ -44,8 +44,8 @@ Your subscription is configured to use the latest default image the first time y
     * Kernel Version: 3.19.0-51-generic
     * Operating System: Ubuntu 14.04.3 LTS
 
-* **v5.3.1 (Current default, released March 3, 2017)**
-    * Shippable Official Docker Images (tag: `v5.3.1`)
+* **v5.3.2 (Current default, released March 11, 2017)**
+    * Shippable Official Docker Images (tag: `v5.3.2`)
     * Docker Server Version: 1.13.0
     * Storage Driver: aufs
     * Root Dir: /data/aufs
