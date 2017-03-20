@@ -102,7 +102,7 @@ In this section, you can enable or disable triggering of builds for your project
 
 - **Pull Requests**: Default value is Enabled. Every pull request initiated on the project in your source control system, triggers a build on Shippable. Click 'Disable' to stop the triggering of builds for this project.
 - **Commits**: Default value is Enabled. Every commit initiated on the project in your source control system, triggers a build on Shippable. Click 'Disable' to stop the triggering of builds for this project.
-- **Tags**: Default value is Disabled. To trigger builds for all git tag push events on the project in your source control system, click 'Enable'. Currently this feature is supported only for GitHub.
+- **Tags**: Default value is Disabled. To trigger builds for all git tag push events on the project in your source control system, click 'Enable'. Currently this feature is supported only for GitHub, Gitlab and Bitbucket.
 - **Releases**: Default value is Disabled. To trigger builds for all GitHub release events on the project in your source control system, click 'Enable'. Currently this feature is supported only for GitHub.
 
 NOTE: The above webhook events, when enabled, trigger builds on Shippable irrespective of the user who initiated the event on the source control system.

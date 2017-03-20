@@ -96,7 +96,7 @@ in your source control system, triggers a build on Shippable. Click 'Disable' to
 stop the triggering of builds for this project.
 - **Tags**: Default value is Disabled. To trigger builds for all git tag push events
 on the project in your source control system, click 'Enable'. Currently this feature
-is supported only for GitHub.
+is supported only for GitHub, Gitlab and Bitbucket.
 - **Releases**: Default value is Disabled. To trigger builds for all GitHub release
 events on the project in your source control system, click 'Enable'. Currently this
 feature is supported only for GitHub.
