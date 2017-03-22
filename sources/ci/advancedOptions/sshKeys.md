@@ -12,4 +12,4 @@ Every build container has these two ssh keys. The subscription SSH key is availa
 We recommend you use the subscription SSH key to pull other repositories (for example, private submodules) and Project SSH key to pull or push to the same repository
 ```
 
-You can also use key integrations to access your projects on source control. For a more detailed explanation, check out our SSH key integration page. 
+You can also use key integrations to access your projects on source control. For a more detailed explanation, check out our ["SSH key integration"](../../integrations/keys/ssh) page.
