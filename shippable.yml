@@ -11,13 +11,9 @@ branches:
 env:
   global:
     - AWS_S3_LOCAL_PATH='site'
-    - AWS_S3_BUCKET='s3://docs.shippable.com'
-    - AWS_S3_REGION='us-west-2'
-    # AWS_ACCESS_KEY_ID
-    # AWS_SECRET_ACCESS_KEY
-    #- secure: HKwYujx/qmsyQQdHvR2myu8HLUDtcLeDyYV149YJuxIV4J7Hk3SxeY8X3D6aTlR8mvMnd/ZFY+tGNUh4G0xtLLjjZcPsBgvFlBrAGb28jiunANxqLJb4e428in5XRV6MjSccjhRgyKoH57CPpQRvSKiHf06ViZq/l0RZOXRpcEaVAeh+r8wdxpw5dX7W+PcEgw/72R+DJnYoXVnbuHHsvzJF7ZPIV8Ebm1PRxCDvEfHP3YdyfxiMHwGC0527/wDINNanf1tbl5wZ0tgB+aYgyXtH1H9x8fWkHU2aPYhiMDzg0Ja/fTmOI9XKPqf9HBF2yDLcOJPrI4RN+Q1Ja9ZWAA==
-    - secure: qi3QJHu3O57oNdC9vMQp73AjvUsOUYMZoXKSCacPe5UU9w7eXDgyCSaV8rkaufdUVIX2bX+hC5XNZJG6rO7Rr0gQS3xEpPJGA6eqTpASS3UT1wS6hOj7g/8DTZtfExXI2p+J4rPFNxawtubxjP11wwBsGVkvYXejSBSSCUerjb2gqitZjxQBudCDhZN7DRcG8PpOY8Opg73NckhbieOELYNdlkgPXWQ6RJ57V2uPFiFdWBK/B6GMGbUbTuUse0JBEsswSrwuk6APlBGfcwo+/0OP2hvpK2qWfHkZnPdXtCFLkPrrESzo5nB98SU68FZu38sz9VGf/5049rItSJY4LQ==
-    #- secure: yzuPV+wKjaUgqNbRyEC9yqHTIdYT9/8SuiXn4fQJgp6v7sGNS02BRwk9EmT7sz0eWO6iK3ES9Su8Mq7beQogbsa3HbB1WQR/zcUw1dtA278PrfmnyedOVWOPXXxONm/LhwfwECXEAPdy6uqHSlv2JY4dCF65FQqr014th1nK3kP79ae2yuX3NelMBygiimSNsJcXq/EmXgQ5cb5LpNCloRCW6a4FywflXxeWq+GaJwWOi/8sjckhKdgmz5U3C++FdzUx6cVzfYbJipAqI5xhxE5ZxkS9h3lpssowXdhyBXCIVVQTrRwBGS86TOJvF8KKBleKSGzh4op3TtX0Kppj7A==
+    - AWS_S3_BUCKET='s3://rcdocs.shippable.com'
+    - AWS_S3_REGION='us-east-1'
+    - secure: YtSX204QeZ4hJ89DCrH/3W+XjbGCBfkhWPwJumHCBMVGkmpF4XWwbLqG65IZtQlRMNRlwI3vsTksDhXnK3ng2nsUUBPyzxbcVI7AJMgd2tIGjGzxqcCLemel+sA+ES/2TBFyy5+mlE2/RqohUWw/xRj45nHQqEIC0xwDmQcQvFObaMjLgceI01uv7AxdLVDpOVMO2i7g7Bxwvfru3EtUVZB+siTAUn28WbCesgSFhNIZa56z+4CpYRfTQP6lfrIWlhtcsHPlb6T0rqXO3gRkaFIBgMLj5Ab/eIeHoOfcdJ/YjsV4NjCYqH/9QgMNMj46EEfcsK2IiFCyFu6X/HwCTw==
 
 build:
   ci:
@@ -26,4 +22,3 @@ build:
 
   on_success:
     - 'if [ "$IS_FORK" == "false" -a "$PULL_REQUEST" == "false" -a "$BRANCH" == "master" ]; then aws s3 sync $AWS_S3_LOCAL_PATH $AWS_S3_BUCKET --delete --acl public-read --region $AWS_S3_REGION; fi'
-#   - aws s3 sync $AWS_S3_LOCAL_PATH $AWS_S3_BUCKET --delete --acl public-read --region $AWS_S3_REGION
