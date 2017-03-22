@@ -39,6 +39,7 @@ git@github.com:someuser/somelibrary.git
 ```
 
 ---
+For more For a more detailed explanation, check out our ["SSH keys"](./sshKeys) page.
 
 ###Turning off submodules
 

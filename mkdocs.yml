@@ -54,6 +54,7 @@ pages:
     - Caching: ci/advancedOptions/caching.md
     - Artifacts: ci/advancedOptions/artifacts.md
     - Using git submodules: ci/advancedOptions/gitSubmodules.md
+    - SSH keys: ci/advancedOptions/sshKeys.md
     - Shippable_retry: ci/advancedOptions/retry.md
     - Skipping builds: ci/advancedOptions/skipBuild.md
     - Running builds on your own machines (BYON): ci/advancedOptions/byon.md
