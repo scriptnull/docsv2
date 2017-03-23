@@ -42,5 +42,8 @@
 
   {% include 'modals.html' %}
   {% include 'scripts_bottom.html' %}
+  {% if meta and meta.is_swagger %}
+    {% include 'swagger_bottom.html' %}
+  {% endif %}
 </body>
 </html>
