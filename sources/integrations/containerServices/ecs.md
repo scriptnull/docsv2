@@ -44,6 +44,7 @@ To do this, follow the steps below on the [IAM console](https://console.aws.amaz
 {
   "Statement": [
         {
+            "Version": "2012-10-17",
             "Effect": "Allow",
             "Action": [
                 "elasticloadbalancing:ConfigureHealthCheck",
@@ -132,7 +133,7 @@ NOTE: Refer [the official Amazon documentation](http://docs.aws.amazon.com/Amazo
 2. Click on the `Add Integration` button.
 3. For 'Integration type', choose `AWS` from the list of dropdown choices.
 4. For 'Integration Name' use a distinctive name that's easy to associate to the integration and recall. Example: `AWS-Integration`.
-5. Enter your access and secret keys provided by AWS. [See here](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html) for info on how to generate them.
+5. Enter your access and secret keys provided by AWS. [See here](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_add-key) for info on how to generate them.
 6. Click on `Save`.
 
 <img src="/ci/images/integrations/containerServices/ecs/addAwsInt.png" alt="Amazon AWS integration" style="width:700px;"/>
