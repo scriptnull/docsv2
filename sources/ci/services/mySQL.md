@@ -1,7 +1,7 @@
 
 #Continuous Integration with MySQL
 
-MySQL 5.6.23 is pre-installed on all Shippable Official images. However, we do not start it by default since not every build needs MySQL.
+MySQL is pre-installed on all Shippable Official images. However, we do not start it by default since not every build needs MySQL.
 
 To start MySQL, include the following in your shippable.yml:
 
@@ -15,7 +15,7 @@ When started, MySQL binds to 127.0.0.1 by default. You will need to create a dat
 ```
 build:
   ci:
-    - mysql -e "GRANT ALL ON *.* TO shippable@localhost IDENTIFIED BY ''; FLUSH PRIVILEGES;"
+    - mysql -e "CREATE USER shippable@localhost IDENTIFIED BY ''; GRANT ALL ON *.* TO shippable@localhost; FLUSH PRIVILEGES;"
     - mysql -e 'create database mytestdb;'
 ```
 
