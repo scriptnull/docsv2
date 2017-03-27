@@ -133,6 +133,8 @@ pages:
   - Keys:
     - SSH: integrations/keys/ssh.md
     - PEM:  integrations/keys/pem.md
+  - Generic:
+    - Key-Value: integrations/generic/keyValuePair.md
 - Navigating the UI:
   - Home: navigatingUI/home.md
   - Account:

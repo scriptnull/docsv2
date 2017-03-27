@@ -155,11 +155,14 @@ If an `IN` resource is a [gitRepo](../resources/gitRepo.md), the following envir
 
 
 ### integration resource variables
-If an `IN` resource is an [integration](../resources/integration.md), the following environment variables could be added, depending on the account integration type associated with the `integration` resource.  In the following table, *RESOURCENAME* is the name of the `integration` resource, in uppercase, with any characters other than letters, numbers, and underscores removed.
+* If an `IN` resource is an [integration](../resources/integration.md), the following environment variables could be added, depending on the account integration type associated with the `integration` resource.  In the following table, *RESOURCENAME* is the name of the `integration` resource, in uppercase, with any characters other than letters, numbers, and underscores removed.
 
 | Environment variable        | Account integration type | Description                                |
 |-----------------------------|--------------------------|--------------------------------------------|
 | *RESOURCENAME*_KEYPATH      | ssh-key or pem-key       | points directly to the private key file. |
+
+
+* If an `IN` resource is an integration of type [Key-Value pair](../../../integrations/generic/keyValuePair.md), the key-values are exported as it is without adding `RESOURCENAME_INTEGRATION_` in the key name. 
 
 <a name="advancedRunSh"></a>
 ##runSh scenarios
