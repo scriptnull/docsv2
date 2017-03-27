@@ -4,7 +4,7 @@ page_keywords: amazon, ecs, gke, kubernetes, engine, google, shippable, quay, co
 
 # Container Services integration
 
-Shippable lets you easily deploy your Dockerized applications to popular Container Services like Amazon EC2 Container Service (ECS), Google Container Engine (GKE), or Red Hat OpenShift 3.
+Shippable lets you easily deploy your Dockerized applications to popular Container Services like Amazon EC2 Container Service (ECS).
 
 You will first need to configure an account integration with your credentials and/or keys in order to interact with these services using Shippable Pipelines.
 
@@ -16,13 +16,14 @@ Follow the steps below to create an account integration with AWS ECS.
 
 On the [IAM console](https://console.aws.amazon.com/iam/) do following:
 
-- Click on `Users`.
-- Click `Create New User` and enter the following:  
-     - User Name: `shippable-user-to-allow-ecs-access` (You can specify an alternate name as well.)
-     - Ensure the 'Generate an access key for each user' option is checked.
-     - Click the `Create` button.
-     - Download the User Security Credentials (or copy them)
-     - Click `Close`.
+- Click on `Roles`.
+- Click `Create New Role` and do the following:
+      - Select **New Role** and add **Role Name** as: `shippable-role-to-allow-ecs-access`
+      -   Role for Cross Account Access ->
+         - **Allows IAM users from a 3rd party AWS account to access this account.** ->
+         - **Account Id**: < shippable aws account id >
+         - **External Id**: < users shippable account id >
+      - Next Step -> **Create Role**
 
 The credentials (Access Key/Secret Key pair) for this user will be used for creating an Account Integration on Shippable.
 
@@ -34,17 +35,15 @@ If the user you created in step 1 does not have admin access to your ECS resourc
 
 To do this, follow the steps below on the [IAM console](https://console.aws.amazon.com/iam/):
 
-  - Click on `Users`.
-  - Click on the user `shippable-user-to-allow-ecs-access`
-  - In the 'Permissions' tab, click 'Inline Policies' dropdown and create a new one by clicking the `Click here` button.
-  - Select 'Custom Policy' and click the `Select` button.
-  - Name the policy as `shippable-user-policy-for-ecs-access` and add the following in the 'policy document'  
+- Select the role `shippable-role-to-allow-ecs-access`
+-  Then go to **Permissions** -> **Inline Policies** -> **Custom Policy**.
+  -  Name the policy as `shippable-policy-to-access-ecs` and add following policy document
 
 ```
 {
-  "Statement": [
+    "Version": "2012-10-17",
+    "Statement": [
         {
-            "Version": "2012-10-17",
             "Effect": "Allow",
             "Action": [
                 "elasticloadbalancing:ConfigureHealthCheck",
@@ -57,11 +56,10 @@ To do this, follow the steps below on the [IAM console](https://console.aws.amaz
                 "ec2:DescribeRegions",
                 "ec2:DescribeInstances",
                 "ecs:DescribeClusters",
-                "ecs:DescribeTasks",
                 "ecs:ListClusters",
-                "ecs:ListTaskDefinitions",
                 "ecs:RegisterTaskDefinition",
                 "ecs:DeregisterTaskDefinition",
+                "ecs:ListTaskDefinitions",
                 "ecs:DescribeServices",
                 "ecs:UpdateService",
                 "ecs:DeleteService",
@@ -69,13 +67,14 @@ To do this, follow the steps below on the [IAM console](https://console.aws.amaz
                 "ecs:ListTasks",
                 "ecs:ListContainerInstances",
                 "ecs:DescribeContainerInstances"
-
             ],
             "Resource": "*"
         }
     ]
 }
 ```
+
+Now configure Shippable to use this role to access the account
 
 - Click `Validate Policy` button to ensure the syntax and the indentation are correct.
 - Click `Apply Policy` button.
@@ -84,12 +83,12 @@ The user `shippable-user-to-allow-ecs-access` now has permissions to access Amaz
 
 **If you are not planning to use a Load Balancer for your deployments, [you can now skip to Step 5](#createAccountInt).**
 
-##Step 3. Create an AWS IAM Role with access to ECS resources (Load Balancer scenarios only)  
+##Step 3. Create an AWS IAM Role with access to ECS resources (Load Balancer scenarios only)
 
 This Role will be used by Shippable when creating a service on ECS. On the [IAM console](https://console.aws.amazon.com/iam/) do following:
 
 - Click on `Roles`.
-- Click `Create New Role` and enter the following:  
+- Click `Create New Role` and enter the following:
      - Role Name: `shippable-role-to-allow-ecs-access`
      - Role type: Select `AWS Service Roles`
      - Scroll down and select `Amazon EC2 Container Service Role`.
@@ -99,7 +98,7 @@ This Role will be used by Shippable when creating a service on ECS. On the [IAM 
 
 Amazon has a pre-existing policy called `AmazonEC2ContainerServiceRole` is being attached to the Role here. It contains everything that the role needs to allow the ECS agent to control the load balancing.
 
-##Step 4 Update the `Trust Relationships` of the Shippable Role (Load Balancer scenarios only)  
+##Step 4 Update the `Trust Relationships` of the Shippable Role (Load Balancer scenarios only)
 
 - From the IAM console, navigate to and click the Role `shippable-role-to-allow-ecs-access`.
 - Go to the 'Trust Relationships' tab.
@@ -126,8 +125,20 @@ This gives the `ecs` agent running on each ECS instance(s) permissions to talk t
 
 NOTE: Refer [the official Amazon documentation](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service_IAM_role.html) on how to set up this special role and policy
 
+Now configure Shippable to use this role to access the account
+
 <a name="createAccountInt"></a>
 ##Step 5. Create Shippable Account Integration
+
+1. From your [Shippable dashboard](https://app.shipable.com), Click on the gear icon for Account Settings in your top navigation bar and then click on the `Integrations` tab. Click on 'Add Integration'
+2. **Integration type:** In the dropdown, select `AWS (IAM)`
+3. **Integration Name:** Use a distinctive name that's easy to associate to the integration and recall. Example: `manishas-aws-iam`
+4. Enter the ARN for the role `shippable-role-to-allow-ecs-access`. This will be a string with format like this `arn:aws:iam::12345678912:role/shippable-role-to-allow-ecs-access`
+5. Click `Save`
+
+<img src="/ci/images/integrations/containerServices/ecs/addAwsIamInt.png" alt="Amazon AWS-IAM integration" style="width:700px;"/>
+
+## Amazon EC2 Container Service Using Account Keys
 
 1. Click on the gear icon for Account Settings in your top navigation bar and then click on the 'Integrations' section.
 2. Click on the `Add Integration` button.
@@ -144,7 +155,7 @@ To do this:
 
 * Go to your Subscription's Settings page and click on `Integrations` in the sidebar menu
 * Click on `Add integration`
-* Name your integration, choose the account integration you just created above, and click on `Save`  
+* Name your integration, choose the account integration you just created above, and click on `Save`
 
 You can now use this integration to set up your Environment and Deployment Pipelines on your ECS clusters.
 
