@@ -25,15 +25,16 @@ installed on your workstation.
 - Go to your app's settings page.
 - In the application info pane (that is also displayed at the end of
   the application creation process) you will see 'Git URL'.
-- Just use it to push the code in `on_success` step of Shippable build:
+- Just use it to push the code in `build on_success` step of Shippable build:
 
 ```yml
 env:
   global:
     - APP_NAME=shroudd-headland-1758
 
-on_success:
-  - git push -f git@heroku.com:$APP_NAME.git master
+build:
+  on_success:
+    - git push -f git@heroku.com:$APP_NAME.git master
 ```
 
 Full sample of deploying PHP+MySQL application to Heroku without using
@@ -72,23 +73,25 @@ env:
 > is supplied, Heroku toolbelt will switch to an interactive mode,
 > prompting for the username and causing the build to 'hang'.
 
-Then, install the toolbelt in `ci` step (`which heroku` is
+Then, install the toolbelt in `build ci` step (`which heroku` is
 for skipping this step if the tools are already installed):
 
 ```yaml
-ci:
-  - which heroku || wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+build:
+  ci:
+    - which heroku || wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 ```
 
 Next, create your Heroku application using Web GUI or `heroku` command
-installed on your workstation. Then, add the following `on_success`
+installed on your workstation. Then, add the following `build on_success`
 step to your Shippable build:
 
 ```yaml
-on_success:
-  - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f /tmp/ssh/00_sub > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
-  - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app $APP_NAME
-  - git push -f heroku master
+build:
+  on_success:
+    - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f /tmp/ssh/00_sub > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
+    - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app $APP_NAME
+    - git push -f heroku master
 ```
 
 - First we generate public SSH key out of the private one to a file
@@ -402,16 +405,17 @@ require 'mongoid'
 Mongoid.load!('mongoid.yml', :production)
 ```
 
-You can also execute Rake tasks in your `on_success` step using
+You can also execute Rake tasks in your `build on_success` step using
 Heroku toolbelt. For example, to run database migrations at the end of
 the build:
 
 ```yaml
-on_success:
-  - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f /tmp/ssh/00_sub > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
-  - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app $APP_NAME
-  - git push -f heroku $BRANCH:master
-  - heroku run rake db:migrate
+build:
+  on_success:
+    - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f /tmp/ssh/00_sub > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
+    - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app $APP_NAME
+    - git push -f heroku $BRANCH:master
+    - heroku run rake db:migrate
 ```
 
 Full sample of deploying Sinatra+MongoDB application to Heroku (using
