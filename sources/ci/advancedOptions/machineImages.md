@@ -24,7 +24,7 @@ From release 5.3.2 onwards, Shippable will introduce new machine images on each 
 
 By default, your subscription is configured to use the latest default image available available at the time you run your first build on Shippable. You can switch between the available images at any point in time. The most common reason for changing the machine image for your subscription is if you need a newer Docker or OS version.
 
-* **v5.4.1 (Released March 30, 2017)**
+* **v5.4.1 (Current default, released March 30, 2017)**
     * Shippable Official Docker Images (tag: `v5.4.1`)
     * Docker Server Version: 1.13.0
     * Storage Driver: aufs
@@ -35,7 +35,7 @@ By default, your subscription is configured to use the latest default image avai
     * Kernel Version: 3.19.0-51-generic
     * Operating System: Ubuntu 14.04.5 LTS
 
-* **v5.3.2 (Current default, released March 11, 2017)**
+* **v5.3.2 (Released March 11, 2017)**
     * Shippable Official Docker Images (tag: `v5.3.2`)
     * Docker Server Version: 1.13.0
     * Storage Driver: aufs
