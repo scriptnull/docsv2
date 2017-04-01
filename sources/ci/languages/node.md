@@ -17,25 +17,8 @@ language: node_js
 ```
 
 ### runtime
-Our official build images for Node.js come pre-installed with the following versions:
 
-* 0.10
-* 0.12 (default if no runtime specified)
-* 4.2.3
-* 4.6.0
-* 5.12.0
-* 6.7.0
-* 6.8.0
-* 6.9.4
-* 7.0.0
-* 7.2.1
-* 7.3.0
-* 7.4.0
-* iojs 1.0
-* iojs 2.0
-* iojs 3.3.1
-
-You can set the runtime to any version(s) using the `node_js` tag:
+You can set the runtime to any version(s) included in your CI image using the `node_js` tag:
 
 ```
 node_js:
@@ -72,41 +55,10 @@ The pre_ci and pre_ci_boot sections are primarily used in one of the following s
 If you do not want to do either of the above, you should skip these tags in the yml.
 
 #### Default Node.js images
-We have 2 primary build images for Node.js projects, which should be sufficient for most Node.js projects:
 
-* [dry-dock/u16nodall](https://github.com/dry-dock/u16nodall): Ubuntu 16.04 image with Node
-* [dry-dock/u14nodall](https://github.com/dry-dock/u14nodall): Ubuntu 14.04 image with Node
+If you do not specify anything in the `pre_ci_boot` section of your yml, a default image will be used to spin to the build container for your Node.js projects.
 
-The images contain the following components:
-
-	* Multiple node versions listed above installed using nvm
-	* nvm
-	* Basic packages: build-essential, curl, gcc, gettext, git, htop, jq, libxml2-dev, libxslt-dev, make, nano, openssh-client, openssl, python-dev, python-pip, python-software-properties, software-properties-common, software-properties-common, sudo, texinfo, unzip, virtualenv, wget
-	* Java 1.8
-	* Ruby 2.3.3
-	* awscli 1.11.44
-	* awsebcli 3.9
-	* gcloud 145.0.0
-	* jfrog-cli 1.7.0
-	* kubectl 1.5.1
-	* packer 0.12.2
-	* terraform 0.8.7
-
-The following services are pre-installed:
-
-	* couchdb 1.6
-	* elasticsearch 5.1.2
-	* neo4j 3.1.1
-	* memcached 1.4.34
-	* mongodb 3.4
-	* mysql 5.7
-	* postgres 9.6
-	* rabbitmq 3.6
-	* redis 3.2
-	* rethinkdb 2.3
-	* riak 2.2.0
-	* selenium 3.0.1
-	* sqllite 3
+To find out the default image used for your builds, please check the [Machine images overview](../machine-images/overview/).
 
 If the official images do not satisfy your requirements, you can do one of 2 things:
 

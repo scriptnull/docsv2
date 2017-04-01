@@ -22,6 +22,11 @@ pages:
   - What is supported?: ci/supported.md
   - Running a build: ci/runFirstBuild.md
   - Build configuration: ci/shippableyml.md
+  - Machine Images:
+    - Overview: ci/machine-images/overview.md
+    - v5.4.1: ci/machine-images/v5-4-1.md
+    - v5.3.2: ci/machine-images/v5-3-2.md
+    - Stable: ci/machine-images/stable.md
   - Languages:
     - Node.js: ci/languages/node.md
     - Python: ci/languages/python.md
@@ -61,8 +66,6 @@ pages:
     - Test and Coverage Reports: ci/advancedOptions/testCoverage.md
     - Timeouts: ci/advancedOptions/timeouts.md
     - Console logs: ci/advancedOptions/console-logs.md
-    - Node Machine Images: ci/advancedOptions/machineImages.md
-    - Default CI Images: ci/advancedOptions/defaultCIImages.md
   - Permissions: ci/permissions.md
   - Troubleshooting CI: ci/troubleshoot.md
 - Continuous Deployment Pipelines:

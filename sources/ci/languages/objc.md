@@ -1,13 +1,14 @@
 
 # C/C++
+
 This page explains yml configuration that is specific to C/C++ projects. For a complete yml reference, please read the [Build configuration section](../shippableyml.md)
 
 ##yml configuration
 
-The sections below explore sections of the yml that are specific to C/C++ projects. 
+The sections below explore sections of the yml that are specific to C/C++ projects.
 
 
-###language 
+###language
 
 
 For C/C++ projects, this tag should always be set to c as show below:
@@ -41,57 +42,25 @@ Depending on the `language` and `services` tags in your yml, an official build i
 
 The pre_ci and pre_ci_boot sections are primarily used in one of the following scenarios:
 
-* You want to use a custom Docker image for your CI 
+* You want to use a custom Docker image for your CI
 * You want to override the default options that are used to boot up the default CI image
 
 If you do not want to do either of the above, you should skip these tags in the yml.
 
 #### Default C/C++ image
-We have a standard build image for C/C++ projects, which should be sufficient for most projects: 
 
-* [dry-dock/u16cppall](https://github.com/dry-dock/u16cppall): Ubuntu 16.04 image with CPP
-* [dry-dock/u14cppall](https://github.com/dry-dock/u14cppall): Ubuntu 14.04 image with CPP
-	
-The images contain the following components:
+If you do not specify anything in the `pre_ci_boot` section of your yml, a default image will be used to spin to the build container for your C/C++ projects.
 
-	* gcc 6
-	* clang 3.9.0
-	* Basic packages: build-essential, curl, gcc, gettext, git, htop, jq, libxml2-dev, libxslt-dev, make, nano, openssh-client, openssl, python-dev, python-pip, python-software-properties, software-properties-common, software-properties-common, sudo, texinfo, unzip, virtualenv, wget
-	* Java 1.8
-	* Node 7.x
-	* Ruby 2.3.3
-	* awscli 1.11.44
-	* awsebcli 3.9
-	* gcloud 145.0.0
-	* jfrog-cli 1.7.0
-	* kubectl 1.5.1
-	* packer 0.12.2
-	* terraform 0.8.7
+To find out the default image used for your builds, please check the [Machine images overview](../machine-images/overview/).
 
-The following services are pre-installed:
+If the default images do not satisfy your requirements, you can do one of two things:
 
-	* couchdb 1.6
-	* elasticsearch 5.1.2
-	* neo4j 3.1.1
-	* memcached 1.4.34
-	* mongodb 3.4
-	* mysql 5.7
-	* postgres 9.6
-	* rabbitmq 3.6
-	* redis 3.2
-	* rethinkdb 2.3
-	* riak 2.2.0
-	* selenium 3.0.1
-	* sqllite 3
+- Continue using default image and include commands to install any missing dependencies or packages in your yml
+- Switch your Machine Image to a more recent version that contains what you need
+- Use a custom build image that contains exactly what you need for your CI. Please note that this will add time to your build since the image will be pulled from a registry.
 
-
-If this official images do not satisfy your requirements, you can do one of 2 things:
-
-- Continue using official images and include commands to install any missing dependencies or packages in your yml
-- Use a custom build image that contains exactly what you need for your CI
-	
 #### Using a custom build image
-If you do decide to use a custom CI image, you will need to configure the `pre_ci_boot` section and optionally, the `pre_ci` section if you're also building the CI image as part of the workflow. Details on how to configure this are available in the [`pre_ci` and `pre_ci_boot` sections of the Build configuration page](../shippableyml.md#build). 
+If you do decide to use a custom CI image, you will need to configure the `pre_ci_boot` section and optionally, the `pre_ci` section if you're also building the CI image as part of the workflow. Details on how to configure this are available in the [`pre_ci` and `pre_ci_boot` sections of the Build configuration page](../shippableyml.md#build).
 
 ### ci
 The `ci` section should contain all commands you need for your `ci` workflow. Commands in this section are executed sequentially. If any command fails, we exit this section with a non zero exit code.
@@ -107,13 +76,13 @@ build:
 ```
 
 
-#### Adding test commands 
+#### Adding test commands
 After installing dependencies, you can include your test commands. For example:  
 
 ```
 build:
   ci:
-    - make test 
+    - make test
 ```
 
 
@@ -134,10 +103,3 @@ build:
 ```
 
 To avoid executing the default command, include a simple command in like `pwd` or `ls` in this section.
-
-
-
-
-
-
-

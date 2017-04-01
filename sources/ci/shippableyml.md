@@ -308,6 +308,8 @@ This section is **optional** and lets you override the default build image used 
 - You want to use your own custom Docker image for your build
 - You want to customize some options while starting up your CI container
 
+Please note that specifying a custom image in this section will cause the image to be pulled, which will add some time to your build.
+
 The following snippet shows how to override the default CI image and instead use your own custom image:
 
 ```
@@ -334,7 +336,6 @@ In the snippet above, replace the following:
 
 - If you are pulling a private image from a registry, you will also need to specify a hub integration in your yml. Please check out the [integrations section](#integrations) to see how to do this.
 - If you set `pull` to false, the image and tag you specify in `image_name` and `image_tag` should be available on the build machine. This means that you must either build the image from a Dockerfile or pull the image in the `pre_ci` section.
-- Minimum requirements for custom CI images are documented TBD: Update Link  
 
 ### ci
 The `ci` section of your yml is where the bulk of your build commands should be included. All commands in this section are executed sequentially inside your build container in the order they appear in your yml. This section is optional, but if you don't have any commands in this section, we have some default commands based on language, e.g. npm install and npm test for node.js projects.
