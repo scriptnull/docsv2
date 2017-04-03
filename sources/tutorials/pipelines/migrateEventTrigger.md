@@ -3,11 +3,11 @@ page_description: Detailed instructions on how to use runCI to accomplish the sa
 page_keywords: getting started, pipelines, quick start, documentation, shippable
 
 #Switching from Event Triggers to runCI
-Until Feb. 18, 2017, if you had set up a connection from Shippable CI to Shippable Pipelines, it was likely through a webhook style account integration.  This required you to complete all kinds of manual steps repeatedly for every resource you wanted to update.   We have now made significant changes to improve this process.  This page will discuss the recommended way to take an existing eventTrigger and convert it to the new [runCI](../../pipelines/jobs/runCI.md) style of resource updating.
+Until Feb. 18, 2017, if you had set up a connection from Shippable CI to Shippable Pipelines, it was likely through an event triggers account integration. This required you to complete all kinds of manual steps repeatedly for every resource you wanted to update. We have introduced a new and efficient mechanism and will be reiting event triggers on 04/30. This page will discuss the recommended way to take an existing eventTrigger and convert it to the new [runCI](../../pipelines/jobs/runCI.md) style of resource updating.
 
 ##The Scenario
 
-I have one project enabled in CI.  That project builds and pushes a docker image, and then uses a webhook notification to update my image resource, which triggers my pipelines workflow.
+I have a project enabled for CI.  That project builds and pushes a docker image, and then uses an event trigger to update my image resource, which triggers my pipelines workflow.
 
 My `shippable.yml`
 ```yml
@@ -43,11 +43,11 @@ resources:
 ```
 
 ##Setting up runCI
-First, the runCI job must be created.  You can do this simply by going into your project settings page, and clicking the "hook" button.  
+The runCI job represents your CI job and allows CI jobs to directly integrate with your pipelines. First, the runCI job must be created.  You can do this simply by going into your project settings page, and clicking the "hook" button.  
 
 <img src="../../../pipelines/images/jobs/hookPipeline.png" alt="Hook button on project settings page." style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-If you don't see the button, check your pipelines SPOG to see if your runCI job already exists.  Any project that was enabled after this functionality was released will not need to use the hook button.
+If you don't see the button, check your pipelines SPOG to see if your runCI job already exists.  Any project that was enabled after this functionality was released on 02/18/17 will not need to use the hook button.
 
 Once this button is clicked, if you look at your pipelines SPOG, you should see something like this:
 
