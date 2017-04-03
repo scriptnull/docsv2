@@ -22,7 +22,6 @@ For a complete list of what is installed on each machine image, read our [CI Mac
 
 **Machine image should not be confused with the actual build container image where your CI workflow is executed.** The CI container is spun up on the build VM and the actual build is run inside the CI container. This is described in the [CI overview](/ci/overview/#ci-workflow).
 
-
 ###Deployment key
 
 The Deployment key section shows the SSH public key associated with your Shippable Account.
@@ -32,6 +31,10 @@ You will need this key to deploy to cloud providers that supports git based depl
 This key is also used to encrypt any environment variables that you want to use during your build.
 
 Our How To guides provide instructions on how to enable continuous deployment to different providers.
+
+###Pipeline Event Triggers
+
+This section allows you to toggle the appearance of [event trigger](/integrations/notifications/webhooks/#event-triggers-based-on-user-specified-webhooks) integrations when on the SPOG page.  The presence of these can sometimes cause the SPOG to load slowly, so heavy pipelines users may want to check this box in order to improve load times.  This will not impact the functionality of these triggers.  Eventually this style of event trigger will be phased out in favor of [runCI jobs](/pipelines/jobs/runCI/), which do not suffer the same disadvantages.
 
 ###Technical Contact
 
@@ -124,13 +127,13 @@ env:
 Here is the shippable.resources.yml syntax:
 
 ```
-#shippable.resources. yml syntax
+#shippable.resources.yml syntax
 resources:
-  - name: paran_name                              
-    type: params                                
+  - name: param_name
+    type: params
     version:
-      params:                                 
-        secure: <encrypted value>           
+      params:
+        secure: <encrypted value>
 ```
 
 ###Encrypting multiple variables
