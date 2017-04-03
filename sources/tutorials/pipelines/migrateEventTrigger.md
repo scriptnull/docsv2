@@ -3,7 +3,7 @@ page_description: Detailed instructions on how to use runCI to accomplish the sa
 page_keywords: getting started, pipelines, quick start, documentation, shippable
 
 #Switching from Event Triggers to runCI
-Until Feb. 18, 2017, if you had set up a connection from Shippable CI to Shippable Pipelines, it was likely through an Event Trigger account integration. This required you to complete all kinds of manual steps repeatedly for every resource you wanted to update. We have introduced a new and efficient mechanism and will be retiring event triggers functionality on April 30th, 2017. This page will discuss the approach to take an existing Event Trigger and convert it to the new [runCI](../../pipelines/jobs/runCI.md) style of resource updating.
+Until Feb. 18, 2017, if you had set up a connection from Shippable CI to Shippable Pipelines, it was likely through an Event Trigger account integration. This required you to complete all kinds of manual steps repeatedly for every resource you wanted to update. We have introduced a new and efficient mechanism and will be retiring event triggers functionality on April 30th, 2017. This page describes how you can migrate from Event Trigger to the new [runCI](../../pipelines/jobs/runCI.md) style of connecting CI with Pipelines.
 
 ##The Scenario
 
