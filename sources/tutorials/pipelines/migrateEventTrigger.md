@@ -3,7 +3,7 @@ page_description: Detailed instructions on how to use runCI to accomplish the sa
 page_keywords: getting started, pipelines, quick start, documentation, shippable
 
 #Switching from Event Triggers to runCI
-Until Feb. 18, 2017, if you had set up a connection from Shippable CI to Shippable Pipelines, it was likely through an event triggers account integration. This required you to complete all kinds of manual steps repeatedly for every resource you wanted to update. We have introduced a new and efficient mechanism and will be reiting event triggers on 04/30. This page will discuss the recommended way to take an existing eventTrigger and convert it to the new [runCI](../../pipelines/jobs/runCI.md) style of resource updating.
+Until Feb. 18, 2017, if you had set up a connection from Shippable CI to Shippable Pipelines, it was likely through an Event Trigger account integration. This required you to complete all kinds of manual steps repeatedly for every resource you wanted to update. We have introduced a new and efficient mechanism and will be retiring event triggers functionality on April 30th, 2017. This page will discuss the approach to take an existing Event Trigger and convert it to the new [runCI](../../pipelines/jobs/runCI.md) style of resource updating.
 
 ##The Scenario
 
@@ -47,7 +47,7 @@ The runCI job represents your CI job and allows CI jobs to directly integrate wi
 
 <img src="../../../pipelines/images/jobs/hookPipeline.png" alt="Hook button on project settings page." style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-If you don't see the button, check your pipelines SPOG to see if your runCI job already exists.  Any project that was enabled after this functionality was released on 02/18/17 will not need to use the hook button.
+If you don't see the button, check your pipelines SPOG to see if your runCI job already exists.  Any project that was enabled after this functionality was released on Feb. 18, 2017 will not need to use the hook button.
 
 Once this button is clicked, if you look at your pipelines SPOG, you should see something like this:
 
