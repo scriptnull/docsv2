@@ -3,135 +3,121 @@ page_description: Detailed instructions on how to use runCI to accomplish the sa
 page_keywords: getting started, pipelines, quick start, documentation, shippable
 
 #Switching from Event Triggers to runCI
-Until Feb. 18, 2017, if you had set up a connection from Shippable CI to Shippable Pipelines, it was likely through an Event Trigger account integration. This required you to complete all kinds of manual steps repeatedly for every resource you wanted to update. We have introduced a new and efficient mechanism and will be retiring event triggers functionality on April 30th, 2017. This page describes how you can migrate from Event Trigger to the new [runCI](../../pipelines/jobs/runCI.md) style of connecting CI with Pipelines.
+
+Until Feb. 18, 2017, if you had set up a connection from Shippable CI to Shippable Pipelines, it was likely through an Event Trigger account integration. This required you to complete all kinds of manual steps repeatedly for every resource you wanted to update. We have introduced a new and efficient mechanism to achieve the same scenario with a new job type called `runCI`.
+
+The main goal of this the new `runCI` job is to make CI a first class citizen in Pipelines. This introduces a lot of flexibility in how and where you can use CI jobs, as well as improves SPOG performance due to a more efficient implementation.
+
+**We will retire Event Trigger functionality for triggering Resources on April 30th, 2017. If you do not migrate to runCI before this date, your pipeline will not trigger after CI completes.** This page describes how you can migrate from Event Trigger to [runCI](../../pipelines/jobs/runCI.md) to connect CI with your Pipelines.
 
 ##The Scenario
 
-I have a project enabled for CI.  That project builds and pushes a docker image, and then uses an event trigger to update my image resource, which triggers my pipelines workflow.
+You have a project enabled for CI which builds and pushes a Docker image to a Docker registry. You use an Event Trigger integration to trigger an update for your image resource, which triggers the rest of your pipelines workflow.  
 
-My `shippable.yml`
-```yml
-language: node_js
+<img src="../../images/pipelines/event-trigger-ci-pipelines.png" alt="Hook button on project settings page." style="width:600px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-node_js:
-  - 4.2.3
+##Migration steps
 
-build:
+Please follow the following steps for **all enabled projects with an Event Trigger integration.**
 
-  ci:
-    - ./buildAndPush.sh
+### 1. Set up runCI
 
-integrations:
-  notifications:
-    - integrationName: "trigger_my_image"
-      type: webhook
-      payload:
-        - versionName=$BRANCH.$BUILD_NUMBER
+The runCI job represents your CI job and allows CI jobs to directly integrate with your pipelines. For all projects enabled after February 18, 2017, a runCI job is automatically created and named by appending `_runCI` to your repository name. You can skip this step if you see this runCI job in your SPOG already.
 
-```
+If you do not see a runCI job for your repository in SPOG, you need to create it by following the steps below:
 
-My `shippable.resources.yml`
-```yml
-resources:
-  - name: my_image
-    type: image
-    pointer:
-      sourceName: trriplejay/simpleserver
-    seed:
-      versionName: latest
+- Go to the `Settings` tab for your project. Find the `Hook pipeline` section and click on `Hook`.
+
+<img src="../../../pipelines/images/jobs/hookPipeline.png" alt="Hook button on project settings page." style="width:600px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+- If you don't see the button, recheck your pipelines SPOG to see if your runCI job already exists.  
+
+- Your pipelines SPOG should now show the runCI job:
+
+<img src="../../../pipelines/images/jobs/runCIInSPOG.png" alt="SPOG with runCI job" style="width:500px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
+
+### 2. Add runCI to your shippable.jobs.yml
+
+- Next, you need to add the runCI job to your pipelines yml. Add the following to your `shippable.jobs.yml` file in your [syncRepo](../../pipelines/resources/syncRepo.md).  
 
 ```
 
-##Setting up runCI
-The runCI job represents your CI job and allows CI jobs to directly integrate with your pipelines. First, the runCI job must be created.  You can do this simply by going into your project settings page, and clicking the "hook" button.  
-
-<img src="../../../pipelines/images/jobs/hookPipeline.png" alt="Hook button on project settings page." style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-If you don't see the button, check your pipelines SPOG to see if your runCI job already exists.  Any project that was enabled after this functionality was released on Feb. 18, 2017 will not need to use the hook button.
-
-Once this button is clicked, if you look at your pipelines SPOG, you should see something like this:
-
-<img src="../../../pipelines/images/jobs/runCIInSPOG.png" alt="SPOG with runCI job" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
-
-
-##Add runCI to your shippable.jobs.yml
-
-Now that you have a base runCI job created for your project, you can enhance it via the `shippable.jobs.yml` file in your [syncRepo](../../pipelines/resources/syncRepo.md).  
-
-My `shippable.jobs.yml`<br>
-```yml
 jobs:
-  - name: my_app_runCI
+  - name: my_app_runCI  ## Replace my_app_runCI with your runCI job name
     type: runCI
     steps:
-      - OUT: my_image
+      - OUT: my_image ## Replace my_image with the resource name that was being triggered by Event Trigger
 
 ```
 
-This gives you a ton of flexibility regarding what your CI can do in your pipeline.
+This gives you a lot of flexibility regarding what your CI can do in your pipeline.
 
-In this example, we're simply going to add a single `OUT` statement for our image resource.  You might be familiar with this notation if you've used our [runSh](../../pipelines/jobs/runSh.md) or [runCLI](../../pipelines/jobs/runCLI.md) job types.
-
-Once rSync successfully runs for this change, your SPOG should look something like this:<br>
+- Commit the changes to your sync repository. When the rSync job finishes, your SPOG should show this:
 
 <img src="../../../pipelines/images/jobs/runCIOutSpog.png" alt="SPOG with runCI job" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 You can see that the `OUT` resource is now connected to your runCI job.
 
-##Update your resource from CI.
-Now that the image resource is connected to runCI though an `OUT` statement, you will see it referenced several times when the build runs.
+### 3. Update your resource from CI.
 
-<img src="../../images/pipelines/OUTlogExample.png" alt="Processing OUT resource" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/><br>
-<img src="../../images/pipelines/OUTlogExample2.png" alt="Processing OUT resource pt2" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+Next, you need to edit your `shippable.yml` to update the resource at the end of each CI build:
 
-You can see here that the processor will only create new versions of `OUT` resources if a change is detected.  This allows you to control when a resource is updated, based on logic in your `shippable.yml`.
+- Remove the Event Trigger integration
+- Update your `shippable.yml` as shown below to update the resource:
 
-The structure of a runCI job is very similar to runSh and runCLI.  Every build will have access to certain standard environment variables that represent the different resources and jobs involved in the build.  Each build also has a state directory where you can store information that you'd like to persist from one job to the next, or that you'd like to pass through to the next stage in your pipeline.  This directory can be accessed via the `$JOB_STATE` variable.
-
-Additionally, each `OUT` resource in your runCI job will have a corresponding `<resourceName>.env` file inside the state directory.  This is the file that you need to update in your job in order to signify that you want to create a new version of your resource.
-
-Update your `shippable.yml` to look like this:
-```yml
-language: node_js
-
-node_js:
-  - 4.2.3
-
+```
 build:
-
   ci:
-    - ./buildAndPush.sh
-    - echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/my_image.env
+    # your ci commands
 
-#integrations:
-#  notifications:
-#    - integrationName: "trigger_my_image"
-#      type: webhook
-#      payload:
-#        - versionName=$BRANCH.$BUILD_NUMBER
+    - echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/my_image.env  #This command updates an image resource called my_image. Replace my_image with your resource name
 
 ```
 
-Notice that I've commented out the webhook trigger, and instead, added a single line to the ci section `- echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/my_image.env`
+Please note that the `echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/my_image.env` command should be after you have pushed your image to the registry
 
-You can use any identifier you'd like in place of `$BRANCH.$BUILD_NUMBER`.  In the case of an image resource, the `versionName` should represent the image's tag, so you should mark that based on what you've pushed during your build.
+- You can also update the resource conditionally as shown below:
 
-If you only docker build and push on commits, and want to ignore pull requests, you may want to use a line like this instead:
-```yml
+```
+  #resource is only updated for commit builds, but not for pull requests
   - 'if [ $IS_PULL_REQUEST == "false" ] ; then echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/my_image.env; fi'
 ```
-Note that you can use similar logic to control what happens based on any other condition, such as branch name, test results, matrix values, etc.
 
-Committing this change should trigger another CI build, and its results should look something like this:
+```
+  #resource is only updated for master branch, but not for other branches
+  - 'if [ $BRANCH == "master" ] ; then echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/my_image.env; fi'
+```
+
+- Commit and push this change. This will trigger a CI build and your resource should be updated as part of this build. This will trigger the rest of your pipeline.
+
 <img src="../../images/pipelines/OUTlogNewVersion.png" alt="Processing `OUT` with updated version" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
-As you can see, a new version was posted for the image resource.  This is what causes subsequent pipeline jobs to be automatically triggered.  If you navigate to your SPOG and click on your image resource, you should see the version that was created.
 
-<img src="../../images/pipelines/spogImageVersions.png" alt="See the version list of your resource from the SPOG view" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+### 4. Repeat for each project using Event Trigger
 
-Now you can feel free to delete that old event trigger from your yml, delete the subscription integration from your subscription settings page, and delete the account integration from your account settings page!
+Repeat steps 1-3 for every project using an Event Trigger integration to trigger resources.
+
+### 5. Delete all Event Trigger integrations
+
+To do this:
+
+- Go to your Subscription Settings->Integrations page and remove all the integrations you just replaced with runCI jobs
+- Go to your Account Settings and remove all these old integrations from there as well
+
+### 5. Improve SPOG performance
+
+The new `runCI` implementation is much more efficient and leads to better SPOG performance when compared to Event Triggers. You will automatically see this improvement
+after April 30, 2017. However, if you are experiencing slow SPOG load, you can do the following to tell Shippable that you have finished your migration to runCI:
+
+- Go to your Subscription settings. In the `Pipeline Event Triggers` section, check the box for hiding event triggers:
+
+<img src="../../images/pipelines/hide-event-triggers.png" alt="Processing OUT resource" style="width:600px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/><br>
+
+Please do this ONLY if you have completed steps 1-5 above.
 
 ##Additional information
+
 * For more information on runCI, [check out the official docs](../../pipelines/jobs/runCI.md)
 * For details on environment variables and different scenarios that can be accomplished using INs and OUTs, [see the docs on runSh](../../pipelines/jobs/runSh.md)
 * For a more detailed example of how to use the `.env` files, [see our tutorial on updating resource versions](updateResourceVersion.md)
