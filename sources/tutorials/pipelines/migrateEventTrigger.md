@@ -63,7 +63,6 @@ You can see that the `OUT` resource is now connected to your runCI job.
 
 Next, you need to edit your `shippable.yml` to update the resource at the end of each CI build:
 
-- Remove the Event Trigger integration
 - Update your `shippable.yml` as shown below to update the resource:
 
 ```
@@ -71,12 +70,16 @@ build:
   ci:
     # your ci commands
 
-    - echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/my_image.env  #This command updates an image resource called my_image. Replace my_image with your resource name
+    - echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/my_image.env  #This command updates an image resource called my_image.
 
 ```
 
-Please note that the `echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/my_image.env` command should be after you have pushed your image to the registry
+- Make the following changes to the command:
+    - `versionName=$BRANCH.$BUILD_NUMBER` should be what you have in the `payload` tag in your Event Trigger.
+    - Replace `my_image` with your resource name
+    - The echo command should be after the commands that push your image to a registry
 
+- Delete the Event Trigger integration from the yml
 - You can also update the resource conditionally as shown below:
 
 ```
