@@ -85,6 +85,10 @@ To see "orphaned" resources (resources that are not inputs to a job in the pipel
 
 You can also filter this view by using Flags. Flags need to be included in your job and/or resource configurations to be available as a filter for SPOG.
 
+To view the tabular representation (Grid View) of your pipeline click on the table dropdown in the upper right corner. In this view you can see all of your resources and jobs in a list format. Using this view it's easy to see the details like latest version number and version name of multiple resources in a single view.
+
+Same functionlity that is available in SPOG is available in grid view also. You can trigger builds or cancel running builds. You can also soft-delete, restore or hard-delete your resources from here. Clicking on the name of any resource/job will open up a modal. For jobs it will display consoles and for resources it will display the versions.
+
 ---
 
 ##Filtering the SPOG view
