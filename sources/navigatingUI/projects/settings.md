@@ -111,6 +111,20 @@ to trigger builds" style="width:700px;"/>
 Walk through the different scenarios and [configure webhooks to trigger Continuous
 Integration builds](http://blog.shippable.com/configure-web-hooks-to-trigger-continuous-integration).  
 
+### Run Settings
+In this section, you can enable or disable cancellation of pending commit/PR builds,
+when a new commit/PR build is triggered.
+
+- **Run only latest PR builds**: When enabled, each update to an open PR will cancel
+any queued or in-progress builds for that PR, and trigger a new build for the latest
+update. Default value is Disabled.
+- **Run only latest commit builds**: When enabled, each new commit to a branch will
+cancel any queued or in-progress builds for that branch, and trigger a new build
+with the latest commit. Default value is Disabled.
+
+<img src="../../images/projects/runSettings.png" alt="Run Settings"
+style="width:700px;"/>
+
 ### Run Parallel Jobs
 Disabling parallel jobs allows you to restrict job processing based on branch name.
 
