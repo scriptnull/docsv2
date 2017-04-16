@@ -55,8 +55,8 @@ You can create this resource by adding it to `shippable.resources.yml`
         * `only` is an optional list of tags that will trigger updates through the `gitRepo` resource.  If `only` is in the `tags` section, new versions of the `gitRepo` resource will only be created for these tags.
     * `buildOnCommit` determines if the `gitRepo` resource will be updated for commit webhooks.  The default is `true`, in which case commits result in new versions of the `gitRepo` and can trigger a pipeline.
     * `buildOnPullRequest` may be set to `true` to create new versions of the `gitRepo` when a pull request webhook is received.  By default, it is `false`.
-    * `buildOnRelease` may be set to `true` to create new versions of the `gitRepo` when a release webhook is received.  By default, it is `false`.  Release webhooks are currently only supported for GitHub.
-    * `buildOnTagPush` may be set to `true` to create new versions of the `gitRepo` when a tag webhook is received. By default, it is `false`.  Tag webhooks are currently only supported for GitHub.
+    * `buildOnRelease` may be set to `true` to create new versions of the `gitRepo` when a release webhook is received.  By default, it is `false`.
+    * `buildOnTagPush` may be set to `true` to create new versions of the `gitRepo` when a tag webhook is received. By default, it is `false`.
 
 **Important points to consider while creating the above yml.**
 
