@@ -10,7 +10,7 @@ A `notification` resource is used to add a notification type so that you can sen
 * Job is completed successfully (on_success)
 * Job failed (on_failure)
 
-Email, Hipchat and Slack notifications are supported for all job types as of now. We are working on adding support for other notification types.
+Email, Hipchat, IRC and Slack notifications are supported for all job types as of now.
 
 You can create a notification resource by adding it to `shippable.resources.yml`
 
@@ -38,6 +38,6 @@ The events for which this notification is sent out are configured in the jobs ym
 
 * `pointer` section provides information about recipients.
 
-	* `method` is required for **email only** and should always be set to `email`.
+	* `method` is required for **email and irc only** and should always be set to `email` if you want to send notifications to an email address or `irc` if you want to send it to a particular irc room.
 
-	* `recipients` is an array specifying who should receive notifications. For email notifications, include email addresses where you want to send notifications. For Slack notifications, include channel names or slack usernames where notifications should be sent. Slack channels/users should be entered in double quotes, with a leading # for channels and @ for users. For example, to send to a Slack room foo, specify `"#foo"` and to send to a person tom, specify `"@tom"`.Similarly, for Hipchat notifications, include channel names or Hipchat usernames where notifications should be sent. Hipchat channels/users should be entered in double quotes, with a leading # for channels and @ for users. For example, to send to a Hipchat channel named foo, specify `"#foo"` and to send to a personal message to someone,say tom, specify `"@tom"`.
+	* `recipients` is an array specifying who should receive notifications. For email notifications, include email addresses where you want to send notifications. For irc notifications, include the public rooms you want to send the notifications to. Say you have a channel named `shippable` hosted on a server `webchat.freenode.net` then your recipients should look like this: `"webchat.freenode.net#shippable"`. For Slack notifications, include channel names or slack usernames where notifications should be sent. Slack channels/users should be entered in double quotes, with a leading # for channels and @ for users. For example, to send to a Slack room foo, specify `"#foo"` and to send to a person tom, specify `"@tom"`.Similarly, for Hipchat notifications, include channel names or Hipchat usernames where notifications should be sent. Hipchat channels/users should be entered in double quotes, with a leading # for channels and @ for users. For example, to send to a Hipchat channel named foo, specify `"#foo"` and to send to a personal message to someone,say tom, specify `"@tom"`.
