@@ -17,7 +17,6 @@ For example, here is a sample configuration for a Python project -
 ```yaml
 build:
   ci:
-    - mkdir -p shippable/testresults
     - nosetests python/sample.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
 ```
 
@@ -39,7 +38,6 @@ For example, here is a sample configuration for a Python project -
 ```yaml  
 build:
   ci:  
-    - mkdir -p shippable/codecoverage
     - coverage run --branch python/sample.py
     - coverage xml -o shippable/codecoverage/coverage.xml python/sample.py
 ```
