@@ -49,6 +49,28 @@ Use the descriptions of each field below to modify the `yml` above and tailor it
      - Setting the value to `never` means that you will never receive a notification for that build start/pull request.
      - By default, `on_start` is set to `never` and `on_pull_request` is set to `always` when these tags have not been specified in the `shippable.yml` file.
 
+You can set `sendConsoleLogs: true` in your email notification configuration in shippable.yml to receive console logs as attachments in build emails.
+
+```yaml
+notifications:
+    - integrationName: email
+      type: email
+      recipients:
+        - deepika@shippable.com
+      sendConsoleLogs: true
+```
+
+You can set `sendCoverageReports: true` in your email notification configuration in shippable.yml to receive coverage reports as attachments in build emails.
+
+```yaml
+notifications:
+    - integrationName: email
+      type: email
+      recipients:
+        - deepika@shippable.com
+      sendCoverageReports: true
+```
+
 Check our blog ["Notifying CI failure/success status on Email and Slack"](http://blog.shippable.com/notifying-ci-failure/success-status-on-email-slack) for multiple scenarios.
 
 ###Turn off email notifications
