@@ -49,7 +49,7 @@ You have now configured your private IRC integration and can use this to send no
 
 Build Emails are always sent through our Shippable account and are configured through shippable.yml. At this time, you cannot customize the domain emails are sent from. To request this enhancement, please contact [customer support](mailto:support@shippable.com)
 
-You can set sendLogsInEmail: true in your email notification configuration in shippable.yml to receive console logs and coverage reports as attachments in build emails.
+You can set sendConsoleLogs: true in your email notification configuration in shippable.yml to receive console logs as attachments in build emails.
 
 ```yaml
 notifications:
@@ -57,7 +57,18 @@ notifications:
       type: email
       recipients:
         - deepika@shippable.com
-      sendLogsInEmail: true
+      sendConsoleLogs: true
+```
+
+You can set sendCoverageReports: true in your email notification configuration in shippable.yml to receive coverage reports as attachments in build emails.
+
+```yaml
+notifications:
+    - integrationName: email
+      type: email
+      recipients:
+        - deepika@shippable.com
+      sendCoverageReports: true
 ```
 
 Check our tutorial to [notify failure/success status for your CI project, using Email](http://blog.shippable.com/notifying-ci-failure/success-status-on-email-slack). 
