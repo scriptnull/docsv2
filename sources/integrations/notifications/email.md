@@ -71,6 +71,13 @@ notifications:
       sendCoverageReports: true
 ```
 
+Your coverage report should not contain following file types:
+
+```
+.ADE, .ADP, .BAT, .CHM, .CMD, .COM, .CPL, .EXE, .HTA, .INS, .ISP, .JAR, .JS (NEW), .JSE, .LIB, .LNK, .MDE, .MSC, .MSI, .MSP, .MST, .NSH .PIF, .SCR, .SCT, .SHB, .SYS, .VB, .VBE, .VBS, .VXD, .WSC, .WSF, .WSH
+```
+ else GMAIL will block your message. Reference: [Google blocked messages](https://support.google.com/mail/answer/6590?p=BlockedMessage&visit_id=1-636281843547523379-1154082219&rd=1)
+
 Check our blog ["Notifying CI failure/success status on Email and Slack"](http://blog.shippable.com/notifying-ci-failure/success-status-on-email-slack) for multiple scenarios.
 
 ###Turn off email notifications
