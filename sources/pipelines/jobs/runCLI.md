@@ -116,3 +116,38 @@ This job, myRunCLIJob, is the coolest job ever.
 
 ## Resource variables
 Variables are added to the environment for all `IN` and `OUT` resources defined for the runCLI job. The environment variables are the same as those available for [runSh](./runSh/) jobs.
+
+## Build Status Notifications
+You can see the commit message with build URL, state and build number on SCM UI for the gitRepo everytime, using the runCLI job.
+You can also selectively turn ON and OFF the message system using the `showBuildStatus` tag in the git Repo resource.
+
+The sample runSh Job and the corresponding gitRepo resource will look like
+
+```
+jobs:
+  - name: <name>                                #required
+    type: runCLI                                #required
+    steps:                                      #required
+      - IN: <gitRepoResource>                   #specify at least one gitRepo resource to receive the commit message.
+        showBuildStatus: true                   #specify to get the build status of the gitRepo resource on the SCM UI
+      - TASK:
+        - script: <command>
+        - script: <command>
+
+```
+and the corresponding gitRepo resource will be
+
+```
+resources:
+  - name: <name>                                #required
+    type: gitRepo                               #required
+    integration: <integrationName>              #required
+    pointer:
+      sourceName: <repoName>                    #required 
+      branch: <branchName>                      #specify the branch name
+      buildOnPullRequest: <boolean>             #specify true or false accordingly
+
+```
+* Now after doing the above steps, if a pull request is created for the branch name given in the gitRepo resource Yml, then
+  the build status message will be sent to the SCM provider UI (whose integration is mentioned in the resources Yml) for the 
+  repo mentioned in the sourceName in the resources Yml.
