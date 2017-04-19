@@ -6,7 +6,7 @@ page_keywords: User Interface, microservices, Continuous Integration, Continuous
 #Subscriptions
 A subscription on Shippable corresponds to an individual or organizational subscription on GitHub/Bitbucket.
 
-Your pricing plans are enforced at this level, so you need to determine your minion needs for each subscription.
+Your pricing plans are enforced at this level, so you need to determine your minion needs for each subscription, you can also see how many minions are being used at the current time by looking at the **Minion usage** count on the top right of the page.
 
 The Subscriptions page consists of 4 tabs:
 
@@ -93,19 +93,15 @@ a project.
 
 ---
 
-##History section
-The 'History' section shows the build history across all enabled projects in the subscription.
+##History tab
+The **History** tab opens a global runs search modal with filters preset to the current subscription, and you can initially see all runs for all of the enabled projects of your subscription.
 
-You can filter this view by build type (commit vs pull request builds), build statuses, and project names.
+Filters are available to select any of your subscriptions/ projects/ branches/ statuses/ run types to further refine your search, this gives you easy and quick access to all of your runs.
 
-The default view is set to all build types, all build statuses and all projects.  
-
-You can also see how many minions are being used at the current time by looking at the **Minion usage** count on the top right of the page.
-
-- Rerun a previous build, by clicking on `Rerun` for any build listed here.
+- Rebuild a previous run, by clicking on `Rebuild`.
 - Delete specific runs, by clicking the `Delete Runs` button. Select the build
 to be deleted and click the `Delete` button.
-- Use the `More` button on the bottom of the page to load and display more builds
+- Use the `More` button on the bottom of the list to load and display more runs
 from your history.
 
 <img src="../../images/subscriptions/history.png" alt="Subscription History"

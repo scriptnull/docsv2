@@ -79,17 +79,15 @@ all branches irrespective of whether they configured to be shown in `Dashboard S
 
 ---
 
-##History section
-The **History View** shows the build history across all branches in the project.
+##History tab
+The **History** tab opens a global runs search modal with filters preset to the current subscription and the current project, and you can initially see all the runs of the current project.
 
-You can filter this view by build type (commit vs pull request builds), build statuses, and project names.
+Filters are available to select any of your subscriptions/ projects/ branches/ statuses/ run types to further refine your search, this gives you easy and quick access to all of your runs.
 
-The default view is set to all build types, all build statuses and all projects.
-
-- Rerun a previous build, by clicking on `Rerun` for any build listed here.
-- Delete specific builds/runs, by clicking the `Delete Runs` button. Select the
-build to be deleted and click the `Delete` button.
-- Use the `More` button on the bottom of the page to load and display more builds
+- Rebuild a previous run, by clicking on `Rebuild`.
+- Delete specific runs, by clicking the `Delete Runs` button. Select the build
+to be deleted and click the `Delete` button.
+- Use the `More` button on the bottom of the list to load and display more runs
 from your history.
 
 <img src="../../images/projects/history.png" alt="Project History" style="width:700px;"/>
