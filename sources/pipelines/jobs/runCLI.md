@@ -118,7 +118,7 @@ This job, myRunCLIJob, is the coolest job ever.
 Variables are added to the environment for all `IN` and `OUT` resources defined for the runCLI job. The environment variables are the same as those available for [runSh](./runSh/) jobs.
 
 ## Build Status Notifications
-You can see the commit message with build URL, state and build number on SCM UI for the gitRepo everytime, using the runCLI job.
+If you have a gitRepo as IN to a runCLI job, then you can see the pull request build status for that runCLI job.
 You can also selectively turn ON and OFF the message system using the `showBuildStatus` tag in the git Repo resource.
 
 The sample runSh Job and the corresponding gitRepo resource will look like
@@ -143,11 +143,20 @@ resources:
     type: gitRepo                               #required
     integration: <integrationName>              #required
     pointer:
-      sourceName: <repoName>                    #required 
+      sourceName: <repoName>                    #required
       branch: <branchName>                      #specify the branch name
       buildOnPullRequest: <boolean>             #specify true or false accordingly
 
 ```
 * Now after doing the above steps, if a pull request is created for the branch name given in the gitRepo resource Yml, then
-  the build status message will be sent to the SCM provider UI (whose integration is mentioned in the resources Yml) for the 
+  the build status message will be sent to the SCM provider UI (whose integration is mentioned in the resources Yml) for the
   repo mentioned in the sourceName in the resources Yml.
+
+* When the runCLI job is in the processing state the github UI will look like
+<img src="../../images/processingBuildStatus.png" alt="Build Status Processing" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
+
+* When the runCLI job successfully completes, the github UI will look like
+<img src="../../images/successBuildStatus.png" alt="Build Status Success" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
+
+* When the runCLI job is cancelled or failed the github UI will look like
+<img src="../../images/failedBuildStatus.png" alt="Build Status Failed" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
