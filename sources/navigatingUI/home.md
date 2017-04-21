@@ -55,6 +55,18 @@ above example, it is 41e820fe07.
 *Coming soon!*
 
 ---
+
+##Runs History
+The **Runs History** tab on the home page opens a modal displaying all the completed runs of all your subscriptions with filters available to select any of your subscriptions/ projects/ branches/ statuses/ run types to further refine your search, this gives you easy and quick access to all of your runs.
+
+- Rebuild a previous run, by clicking on `Rebuild`.
+- Delete specific runs, by clicking the `Delete Runs` button. Select the build
+to be deleted and click the `Delete` button.
+- Use the `More` button on the bottom of the list to load and display more runs
+from your history.
+
+<img src="../images/runsHistory.png" alt="Shippable Runs History modal" style="width:700px;"/>
+---
 ##Top right navigation
 <img src="../images/homeRightMenu.png" alt="Shippable Top Right Navigation Menu" style="width:200px;"/>
 
