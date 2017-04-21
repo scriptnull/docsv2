@@ -165,8 +165,8 @@ If an `IN` resource is a [gitRepo](../resources/gitRepo.md), the following envir
 * If an `IN` resource is an integration of type [Key-Value pair](../../../integrations/generic/keyValuePair.md), the key-values are exported as it is without adding `RESOURCENAME_INTEGRATION_` in the key name.
 
 ### Build Status Notifications
-If you have a gitRepo as IN to a runCLI job, then you can see the pull request build status for that runCLI job.
-You can also selectively turn ON and OFF the message system using the `showBuildStatus` tag in the git Repo resource.
+If you have a gitRepo as IN to a runSh job, then you can see the pull request build status for that runSh job.
+You can also selectively turn ON and OFF the message system using the `showBuildStatus` tag in the gitRepo resource.
 
 The sample runSh Job and the corresponding gitRepo resource will look like
 
@@ -200,13 +200,13 @@ resources:
   the build status message will be sent to the SCM provider UI (whose integration is mentioned in the resources Yml) for the
   repo mentioned in the sourceName in the resources Yml.
 
-* When the runCLI job is in the processing state the github UI will look like
+* When the runSh job is in the processing state the github UI will look like
 <img src="../../images/processingBuildStatus.png" alt="Build Status Processing" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
 
-* When the runCLI job successfully completes, the github UI will look like
+* When the runSh job successfully completes, the github UI will look like
 <img src="../../images/successBuildStatus.png" alt="Build Status Success" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
 
-* When the runCLI job is cancelled or failed the github UI will look like
+* When the runSh job is cancelled or failed the github UI will look like
 <img src="../../images/failedBuildStatus.png" alt="Build Status Failed" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
 
 

@@ -119,9 +119,9 @@ Variables are added to the environment for all `IN` and `OUT` resources defined 
 
 ## Build Status Notifications
 If you have a gitRepo as IN to a runCLI job, then you can see the pull request build status for that runCLI job.
-You can also selectively turn ON and OFF the message system using the `showBuildStatus` tag in the git Repo resource.
+You can also selectively turn ON and OFF the message system using the `showBuildStatus` tag in the gitRepo resource.
 
-The sample runSh Job and the corresponding gitRepo resource will look like
+The sample runCLI Job and the corresponding gitRepo resource will look like
 
 ```
 jobs:
