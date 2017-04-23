@@ -46,4 +46,8 @@ Once your rSync job completes, you will see your SPOG runCI update to match the 
 
 Now you can configure your `shippable.yml` to update your resources for fully integrated pipeline workflows.  For instructions on how to update resources [check out our tutorial](../../tutorials/pipelines/updateResourceVersion.md).
 
+If your runCI job is triggered by pipeline resources(ie. not a manual or webhook triggered build), then you can check which resource triggered the current build by checking `JOB_TRIGGERED_BY_NAME` and `JOB_TRIGGERED_BY_ID` environment variables
+
+<img src="../../images/jobs/runCITriggeredBy.png" alt="runCI triggered by resource" style="width:800px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
+
 Note that runCI jobs won't process the `TASK` section.  The `TASK` section is automatically configured to be the CI job itself.  Because of this, you also cannot use `NOTIFY` sections in the runCI job.  Instead, notifications should be set up directly in your CI project's `shippable.yml`, which you can read about [here](../../ci/shippableyml/#notifications).
