@@ -21,6 +21,11 @@ You can create this resource by adding it to `shippable.resources.yml`
         - <string>                              #optional
       only:
         - <string>                              #optional
+    tags:
+      except:
+        - <string>                              #optional
+      only:
+        - <string>                              #optional
     buildOnCommit: <Boolean>                    #optional
     buildOnPullRequest: <Boolean>               #optional
     buildOnRelease: <Boolean>                   #optional
@@ -45,7 +50,16 @@ You can create this resource by adding it to `shippable.resources.yml`
     * `branches` is used to specify groups of branches that will or will not create new versions of the `gitRepo` resource.  These branches may contain `*` wildcards to match any number of characters or the exact branch names (or tag names, for tag and release webhooks).
         * `except` is an optional list of branches that should not trigger updates through the `gitRepo` resource.  No new versions are created for branches specified here.
         * `only` is an optional list of branches that will trigger updates through the `gitRepo` resource.  If `only` is in the `branches` section, new versions of the `gitRepo` resource will only be created for these branches.
+    * `tags` is used to specify groups of tags that will or will not create new versions of the `gitRepo` resource.  These tags may contain `*` wildcards to match any number of characters or the exact tag names, for tag and release webhooks.
+        * `except` is an optional list of tags that should not trigger updates through the `gitRepo` resource.  No new versions are created for tags specified here.
+        * `only` is an optional list of tags that will trigger updates through the `gitRepo` resource.  If `only` is in the `tags` section, new versions of the `gitRepo` resource will only be created for these tags.
     * `buildOnCommit` determines if the `gitRepo` resource will be updated for commit webhooks.  The default is `true`, in which case commits result in new versions of the `gitRepo` and can trigger a pipeline.
     * `buildOnPullRequest` may be set to `true` to create new versions of the `gitRepo` when a pull request webhook is received.  By default, it is `false`.
-    * `buildOnRelease` may be set to `true` to create new versions of the `gitRepo` when a release webhook is received.  By default, it is `false`.  Release webhooks are currently only supported for GitHub.
-    * `buildOnTagPush` may be set to `true` to create new versions of the `gitRepo` when a tag webhook is received. By default, it is `false`.  Tag webhooks are currently only supported for GitHub.
+    * `buildOnRelease` may be set to `true` to create new versions of the `gitRepo` when a release webhook is received.  By default, it is `false`.
+    * `buildOnTagPush` may be set to `true` to create new versions of the `gitRepo` when a tag webhook is received. By default, it is `false`.
+
+**Important points to consider while creating the above yml.**
+
+  1. To create a new version of `gitRepo` resource on tag or release event, the user should set `buildOnTagPush` or `buildOnRelease` fields to `true`, but the `branch` / `branches` fields should not be specified in the yml. In addition to this the user can also specify groups of tags that will or will not create new versions of the `gitRepo` resource, using the `tags.only` and `tags.except` fields in yml.
+
+  2. `branch` / `branches` fields are only to be set if the user wants to post a new version of gitRepo for specific branch/branches with `buildOnCommit` or `buildOnPullRequest`.
