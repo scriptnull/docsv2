@@ -51,11 +51,6 @@ above example, it is 41e820fe07.
 
 ---
 
-##Metrics
-*Coming soon!*
-
----
-
 ##Runs History
 The **Runs History** tab on the home page opens a modal displaying all the completed runs of all your subscriptions with filters available to select any of your subscriptions/ projects/ branches/ statuses/ run types to further refine your search, this gives you easy and quick access to all of your runs.
 
@@ -66,7 +61,20 @@ to be deleted and click the `Delete` button.
 from your history.
 
 <img src="../images/runsHistory.png" alt="Shippable Runs History modal" style="width:700px;"/>
+
 ---
+
+##Builds History
+The **Builds History** tab on the home page opens a modal displaying all the completed builds of all your subscriptions with filters available to select any of your subscriptions/ jobs/ statuses to further refine your search, this gives you easy and quick access to all of your pipeline builds.
+
+- build a job, by clicking on `Run Job`.
+- Use the `More` button on the bottom of the list to load and display more builds
+from your history.
+
+<img src="../images/buildsHistory.png" alt="Shippable Runs History modal" style="width:700px;"/>
+
+---
+
 ##Top right navigation
 <img src="../images/homeRightMenu.png" alt="Shippable Top Right Navigation Menu" style="width:200px;"/>
 
