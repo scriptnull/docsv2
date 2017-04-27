@@ -18,6 +18,7 @@ The following sample shows the overall structure of a runSh job:
 jobs:
   - name: <name>                                #required
     type: runSh                                 #required
+    allowPublicAccess: true                     #optional
     on_start:                                   #optional
       - script: echo 'This block executes when the TASK starts'
       - NOTIFY: slackNotification
@@ -44,6 +45,7 @@ jobs:
 
 * `name` should be set to something that describes what the job does and is easy to remember. This will be the display name of the job in your pipeline visualization.
 * `type` indicates type of job. In this case it is always `runSh`
+* `allowPublicAccess` indicates where the job is allowed to be accessed by public users who have not logged into shippable.
 * `on_start` can be used to send a notification indicating the job has started running.
 * `steps` section is where the steps of your custom job should be entered. You can have any number of `IN` and `OUT` resources depending on what your job needs. You can also have one `TASK` section where you can enter one or more of your custom scripts. Keep in mind that everything under the `steps` section executes sequentially.
 * `on_success` can be used to run scripts that only execute if the `TASK` section executes successfully. You can also use this to send a notification as shown in the example above. The `NOTIFY` tag is set to a [Slack notification resource](../resources/notification/).
@@ -209,6 +211,36 @@ resources:
 * When the runSh job is cancelled or failed the github UI will look like
 <img src="../../images/failedBuildStatus.png" alt="Build Status Failed" style="width:800px;vertical-align: middle;display: block;margin-right: auto;"/>
 
+### Build Privacy Settings
+
+If you have defined a job of type runSh, then you can also define whether that job is allowed to be accessed by public users. You can selectively tell Shippable whether to make the job public or not by configuring `allowPublicAccess` tag to true or false while defining the job. Please note that this tag is applied only for runSh and runCLI.
+
+The sample runSh job where public access is allowed will look something like this.
+
+```
+jobs:
+  - name: <name>                                #required
+    type: runSh                                 #required
+    allowPublicAccess: true                     #optional
+    steps:                                      #required
+      - TASK:
+        - IN: <resource>
+        - IN: <resource>
+        - script: <command>
+        - script: <command>
+```
+
+* If the runSh job has `allowPublicAccess` set to true, the job will be accessible to all public users with a link to the job. Similarly setting `allowPublicAccess` to false, will make the as private and will be accessible only to owners and collaborators of the project.
+
+* By default any runSh job with no `allowPublicAccess` defined, will be treated as private and will be accessible only to owners and collaborators of the project.
+
+* If for example lets say that you have declared a job as public and you wish to debug something and would like make that job private, you can update your jobs.yml and set `allowPublicAccess` to false. Then onwards all the jobs that are triggered will be private. Once your debugging is over you can again set `allowPublicAccess` to true and subsequent jobs will be public.
+
+* The `allowPublicAccess` tag will accept only boolean values and any other values will be ignored and the job will be treated as private.
+
+* The link to the runSh job can be obtained from notifications and will look UI will look something like this.
+
+<img src="../../images/jobs/publicrunshjob.png" alt="Public RunSh Job" style="width:1200px;vertical-align: middle;display: block;margin-left: auto;margin-right: auto;"/>
 
 <a name="advancedRunSh"></a>
 ##runSh scenarios
