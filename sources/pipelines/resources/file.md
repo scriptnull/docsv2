@@ -5,7 +5,7 @@ page_keywords: Deploy multi containers, microservices, Continuous Integration, C
 # file
 This resource type is used to specify a file that could be deployed to a cluster of nodes during deployment.
 
-It can be given as an input to a `manifest` job. During the deployment, of the
+It can be given as an input to a `manifest` job.
 
 You can define a File resource by adding it to `shippable.resources.yml`
 ```
