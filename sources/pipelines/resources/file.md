@@ -3,11 +3,11 @@ page_description: List of supported resources
 page_keywords: Deploy multi containers, microservices, Continuous Integration, Continuous Deployment, CI/CD, testing, automation, pipelines, docker, lxc
 
 # file
-This resource type is used to specify a file that could be transferred to cluster of nodes during deployment.
+This resource type is used to specify a file that could be deployed to a cluster of nodes during deployment.
 
-It can be given as input to `manifest` job. During the deployment, of the
+It can be given as an input to a `manifest` job. During the deployment, of the
 
-You can define a Filters resource by adding it to `shippable.resources.yml`
+You can define a File resource by adding it to `shippable.resources.yml`
 ```
 resources:
   - name: <string>                              #required
@@ -21,7 +21,7 @@ resources:
 
 * resource `name` should be an easy to remember text string. This will appear in the visualization of this resource in the SPOG view. It is also used to refer to this resource in the `shippable.jobs.yml`. If you have spaces in your name, you'll need to surround the value with quotes, however, as a best practice we recommend not including spaces in your names.
 
-* `type` is always set to 'cluster'.
+* `type` is always set to 'file'.
 
 * `integration` should be the name of the Subscription Integration you create for you subscription that leverages the credentials you set up in Account Integrations to connect to the artifact registry of your choice. To learn how to create integrations for a specific Container Service, please select from the list below:
 	* [JFrog Artifactory](../../integrations/artifactRegistries/jfrogArtifactory/)
