@@ -97,6 +97,10 @@ These variables are added to the environment for all `IN` and `OUT` resources de
 | *RESOURCENAME*\_POINTER\_*FIELDNAME*    | Each field defined in the resource's `pointer` section in the yml is added as an environment variable. The field name is sanitized in the same way as the resource name.  If the value of the field is an object, an environment variable is added for each of the keys of that object. The `FIELDNAME` for these new variables is the name of the object followed by an underscore and the key for the particular value.  Variables are similarly added for arrays, with the index number in the place of the key.  For example, if a `pointer` section in the resource `myRepo` contains a `branches: only` section with `master`, `MYREPO_POINTER_BRANCHES_ONLY_0` is `master`. |
 | *RESOURCENAME*\_SEED\_*FIELDNAME*    | Every field defined in the resource's `seed` section in the yml is added as an environment variable. The field name is sanitized in the same way as the resource name. If the value of the field is an object, an environment variable is added for each of the keys of that object. The `FIELDNAME` for these new variables is the name of the object followed by an underscore and the key for the particular value.  Variables are similarly added for arrays, with the index number in the place of the key. |
 | *RESOURCENAME*\_INTEGRATION\_*FIELDNAME*    | Explained in the next section. |
+| *RESOURCENAME*\_IS\_FORK    | Available for `gitRepo` resources. This env is set to `true` is the gitRepo resource isForked.|
+| *RESOURCENAME*\_IS\_PULL\_REQUEST    | Available for `gitRepo` resources. This env is set to `true` if a pull request is sent to the gitRepo resource.|
+| *RESOURCENAME*\_REPO\_FULL\_NAME    | Available for `gitRepo` resources. This env is set to the full name of the gitRepo resource repository.|
+| *RESOURCENAME*\_PULL\_REQUEST\_REPO\_FULL\_NAME    | Available for `gitRepo` resources. This env is set to the full name of the repository from where the pull request was originated for the gitRepo resource.|
 
 
 ### Resource integration variables
