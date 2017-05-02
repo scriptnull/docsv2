@@ -461,9 +461,6 @@ resources:
         progressDeadlineSeconds: <number>
         replicas: <number>
         revisionHistoryLimit: <number>
-        labels:
-          <key1>: <value1>
-          <key2>: <value2>
         rollbackTo:
           <object>
         selector:
