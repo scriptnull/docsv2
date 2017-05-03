@@ -24,6 +24,7 @@ pages:
   - Build configuration: ci/shippableyml.md
   - Machine Images:
     - Overview: ci/machine-images/overview.md
+    - v5.5.1: ci/machine-images/v5-5-1.md
     - v5.4.1: ci/machine-images/v5-4-1.md
     - v5.3.2: ci/machine-images/v5-3-2.md
     - Stable: ci/machine-images/stable.md
