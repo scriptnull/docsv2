@@ -165,16 +165,14 @@ To get to the Subscription Billing page:
 
 - Login to [Shippable](http://www.shippable.com).
 - Click on the `Subscriptions` dropdown and select the subscription you want to view.
-- Click on the Billing tab to view and manage your plan.
+- Click on the Settings tab and then on Billing in the sidebar on the left to view and manage your plan.
 
-By default, you are subscribed to the 'Continuous Delivery' free plan.
+The free plan includes:
 
-It includes:
-
-- One free CI build container (2 core, 3.75GB RAM) that supports unlimited public
+- One free CI build minion (2 core, 3.75GB RAM) that supports unlimited public
 and private repositories for unlimited users from your source control provider.
-You can run as many builds as you want.
-- One free Pipeline, that allows you to set up deployment for one Cell.
+
+- Up to 150 builds a month on private repositories.
 
 <img src="../../images/subscriptions/billing.png" alt="Subscription Plan" style="width:700px;"/>
 
@@ -182,18 +180,17 @@ You can run as many builds as you want.
 
 You should buy more build minions if:
 
-- Your builds need bigger minions than the one in your free plan. All paid minions
-come with 2 cores, 3.75GB RAM
+- Your builds need bigger minions than the one in your free plan. You can pick minions with more
+cores and RAM when upgrading to a paid subscription.
 - Your team is growing and your builds are frequently queued as a result, which
 means your developers wait longer to get build results. Buying more minions will
 enable parallel execution of builds and reduce queuing time.
 
-You should buy more pipelines if your application has more than 1 unit of deployment.
-These can be tiers, services, or microservice.
-
 Read more about [when and how to upgrade your subscription](http://blog.shippable.com/how-to-upgrade-your-ci-cd-subscription).
 
-To buy more build minions or pipelines, simply slide the slider to the number of minions and/or pipelines you need.
+You can pick the size of your minions from the options in the dropdown.
+
+To buy more build minions, simply slide the slider to the number of minions you need.
 
 Choose a credit card, or Enter a new credit card and click on Buy.
 
@@ -202,7 +199,7 @@ view past invoices on this page.
 
 ###Downgrade your plan
 
-You can downgrade your plan at any time by moving the slider to the number of minions and/or pipelines you need.
+You can downgrade your plan at any time by moving the slider to the number of minions you need.
 
 Please note that any minion count changes due to your plan downgrade will be effective immediately and you will not receive a partial or prorated refund if you make this change in the middle of a billing cycle.
 
