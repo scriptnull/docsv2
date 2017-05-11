@@ -427,6 +427,28 @@ Top level docker options: There are two top levels for Amazon ECS i.e. `service`
 ```
 
 ###Kubernetes
+Container Spec level docker options:
+```
+resources:
+  - name: <string>
+    type: dockerOptions
+    version:
+      envFrom: <array>
+      imagePullPolicy: <string>
+      lifecycle:
+        <object>
+      livenessProbe:
+        <object>
+      readinessProbe:
+        <object>
+      resources:
+        <object>
+      securityContext:
+        <object>
+      terminationMessagePath: <string>
+      terminationMessagePolicy: <string>
+
+```
 
 Pod Spec level docker options:
 ```
