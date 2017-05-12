@@ -206,3 +206,28 @@ The above job will transfer the files mentioned in `manifest` and execute the sc
 As much as we want our code to work perfectly, there are situations when major bugs are discovered in a release after it is already deployed to an environment. In such cases, rolling back the deployment is the best way to recover while you fix the problems.
 
 Check out our [tutorial on rolling back deployments](../../tutorials/pipelines/rollback-deployments/) to handle this.
+
+## Custom naming for deployments
+By default, Shippable uses a default naming convention for objects created in your container service. For example, a `deploy` job in Shippable that deploys to EC2 Container Service follows the below naming conventions by default.
+
+| Container Service | deployMethod | Default Naming Convention |
+|-------------------|--------------|---------------------------|
+|  EC2 Container Service | blueGreen | <ul><li>taskDefinition : deployJobName-manifestJobName</li><li>service : deployJobName-manifestJobName-buildNumber<ul> |
+|  EC2 Container Service | upgrade | <ul><li>taskDefinition : deployJobName-manifestJobName</li><li>service : deployJobName-manifestJobName<ul> |
+|  EC2 Container Service | replace | <ul><li>taskDefinition : deployJobName-manifestJobName</li><li>service : deployJobName-manifestJobName<ul> |
+
+<br />
+
+A `deployName` tag can be used in the `IN` step of a manifest to customize the name of the main deployment object ( service name in case of ECS ).
+```
+jobs:
+  - name: <job name>
+    type: deploy
+    steps:
+      - IN: <manifest>                        #required
+        deployName: <custom name>
+      - IN: <cluster>                         #required
+```
+So, the above deploy job will use `deployName` tag as its service name in ECS. For blueGreen deployments, a build number will be appended at the end of the deployName ( `deployName-buildNumber` ), as it needs unique service names.
+
+Currently, Shippable supports overriding these default naming convention only for EC2 Container Service. If you have requests specific to a container service, please [open a support ticket](https://github.com/Shippable/support/issues/new).
